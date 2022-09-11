@@ -2,6 +2,21 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [1.1.0](https://github.com/Michsior14/ngrx-addons/compare/persist-state-1.0.0...persist-state-1.1.0) (2022-09-11)
+
+
+### Bug Fixes
+
+* **persist-state:** add missing rxjs peer dependency ([3318475](https://github.com/Michsior14/ngrx-addons/commit/3318475f72bcaa1a6c715cad3f4f20047fdcf887))
+* **persist-state:** expose createStore ([6160f81](https://github.com/Michsior14/ngrx-addons/commit/6160f8133a3531ed6113ad554b08cd6a3bfbe49f))
+
+
+### Features
+
+* **persist-state:** add possibility to adjust number of state skip ([f4aea6e](https://github.com/Michsior14/ngrx-addons/commit/f4aea6ed65cc20355a0cb2adcf4601f41600977a))
+
+
+
 # 1.0.0 (2022-09-11)
 
 
