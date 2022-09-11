@@ -44,11 +44,11 @@ const reducers = {
       states: [
         {
           key: 'counter',
-          // the package exposes localStorageStrategy and 
-          // sessionStorageStrategy, optionally you can 
-          // provide your own implementation or even  
+          // the package exposes localStorageStrategy and
+          // sessionStorageStrategy, optionally you can
+          // provide your own implementation or even
           // use localForage for indexed db.
-          storage: localStorageStrategy 
+          storage: localStorageStrategy
           // optional options (default values)
           runGuard: () => typeof window !== 'undefined',
           source: (state) => state,
@@ -78,7 +78,7 @@ Each state can be described by multiple state configs with the following propert
 - `source`: a method that receives the observable of a state and return what to save from it (by default - the entire state).
 - `storageKey`: the name under which the store state is saved (by default - the prefix plus store name plus a `@store` suffix).
 - `runGuard` - returns whether the actual implementation should be run. The default is `() => typeof window !== 'undefined'`
-- `skip` -  The number of state changes skipped before the state is persisted. Used to skip the initial state change. The default is `1`.
+- `skip` - The number of state changes skipped before the state is persisted. Used to skip the initial state change. The default is `1`.
 
 ### For feature states
 
@@ -103,7 +103,7 @@ const counterReducer = ...;
       states: [
         {
           // The same options as for root states, except the key
-          storage: localStorageStrategy 
+          storage: localStorageStrategy
         },
       ],
     }),
