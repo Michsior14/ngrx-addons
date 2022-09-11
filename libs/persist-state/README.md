@@ -1,4 +1,4 @@
-# @ngrx/persist-state
+# @ngrx-addons/persist-state
 
 The library for persisting state in ngrx. Highly inspired by [@ngneat/elf-persist-state](https://github.com/ngneat/elf/tree/master/packages/persist-state).
 Supports local storage, session storage and async storages with [localForage](https://github.com/localForage/localForage).
@@ -11,13 +11,13 @@ Supports local storage, session storage and async storages with [localForage](ht
 ## Installation
 
 ```bash
-npm i @ngrx/persist-state
+npm i @ngrx-addons/persist-state
 ```
 
 or
 
 ```bash
-yarn add @ngrx/persist-state
+yarn add @ngrx-addons/persist-state
 ```
 
 ## Usage
