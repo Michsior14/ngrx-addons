@@ -1,12 +1,10 @@
 name: ci
 
 on:
-  pull_request:
-    branches:
-      - main
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
   main:
@@ -21,8 +19,19 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
+      - name: Get Yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      - name: Restore Yarn cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          restore-keys: |
+            yarn-cache-folder-
       - run: yarn install --immutable
-      - run: npx nx affected --target=lint --parallel=2
-      - run: npx nx affected --target=build --parallel=2
-      - run: npx nx affected --target=test --parallel=2
+      - run: yarn nx workspace-lint
+      - run: yarn nx format:check
+      - run: yarn nx affected --target=lint --parallel=2
+      - run: yarn nx affected --target=test --parallel=2 --ci --code-coverage
+      - run: yarn nx affected --target=build --parallel=2
