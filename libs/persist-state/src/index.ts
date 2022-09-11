@@ -13,5 +13,6 @@ export {
   Async,
   localStorageStrategy,
   sessionStorageStrategy,
+  createStorage,
   StateStorage,
 } from './lib/storage';

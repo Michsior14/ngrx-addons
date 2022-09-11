@@ -14,13 +14,13 @@ export interface StateStorage {
   removeItem(key: string): Async<boolean | void>;
 }
 
-const noopStorage: StateStorage = {
+export const noopStorage: StateStorage = {
   getItem: () => of(null),
   setItem: () => of(true),
   removeItem: () => of(true),
 };
 
-const createStorage = (storage: Storage | undefined): StateStorage => {
+export const createStorage = (storage: Storage | undefined): StateStorage => {
   if (!storage) {
     return noopStorage;
   }
