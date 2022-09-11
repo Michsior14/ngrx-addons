@@ -89,6 +89,7 @@ export class PersistState<
       storageKey: `${this.#rootConfig.storageKeyPrefix!}${key}@store`,
       source: (state) => state,
       runGuard: () => typeof window !== 'undefined',
+      skip: 1,
     };
   }
 
@@ -129,7 +130,7 @@ export class PersistState<
             )
             .pipe(
               distinctUntilChanged(isEqual),
-              skip(1),
+              skip(state.skip),
               switchMap((value) => storage.setItem(state.storageKey, value))
             )
         );
