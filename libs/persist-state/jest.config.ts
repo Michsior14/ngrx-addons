@@ -10,6 +10,10 @@ export default {
     },
   },
   coverageDirectory: '../../coverage/libs/persist-state',
+  collectCoverageFrom: [
+    'src/lib/**/*.ts',
+    '!src/**/+(*.)+(spec|feature.module|root.module).ts',
+  ],
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },
@@ -19,4 +23,12 @@ export default {
     'jest-preset-angular/build/serializers/ng-snapshot',
     'jest-preset-angular/build/serializers/html-comment',
   ],
+  coverageThreshold: {
+    global: {
+      statements: 90,
+      branches: 80,
+      functions: 90,
+      lines: 90,
+    },
+  },
 };

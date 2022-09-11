@@ -24,7 +24,8 @@
       "outputs": ["coverage/libs/persist-state"],
       "options": {
         "jestConfig": "libs/persist-state/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "codeCoverage": true
       }
     },
     "lint": {

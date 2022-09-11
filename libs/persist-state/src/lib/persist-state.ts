@@ -75,8 +75,7 @@ export class PersistState<
   }
 
   public ngOnDestroy(): void {
-    this.#features.forEach((_, key) => this.#destroyer.next(key));
-    this.#features.clear();
+    this.#features.forEach((_, key) => this.removeFeature(key));
     this.#destroyer.next(rootState);
     this.#destroyer.complete();
   }
