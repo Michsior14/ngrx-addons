@@ -35,6 +35,27 @@
           "libs/persist-state/**/*.html"
         ]
       }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public",
+        "buildTarget": "production"
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "postTargets": ["persist-state:github"],
+        "preset": "angular"
+      }
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github",
+      "options": {
+        "tag": "${tag}",
+        "notesFile": "libs/persist-state/CHANGELOG.md"
+      }
     }
   },
   "tags": []
