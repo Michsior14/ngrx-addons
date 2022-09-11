@@ -22,7 +22,7 @@ yarn add @ngrx-addons/persist-state
 
 ## Usage
 
-The module gives ability to persist some of the app’s state, by saving it to `localStorage/sessionStorage` or anything that implements the `StorageEngine API`, and restore it after a refresh. It supports both root and feature states. The only thing you need to do is to add `PersistStateModule.forRoot` to your `AppModule` or `PersistStateModule.forFeature` to your feature module.
+The module gives ability to persist some of the app’s states, by saving it to `localStorage/sessionStorage` or anything that implements the `StorageEngine API`, and restore it after a refresh. It supports both root and feature states. The only thing you need to do is to add `PersistStateModule.forRoot` to your `AppModule` or `PersistStateModule.forFeature` to your feature module.
 
 ### For root states
 
