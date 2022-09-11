@@ -1,0 +1,41 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/persist-state/src",
+  "prefix": "ngrx-addons",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/persist-state"],
+      "options": {
+        "project": "libs/persist-state/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/persist-state/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/persist-state/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/persist-state"],
+      "options": {
+        "jestConfig": "libs/persist-state/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/persist-state/**/*.ts",
+          "libs/persist-state/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

@@ -33,7 +33,16 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
 
 # System Files
 .DS_Store
 Thumbs.db
+
+.angular

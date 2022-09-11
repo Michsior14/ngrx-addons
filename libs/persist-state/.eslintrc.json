@@ -1,0 +1,43 @@
+{
+  "extends": ["../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["libs/persist-state/tsconfig.*?.json"]
+      },
+      "extends": [
+        "plugin:@nrwl/nx/angular",
+        "plugin:@typescript-eslint/strict",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:@ngrx/recommended-requiring-type-checking",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "ngrxAddons",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "ngrx-addons",
+            "style": "kebab-case"
+          }
+        ],
+        "@typescript-eslint/no-extraneous-class": "off"
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@nrwl/nx/angular-template"],
+      "rules": {}
+    }
+  ]
+}
