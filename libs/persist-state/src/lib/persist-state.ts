@@ -29,7 +29,7 @@ export class PersistState<
   T extends ActionReducerMap<unknown> = ActionReducerMap<unknown>
 > implements OnDestroy
 {
-  #rootConfig: Omit<PersistStateRootConfig<T>, 'states'>;
+  #rootConfig: PersistStateRootConfig<T>;
   #features = new Map<string, boolean>();
   #destroyer = new Subject<string>();
 
@@ -39,14 +39,15 @@ export class PersistState<
   ) {
     const { states, storageKeyPrefix, ...restConfig } = rootConfig;
     const keyPrefix = storageKeyPrefix ? `${storageKeyPrefix}-` : '';
-    this.#rootConfig = { ...restConfig, storageKeyPrefix: keyPrefix };
+    this.#rootConfig = { ...restConfig, storageKeyPrefix: keyPrefix, states };
+  }
 
-    const merged = states.map((state) => ({
+  public addRoot(): void {
+    const merged = this.#rootConfig.states.map((state) => ({
       ...this.defaultStateConfig(state.key as string),
       ...state,
       key: state.key as string,
     }));
-
     this.listenOnStates(merged, rootState).subscribe();
   }
 
@@ -55,7 +56,8 @@ export class PersistState<
       return;
     }
 
-    this.#destroyer.next(feature.key);
+    // Remove in case of re-adding
+    this.removeFeature(feature.key);
 
     this.#features.set(feature.key, true);
     const merged = feature.states.map((state) => ({
