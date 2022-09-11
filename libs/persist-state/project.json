@@ -48,6 +48,7 @@
       "executor": "@jscutlery/semver:version",
       "options": {
         "postTargets": ["persist-state:github"],
+        "commitMessageFormat": "release(${projectName}): ${version} [skip ci]",
         "preset": "angular"
       }
     },
@@ -55,7 +56,7 @@
       "executor": "@jscutlery/semver:github",
       "options": {
         "tag": "${tag}",
-        "notesFile": "libs/persist-state/CHANGELOG.md"
+        "notes": "${notes}"
       }
     }
   },
