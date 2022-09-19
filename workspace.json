@@ -2,6 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "persist-state": "libs/persist-state"
+    "common": "libs/common",
+    "persist-state": "libs/persist-state",
+    "sync-state": "libs/sync-state"
   }
 }

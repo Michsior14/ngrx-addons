@@ -53,6 +53,7 @@ const reducers = {
           runGuard: () => typeof window !== 'undefined',
           source: (state) => state,
           storageKey: `${storageKeyPrefix}-${key}@store`,
+          skip: 1
         },
         // next states to persist, same reducer key can be
         // specified multiple times to save parts of the state
@@ -119,14 +120,15 @@ The `forFeature` method accepts an object with the following properties:
 
 Once the state is rehydrated, the action (`rehydrated`, type: `@ngrx-addons/persist-state/rehydrate`) with the proper `features` is dispatched (multiple times). You can use it to react in `effects` or `meta-reducers`.
 
-## Excluding keys from the state​
+## Excluding/Including keys from the state​
 
-The `excludeKeys()` operator can be used to exclude keys from the state:
+The `excludeKeys()`/`includeKeys()` operator can be used to exclude keys from the state:
 
 ```ts
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
-import { PersistStateModule, excludeKeys, localStorageStrategy } from '@ngrx-addons/persist-store';
+import { excludeKeys } from '@ngrx-addons/common';
+import { PersistStateModule, localStorageStrategy } from '@ngrx-addons/persist-store';
 
 const counterReducer = ...;
 const reducers = {
@@ -142,6 +144,7 @@ const reducers = {
           key: 'counter',
           storage: localStorageStrategy,
           source: (state) => state.pipe(excludeKeys(['a', 'b'])),
+          // source: (state) => state.pipe(includeKeys(['a', 'b'])),
         },
       ],
     }),

@@ -1,4 +1,4 @@
-import { isEqual } from './persist-state.utils';
+import { isEqual } from './is-equal';
 
 describe('isEqual', () => {
   it('should return true if the same', () => {

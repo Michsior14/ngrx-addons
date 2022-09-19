@@ -1,7 +1,7 @@
 {
-  "name": "@ngrx-addons/persist-state",
-  "version": "1.1.0",
-  "description": "Persist state in storage for ngrx, based on @ngneat/elf-persist-state",
+  "name": "@ngrx-addons/common",
+  "version": "0.0.1",
+  "description": "Common utilities for @ngrx-addons",
   "publishConfig": {
     "access": "public"
   },
@@ -12,13 +12,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Michsior14/ngrx-addons",
-    "directory": "libs/persist-state"
+    "directory": "libs/common"
   },
-  "keywords": [
-    "ngrx",
-    "persist state",
-    "storage"
-  ],
   "author": {
     "name": "Michał Mrozek",
     "email": "mail@michalmrozek.dev"
@@ -32,7 +27,6 @@
     "rxjs": ">=7.0.0"
   },
   "dependencies": {
-    "@ngrx-addons/common": "^0.0.1",
     "tslib": "^2.3.0"
   }
 }

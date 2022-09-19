@@ -4,42 +4,42 @@ import { ActionReducerMap, Store } from '@ngrx/store';
 import {
   distinctUntilChanged,
   filter,
-  from,
+  finalize,
+  fromEvent,
   map,
   merge,
   NEVER,
   Observable,
   skip,
   Subject,
-  switchMap,
   takeUntil,
   tap,
 } from 'rxjs';
-import { rehydrate } from './persist-state.actions';
+import { storeSyncAction } from './sync-state.actions';
 import {
-  PersistStateConfig,
-  PersistStateFeatureConfig,
-  PersistStateRootConfig,
-} from './persist-state.config';
+  SyncStateConfig,
+  SyncStateFeatureConfig,
+  SyncStateRootConfig,
+} from './sync-state.config';
 
 const rootState = 'root' as const;
 
 @Injectable()
-export class PersistState<
+export class SyncState<
   T extends ActionReducerMap<unknown> = ActionReducerMap<unknown>
 > implements OnDestroy
 {
-  #rootConfig: PersistStateRootConfig<T>;
+  #rootConfig: SyncStateRootConfig<T>;
   #features = new Map<string, boolean>();
   #destroyer = new Subject<string>();
 
   constructor(
     private readonly store: Store,
-    rootConfig: PersistStateRootConfig<T>
+    rootConfig: SyncStateRootConfig<T>
   ) {
-    const { states, storageKeyPrefix, ...restConfig } = rootConfig;
-    const keyPrefix = storageKeyPrefix ? `${storageKeyPrefix}-` : '';
-    this.#rootConfig = { ...restConfig, storageKeyPrefix: keyPrefix, states };
+    const { states, channelPrefix, ...restConfig } = rootConfig;
+    const prefix = channelPrefix ? `${channelPrefix}-` : '';
+    this.#rootConfig = { ...restConfig, channelPrefix: prefix, states };
   }
 
   public addRoot(): void {
@@ -51,7 +51,7 @@ export class PersistState<
     this.listenOnStates(merged, rootState).subscribe();
   }
 
-  public addFeature<F>(feature: PersistStateFeatureConfig<F>): void {
+  public addFeature<F>(feature: SyncStateFeatureConfig<F>): void {
     if (this.#features.has(feature.key)) {
       return;
     }
@@ -80,20 +80,20 @@ export class PersistState<
     this.#destroyer.complete();
   }
 
-  private defaultStateConfig<S>(
-    key: string
-  ): Required<Omit<PersistStateConfig<S>, 'storage'>> {
+  private defaultStateConfig<S>(key: string): Required<SyncStateConfig<S>> {
     return {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      storageKey: `${this.#rootConfig.storageKeyPrefix!}${key}@store`,
+      channel: `${this.#rootConfig.channelPrefix!}${key}@store`,
       source: (state) => state,
-      runGuard: () => typeof window !== 'undefined',
+      runGuard: () =>
+        typeof window !== 'undefined' &&
+        typeof window.BroadcastChannel !== 'undefined',
       skip: 1,
     };
   }
 
   private listenOnStates<S>(
-    states: Required<PersistStateConfig<S> & { key: string }>[],
+    states: Required<SyncStateConfig<S> & { key: string }>[],
     feature: string
   ): Observable<unknown> {
     if (states.length === 0) {
@@ -105,19 +105,21 @@ export class PersistState<
         if (!state.runGuard()) {
           return NEVER;
         }
-        const storage =
-          typeof state.storage === 'function' ? state.storage() : state.storage;
+
+        const stateChannel = new BroadcastChannel(state.channel);
+        let canBePosted = true;
+
         return merge(
-          // Restore state from storage
-          from(storage.getItem(state.storageKey)).pipe(
-            filter((value) => !!value),
-            tap((value) =>
+          // Sync state from another tab
+          fromEvent<MessageEvent<unknown>>(stateChannel, 'message').pipe(
+            tap(({ data }) => {
+              canBePosted = false;
               this.store.dispatch(
-                rehydrate({ features: { [state.key]: value } })
-              )
-            )
+                storeSyncAction({ features: { [state.key]: data } })
+              );
+            })
           ),
-          // Save state to storage
+          // Sync state to another tab
           state
             .source(
               this.store.pipe(
@@ -130,7 +132,14 @@ export class PersistState<
             .pipe(
               distinctUntilChanged(isEqual),
               skip(state.skip),
-              switchMap((value) => storage.setItem(state.storageKey, value))
+              tap((value) => {
+                if (canBePosted) {
+                  stateChannel.postMessage(value);
+                } else {
+                  canBePosted = true;
+                }
+              }),
+              finalize(() => stateChannel.close())
             )
         );
       })
