@@ -127,7 +127,7 @@ The `excludeKeys()`/`includeKeys()` operator can be used to exclude keys from th
 ```ts
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
-import { excludeKeys } from '@ngrx-addons/common';
+import { excludeKeys, includeKeys } from '@ngrx-addons/common';
 import { PersistStateModule, localStorageStrategy } from '@ngrx-addons/persist-store';
 
 const counterReducer = ...;
