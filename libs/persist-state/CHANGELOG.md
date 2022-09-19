@@ -2,6 +2,18 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [1.2.0](https://github.com/Michsior14/ngrx-addons/compare/persist-state-1.1.0...persist-state-1.2.0) (2022-09-19)
+
+### Dependency Updates
+
+* `common` updated to version `1.0.0`
+
+### Features
+
+* add sync state lib ([#9](https://github.com/Michsior14/ngrx-addons/issues/9)) ([9e27911](https://github.com/Michsior14/ngrx-addons/commit/9e279110f4c54c1464da5ad0883912803692044b))
+
+
+
 # [1.1.0](https://github.com/Michsior14/ngrx-addons/compare/persist-state-1.0.0...persist-state-1.1.0) (2022-09-11)
 
 
