@@ -47,7 +47,8 @@
       "options": {
         "postTargets": ["common:github"],
         "commitMessageFormat": "release(${projectName}): ${version} [skip ci]",
-        "preset": "angular"
+        "preset": "angular",
+        "trackDeps": true
       }
     },
     "github": {
