@@ -1,9 +1,12 @@
+import { FeaturesProps } from '@ngrx-addons/common';
 import { createAction, props } from '@ngrx/store';
 
 export const REHYDRATE = '@ngrx-addons/persist-state/rehydrate';
 
-// eslint-disable-next-line @ngrx/good-action-hygiene
-export const rehydrate = createAction(
+export const storeRehydrateAction = createAction(
   REHYDRATE,
-  props<{ features: Record<string, unknown> }>()
+  // eslint-disable-next-line @ngrx/prefer-inline-action-props
+  props<FeaturesProps>()
 );
+
+export const rehydrate = storeRehydrateAction;

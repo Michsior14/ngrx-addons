@@ -1,20 +1,14 @@
 import { AnyFunction, State } from '@ngrx-addons/common';
 import { Action, ActionReducerMap } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { StateStorage } from './storage';
 
-export interface PersistStateConfig<S> {
+export interface SyncStateConfig<S> {
   /**
-   * An object or function resolving to an object with async setItem,
-   * getItem and removeItem methods for storing the state
-   */
-  storage: StateStorage | (() => StateStorage);
-  /**
-   * The name under which the store state is saved.
+   * The name under which the store state is sync via BroadcastChannel.
    *
    * @default the prefix plus store name plus a `@store` suffix
    */
-  storageKey?: string;
+  channel?: string;
   /**
    * A method that receives the observable of a state and return what to save from it.
    *
@@ -36,22 +30,22 @@ export interface PersistStateConfig<S> {
   skip?: number;
 }
 
-export interface PersistStateRoot<
+export interface SyncStateRoot<
   T,
   K extends keyof T,
   S = T[K] extends AnyFunction ? State<T[K]> : never
-> extends PersistStateConfig<S> {
+> extends SyncStateConfig<S> {
   /**
    * The name of a store slice to persist.
    */
   key: K;
 }
 
-type PersistStateRootTyped<T> = {
-  [K in keyof T]: PersistStateRoot<T, K>;
+type SyncStateRootTyped<T> = {
+  [K in keyof T]: SyncStateRoot<T, K>;
 }[keyof T];
 
-export abstract class PersistStateRootConfig<
+export abstract class SyncStateRootConfig<
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   T extends ActionReducerMap<any, V>,
   V extends Action = Action
@@ -59,18 +53,18 @@ export abstract class PersistStateRootConfig<
   /**
    * The list of states to persist.
    */
-  public abstract readonly states: PersistStateRootTyped<T>[];
+  public abstract readonly states: SyncStateRootTyped<T>[];
   /**
-   * The storage key prefix.
+   * The channel prefix.
    */
-  public abstract readonly storageKeyPrefix?: string;
+  public abstract readonly channelPrefix?: string;
 }
 
-export abstract class PersistStateFeatureConfig<T> {
+export abstract class SyncStateFeatureConfig<T> {
   /**
    * The list of states to persist.
    */
-  public abstract readonly states: PersistStateConfig<T>[];
+  public abstract readonly states: SyncStateConfig<T>[];
   /**
    * The name of a feature to persist.
    */

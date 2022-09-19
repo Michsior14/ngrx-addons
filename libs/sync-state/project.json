@@ -1,0 +1,64 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/sync-state/src",
+  "prefix": "ngrx-addons",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/sync-state"],
+      "options": {
+        "project": "libs/sync-state/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/sync-state/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/sync-state/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/sync-state"],
+      "options": {
+        "jestConfig": "libs/sync-state/jest.config.ts",
+        "passWithNoTests": true,
+        "codeCoverage": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/sync-state/**/*.ts",
+          "libs/sync-state/**/*.html"
+        ]
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public",
+        "buildTarget": "production"
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "postTargets": ["sync-state:github"],
+        "commitMessageFormat": "release(${projectName}): ${version} [skip ci]",
+        "preset": "angular"
+      }
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github",
+      "options": {
+        "tag": "${tag}",
+        "notes": "${notes}"
+      }
+    }
+  },
+  "tags": []
+}

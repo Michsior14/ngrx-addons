@@ -1,7 +1,22 @@
+import { waitForAsync } from '@angular/core/testing';
 import { firstValueFrom, from } from 'rxjs';
-import { createStorage, noopStorage, Async } from './storage';
+import { Async, createStorage, noopStorage } from './storage';
 
 describe('storage', () => {
+  describe('noopStorage', () => {
+    it('should return mocked values', waitForAsync(() => {
+      from(noopStorage.getItem('key')).subscribe((value) =>
+        expect(value).toBeNull()
+      );
+      from(noopStorage.setItem('key', {})).subscribe((value) =>
+        expect(value).toBe(true)
+      );
+      from(noopStorage.removeItem('key')).subscribe((value) =>
+        expect(value).toBe(true)
+      );
+    }));
+  });
+
   describe('createStorage', () => {
     it('should return noopStorage if storage is undefined', () => {
       const storage = createStorage(undefined);

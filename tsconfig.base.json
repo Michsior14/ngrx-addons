@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ngrx-addons/persist-state": ["libs/persist-state/src/index.ts"]
+      "@ngrx-addons/common": ["libs/common/src/index.ts"],
+      "@ngrx-addons/persist-state": ["libs/persist-state/src/index.ts"],
+      "@ngrx-addons/sync-state": ["libs/sync-state/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
