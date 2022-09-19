@@ -2877,6 +2877,44 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ngrx/component-store@npm:~14.0.0":
+  version: 14.0.2
+  resolution: "@ngrx/component-store@npm:14.0.2"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@angular/core": ^14.0.0
+    rxjs: ^6.5.3 || ^7.5.0
+  checksum: 77c3cee0d7062ec99e0fa9ff58f5a8ce5f3a40df59c9aaa225656ee0c20e17cbcf5542a59e3e6f7a62e57d046a73277d8730021fd4651a678edd7764985e3237
+  languageName: node
+  linkType: hard
+
+"@ngrx/effects@npm:~14.0.0":
+  version: 14.0.2
+  resolution: "@ngrx/effects@npm:14.0.2"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@angular/core": ^14.0.0
+    "@ngrx/store": 14.0.2
+    rxjs: ^6.5.3 || ^7.5.0
+  checksum: c35d469c97581b9e8451c261fea0c36467488a6b73d6e154c1ebbce30bf8f7e3843c1ebc783dc88bdd4a699726cb4c4d0219d385677001ac8bce81b4bd488067
+  languageName: node
+  linkType: hard
+
+"@ngrx/entity@npm:~14.0.0":
+  version: 14.0.2
+  resolution: "@ngrx/entity@npm:14.0.2"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@angular/core": ^14.0.0
+    "@ngrx/store": 14.0.2
+    rxjs: ^6.5.3 || ^7.5.0
+  checksum: e8e5068d8aff74d49921efb08ab0b12d2f526f9ef10ea7c7470667429b6fa1295d00aa69e27fd8d3c01bf64061627dd9dd19ad23c87a958973150ab175aa98fb
+  languageName: node
+  linkType: hard
+
 "@ngrx/eslint-plugin@npm:~14.3.1":
   version: 14.3.1
   resolution: "@ngrx/eslint-plugin@npm:14.3.1"
@@ -2890,6 +2928,40 @@ __metadata:
     eslint: ">=8.0.0"
     typescript: ">=4.4.0"
   checksum: bbf7c9cd8ceae8b1ea5ef9b91af8e59367abed5862cd5b48535c5a8903a5356135a56c615bf8adfaffa48faea3b0b0cae7bffa9a0b90b6330fb53effd34a4788
+  languageName: node
+  linkType: hard
+
+"@ngrx/router-store@npm:~14.0.0":
+  version: 14.0.2
+  resolution: "@ngrx/router-store@npm:14.0.2"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@angular/common": ^14.0.0
+    "@angular/core": ^14.0.0
+    "@angular/router": ^14.0.0
+    "@ngrx/store": 14.0.2
+    rxjs: ^6.5.3 || ^7.5.0
+  checksum: d3f0c3ac2283b9ec9eb6b6a6825f71e41d87dc6e7d7897f8142a499ce2a088353e947cb159e255732b1310318652c57644c3d7c0b85e403e126deade37eaf9e0
+  languageName: node
+  linkType: hard
+
+"@ngrx/schematics@npm:~14.0.0":
+  version: 14.0.2
+  resolution: "@ngrx/schematics@npm:14.0.2"
+  checksum: bf941a2ba4df563d2f9d77307ae8b43879ab905a716f94d3ee319783350a49fe7d6bd3c9a4d36a2569a5bc8ea8489a8621cecc557be8764f707ce394b20c81c1
+  languageName: node
+  linkType: hard
+
+"@ngrx/store-devtools@npm:~14.0.0":
+  version: 14.0.2
+  resolution: "@ngrx/store-devtools@npm:14.0.2"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@ngrx/store": 14.0.2
+    rxjs: ^6.5.3 || ^7.5.0
+  checksum: a4ccca9173d9c2786d61ee3518c7a69a7da536db3ed8ba284c9b5aa0996b1dc05df2646f8d87f248d3aef6c96b2000c5f219564c426d9e9c386c1650e4471fef
   languageName: node
   linkType: hard
 
@@ -3819,6 +3891,13 @@ __metadata:
   version: 4.0.2
   resolution: "@types/tough-cookie@npm:4.0.2"
   checksum: 38d01fc79a9a87166253b8c548bb401599424c57a818bea1b47a68be6dcd37fc3bff381f978354e00221f284937d5066bb92d58bf79952f9d21deb934e8ec9a7
+  languageName: node
+  linkType: hard
+
+"@types/uuid@npm:^8.3.4":
+  version: 8.3.4
+  resolution: "@types/uuid@npm:8.3.4"
+  checksum: b9ac98f82fcf35962317ef7dc44d9ac9e0f6fdb68121d384c88fe12ea318487d5585d3480fa003cf28be86a3bbe213ca688ba786601dce4a97724765eb5b1cf2
   languageName: node
   linkType: hard
 
@@ -8892,6 +8971,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jasmine-marbles@npm:~0.9.1":
+  version: 0.9.2
+  resolution: "jasmine-marbles@npm:0.9.2"
+  dependencies:
+    lodash: ^4.17.20
+  peerDependencies:
+    rxjs: ^7.0.0
+  checksum: 241dd0777c248d780e5b012c8a7cf0283852bf559204c06e0efd689621a107edd94fd10fc37023bc1e15a88b84f5574534209ced91b7defd777048ac60a1807b
+  languageName: node
+  linkType: hard
+
 "jest-changed-files@npm:^29.0.0":
   version: 29.0.0
   resolution: "jest-changed-files@npm:29.0.0"
@@ -10993,8 +11083,14 @@ __metadata:
     "@commitlint/cli": ~17.1.2
     "@commitlint/config-angular": ~17.1.0
     "@jscutlery/semver": ~2.27.0
+    "@ngrx/component-store": ~14.0.0
+    "@ngrx/effects": ~14.0.0
+    "@ngrx/entity": ~14.0.0
     "@ngrx/eslint-plugin": ~14.3.1
+    "@ngrx/router-store": ~14.0.0
+    "@ngrx/schematics": ~14.0.0
     "@ngrx/store": ~14.3.1
+    "@ngrx/store-devtools": ~14.0.0
     "@nrwl/angular": 14.7.6
     "@nrwl/cli": 14.7.6
     "@nrwl/eslint-plugin-nx": 14.7.6
@@ -11004,11 +11100,13 @@ __metadata:
     "@nrwl/workspace": 14.7.6
     "@types/jest": ~29.0.3
     "@types/node": ~16.11.59
+    "@types/uuid": ^8.3.4
     "@typescript-eslint/eslint-plugin": ~5.37.0
     "@typescript-eslint/parser": ~5.37.0
     eslint: ~8.23.1
     eslint-config-prettier: ~8.5.0
     husky: ~8.0.1
+    jasmine-marbles: ~0.9.1
     jest: ~29.0.3
     jest-environment-jsdom: ~29.0.3
     jest-preset-angular: ~12.2.2
@@ -11026,6 +11124,7 @@ __metadata:
     ts-node: ~10.9.1
     tslib: ~2.4.0
     typescript: ~4.8.3
+    uuid: ~9.0.0
     zone.js: ~0.11.8
   languageName: unknown
   linkType: soft
@@ -15054,6 +15153,15 @@ __metadata:
   bin:
     uuid: dist/bin/uuid
   checksum: bcbb807a917d374a49f475fae2e87fdca7da5e5530820ef53f65ba1d12131bd81a92ecf259cc7ce317cbe0f289e7d79fdfebcef9bfa3087c8c8a2fa304c9be54
+  languageName: node
+  linkType: hard
+
+"uuid@npm:~9.0.0":
+  version: 9.0.0
+  resolution: "uuid@npm:9.0.0"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: 8867e438990d1d33ac61093e2e4e3477a2148b844e4fa9e3c2360fa4399292429c4b6ec64537eb1659c97b2d10db349c673ad58b50e2824a11e0d3630de3c056
   languageName: node
   linkType: hard
 

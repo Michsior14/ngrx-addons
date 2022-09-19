@@ -39,6 +39,7 @@ const reducers = {
 @NgModule({
   imports: [
     StoreModule.forRoot(reducers),
+    // Define after EffectsModule.forRoot() if you want to listen on `rehydrate` action 
     // type provided for hints on states
     PersistStateModule.forRoot<typeof reducers>({
       states: [
@@ -186,3 +187,7 @@ const reducers = {
 })
 export class AppModule {}
 ```
+
+## Examples
+
+Check the [examples app](../../apps/examples)
