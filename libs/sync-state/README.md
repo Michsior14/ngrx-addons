@@ -48,7 +48,7 @@ const reducers = {
             typeof window !== 'undefined' &&
             typeof window.BroadcastChannel !== 'undefined',
           source: (state) => state,
-          channel: `${storageKeyPrefix}-${key}@store`,
+          channel: `${channelPrefix}-${key}@store`,
           skip: 1
         },
         // next states to sync, same reducer key can be
