@@ -1,4 +1,5 @@
-import { OperatorFunction, pipe } from 'rxjs';
+import type { OperatorFunction} from 'rxjs';
+import { pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**

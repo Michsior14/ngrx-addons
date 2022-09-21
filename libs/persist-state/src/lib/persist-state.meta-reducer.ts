@@ -1,6 +1,7 @@
 import { createMergeReducer } from '@ngrx-addons/common';
-import { Action } from '@ngrx/store';
-import { REHYDRATE, rehydrate } from './persist-state.actions';
+import type { Action } from '@ngrx/store';
+import type { rehydrate } from './persist-state.actions';
+import { REHYDRATE } from './persist-state.actions';
 
 export const isRehydrateAction = (
   action: Action

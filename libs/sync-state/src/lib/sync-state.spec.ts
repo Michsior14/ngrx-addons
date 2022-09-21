@@ -1,5 +1,5 @@
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { ActionReducerMap } from '@ngrx/store';
+import type { ActionReducerMap } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { debounceTime, map, Subject, takeUntil } from 'rxjs';
 import { SyncState } from './sync-state';

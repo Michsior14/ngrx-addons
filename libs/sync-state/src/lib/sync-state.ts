@@ -1,6 +1,10 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import type { OnDestroy } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { isEqual } from '@ngrx-addons/common';
-import { ActionReducerMap, Store } from '@ngrx/store';
+import type { ActionReducerMap} from '@ngrx/store';
+import { Store } from '@ngrx/store';
+import type {
+  Observable} from 'rxjs';
 import {
   distinctUntilChanged,
   filter,
@@ -9,16 +13,16 @@ import {
   map,
   merge,
   NEVER,
-  Observable,
   skip,
   Subject,
   takeUntil,
   tap,
 } from 'rxjs';
 import { storeSyncAction } from './sync-state.actions';
-import {
+import type {
   SyncStateConfig,
-  SyncStateFeatureConfig,
+  SyncStateFeatureConfig} from './sync-state.config';
+import {
   SyncStateRootConfig,
 } from './sync-state.config';
 

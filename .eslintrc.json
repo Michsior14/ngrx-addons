@@ -39,8 +39,17 @@
     },
     {
       "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
+      "extends": [
+        "plugin:@nrwl/nx/typescript",
+        "plugin:@typescript-eslint/strict",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:@ngrx/recommended-requiring-type-checking"
+      ],
+      "rules": {
+        "@typescript-eslint/consistent-type-imports": "error",
+        "@typescript-eslint/consistent-type-exports": "error",
+        "@typescript-eslint/no-extraneous-class": "off"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],

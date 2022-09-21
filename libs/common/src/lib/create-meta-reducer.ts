@@ -1,4 +1,4 @@
-import { Action, ActionReducer } from '@ngrx/store';
+import type { Action, ActionReducer } from '@ngrx/store';
 
 export interface FeaturesProps {
   features: Record<string, unknown>;

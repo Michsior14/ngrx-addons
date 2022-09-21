@@ -1,5 +1,7 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
-import { Action, ActionReducerMap, META_REDUCERS } from '@ngrx/store';
+import type { ModuleWithProviders} from '@angular/core';
+import { NgModule } from '@angular/core';
+import type { Action, ActionReducerMap} from '@ngrx/store';
+import { META_REDUCERS } from '@ngrx/store';
 import { PersistState } from './persist-state';
 import {
   PersistStateFeatureConfig,

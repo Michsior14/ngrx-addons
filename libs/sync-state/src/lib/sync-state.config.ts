@@ -1,6 +1,6 @@
-import { AnyFunction, State } from '@ngrx-addons/common';
-import { Action, ActionReducerMap } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import type { AnyFunction, State } from '@ngrx-addons/common';
+import type { Action, ActionReducerMap } from '@ngrx/store';
+import type { Observable } from 'rxjs';
 
 export interface SyncStateConfig<S> {
   /**

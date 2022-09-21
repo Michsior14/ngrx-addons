@@ -1,4 +1,5 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import type { OnDestroy } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { SyncState } from './sync-state';
 import { SyncStateFeatureConfig } from './sync-state.config';
 

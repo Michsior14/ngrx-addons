@@ -1,6 +1,7 @@
 import { waitForAsync } from '@angular/core/testing';
 import { firstValueFrom, from } from 'rxjs';
-import { Async, createStorage, noopStorage } from './storage';
+import type { Async} from './storage';
+import { createStorage, noopStorage } from './storage';
 
 describe('storage', () => {
   describe('noopStorage', () => {

@@ -1,4 +1,4 @@
-import { FeaturesProps } from '@ngrx-addons/common';
+import type { FeaturesProps } from '@ngrx-addons/common';
 import { createAction, props } from '@ngrx/store';
 
 export const REHYDRATE = '@ngrx-addons/persist-state/rehydrate';

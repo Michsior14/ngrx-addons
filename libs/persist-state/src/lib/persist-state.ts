@@ -1,6 +1,10 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import type { OnDestroy } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { isEqual } from '@ngrx-addons/common';
-import { ActionReducerMap, Store } from '@ngrx/store';
+import type { ActionReducerMap} from '@ngrx/store';
+import { Store } from '@ngrx/store';
+import type {
+  Observable} from 'rxjs';
 import {
   distinctUntilChanged,
   filter,
@@ -8,7 +12,6 @@ import {
   map,
   merge,
   NEVER,
-  Observable,
   skip,
   Subject,
   switchMap,
@@ -16,9 +19,10 @@ import {
   tap,
 } from 'rxjs';
 import { rehydrate } from './persist-state.actions';
-import {
+import type {
   PersistStateConfig,
-  PersistStateFeatureConfig,
+  PersistStateFeatureConfig} from './persist-state.config';
+import {
   PersistStateRootConfig,
 } from './persist-state.config';
 

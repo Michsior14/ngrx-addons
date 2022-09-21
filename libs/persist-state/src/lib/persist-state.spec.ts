@@ -1,11 +1,11 @@
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { ActionReducerMap } from '@ngrx/store';
+import type { ActionReducerMap } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { debounceTime, map, of } from 'rxjs';
 import { PersistState } from './persist-state';
 import { rehydrate } from './persist-state.actions';
 import { PersistStateRootConfig } from './persist-state.config';
-import { Async, StateStorage } from './storage';
+import type { Async, StateStorage } from './storage';
 
 describe('PersistState', () => {
   const key = 'test' as const;

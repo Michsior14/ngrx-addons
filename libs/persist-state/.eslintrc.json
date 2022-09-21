@@ -9,9 +9,6 @@
       },
       "extends": [
         "plugin:@nrwl/nx/angular",
-        "plugin:@typescript-eslint/strict",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "plugin:@ngrx/recommended-requiring-type-checking",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
@@ -30,8 +27,7 @@
             "prefix": "ngrx-addons",
             "style": "kebab-case"
           }
-        ],
-        "@typescript-eslint/no-extraneous-class": "off"
+        ]
       }
     },
     {

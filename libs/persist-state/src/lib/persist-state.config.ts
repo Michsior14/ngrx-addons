@@ -1,7 +1,7 @@
-import { AnyFunction, State } from '@ngrx-addons/common';
-import { Action, ActionReducerMap } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { StateStorage } from './storage';
+import type { AnyFunction, State } from '@ngrx-addons/common';
+import type { Action, ActionReducerMap } from '@ngrx/store';
+import type { Observable } from 'rxjs';
+import type { StateStorage } from './storage';
 
 export interface PersistStateConfig<S> {
   /**

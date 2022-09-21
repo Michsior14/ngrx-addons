@@ -1,5 +1,7 @@
-import { Action, createAction, props } from '@ngrx/store';
-import { createMergeReducer, FeaturesProps } from './create-meta-reducer';
+import type { Action} from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
+import type { FeaturesProps } from './create-meta-reducer';
+import { createMergeReducer } from './create-meta-reducer';
 
 describe('createMergeReducer', () => {
   const merge = 'MERGE';
