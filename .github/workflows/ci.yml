@@ -6,32 +6,28 @@ on:
       - main
   pull_request:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   main:
-    runs-on: ubuntu-latest
+    name: Nx Cloud - Main Job
+    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.7
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
-    steps:
-      - uses: actions/checkout@v3
-        name: Checkout
-        with:
-          fetch-depth: 0
-      - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - name: Get Yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - name: Restore Yarn cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
-          restore-keys: |
-            yarn-cache-folder-
-      - run: yarn install --immutable
-      - run: yarn nx workspace-lint
-      - run: yarn nx affected --target=lint --parallel=2
-      - run: yarn nx affected --target=test --parallel=2 --ci --code-coverage
-      - run: yarn nx affected --target=build --parallel=2
+    with:
+      number-of-agents: 3
+      init-commands: |
+        yarn exec nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
+      parallel-commands: |
+        yarn exec nx-cloud record -- yarn exec nx workspace-lint
+      parallel-commands-on-agents: |
+        yarn exec nx affected --target=lint --parallel=3
+        yarn exec nx affected --target=test --parallel=3 --ci --code-coverage
+        yarn exec nx affected --target=build --parallel=3
+
+  agents:
+    name: Nx Cloud - Agents
+    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.7
+    with:
+      number-of-agents: 3
