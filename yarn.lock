@@ -3271,20 +3271,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nrwl/nx-cloud@npm:14.6.2":
-  version: 14.6.2
-  resolution: "@nrwl/nx-cloud@npm:14.6.2"
+"@nrwl/nx-cloud@npm:14.7.0":
+  version: 14.7.0
+  resolution: "@nrwl/nx-cloud@npm:14.7.0"
   dependencies:
     axios: ^0.21.1
     chalk: 4.1.0
     dotenv: ~10.0.0
+    fs-extra: ^10.1.0
     node-machine-id: ^1.1.12
     strip-json-comments: ^3.1.1
     tar: 6.1.11
     yargs-parser: ">=21.0.1"
   bin:
     nx-cloud: bin/nx-cloud.js
-  checksum: 8c611177926897eb99f0675ee934bf06d8358862f8652e4beda7fcf4901563f67a54cb0f58e8fd231aeabeebfa21b3f639a686ea35c7e5ee66bb9dbca603b276
+  checksum: 1669c7e654e0adb765935f6297ed12154a76ff88d92398fbfddb31e5587f9945d3b94cffd1f64633cc265f44018e24cee8515080e2593889cec7389c670f94dd
   languageName: node
   linkType: hard
 
@@ -11215,7 +11216,7 @@ __metadata:
     "@nrwl/jest": 14.7.17
     "@nrwl/js": 14.7.17
     "@nrwl/linter": 14.7.17
-    "@nrwl/nx-cloud": 14.6.2
+    "@nrwl/nx-cloud": 14.7.0
     "@nrwl/workspace": 14.7.17
     "@types/jest": ~29.0.3
     "@types/node": ~16.11.62
