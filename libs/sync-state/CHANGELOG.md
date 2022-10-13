@@ -13,6 +13,13 @@ This file was generated using [@jscutlery/semver](https://github.com/jscutlery/s
 
 ### Dependency Updates
 
+* `common` updated to version `1.0.1`
+
+
+## [1.0.1](https://github.com/Michsior14/ngrx-addons/compare/sync-state-1.0.0...sync-state-1.0.1) (2022-10-13)
+
+### Dependency Updates
+
 * `common` updated to version `1.0.0`
 
 
