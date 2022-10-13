@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import {
   localStorageStrategy,
   PersistStateModule,
@@ -13,6 +12,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { ProductsEffects } from './products/products.effects';
+import type { ProductsState } from './products/products.reducer';
 import { productFeature } from './products/products.reducer';
 
 const appState = {
@@ -33,12 +33,23 @@ const appState = {
     }),
     EffectsModule.forRoot([ProductsEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    PersistStateModule.forRoot({
+    PersistStateModule.forRoot<typeof appState>({
       states: [
         {
           key: productFeature.name,
           storage: localStorageStrategy,
-        },
+          migrations: [
+            {
+              version: 1,
+              migrate: (state) =>
+                ({
+                  ...state,
+                  additionalProp: 'here',
+                  version: 2,
+                } as ProductsState & { additionalProp: string }),
+            },
+          ],
+        } as const,
       ],
     }),
     SyncStateModule.forRoot({

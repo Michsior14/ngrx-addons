@@ -3,6 +3,29 @@ import type { Action, ActionReducerMap } from '@ngrx/store';
 import type { Observable } from 'rxjs';
 import type { StateStorage } from './storage';
 
+export interface StateMigration<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  TOldState = any,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  TNewState = any,
+  TVersionKey = string
+> {
+  /**
+   * The version of the state to migrate from.
+   */
+  version: number | string | undefined;
+  /**
+   * The migration function from the old state to the new one
+   */
+  migrate(oldState: TOldState): TNewState;
+  /**
+   * The key for the version in the storage.
+   *
+   * @default 'version'
+   */
+  versionKey?: TVersionKey;
+}
+
 export interface PersistStateConfig<S> {
   /**
    * An object or function resolving to an object with async setItem,
@@ -27,6 +50,14 @@ export interface PersistStateConfig<S> {
    * @default () => typeof window !== 'undefined'
    */
   runGuard?: () => boolean;
+  /**
+   * The migrations to run when the state is restored from storage.
+   */
+  migrations?: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  | StateMigration<any, any, keyof S>[]
+    // support readonly pro
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    | Readonly<StateMigration<any, any, keyof S>[]>;
   /**
    * The number of state changes skipped before the state is persisted.
    * Used to skip the initial state change.

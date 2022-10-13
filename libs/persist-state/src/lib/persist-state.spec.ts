@@ -16,6 +16,7 @@ describe('PersistState', () => {
         a: 1,
       },
       valueC: 'c',
+      version: 0,
     },
   };
 
@@ -50,6 +51,19 @@ describe('PersistState', () => {
         key,
         storage: testStorage as StateStorage,
         storageKey: 'test-a-c',
+        migrations: [
+          {
+            version: 1,
+            migrate: (state) =>
+              ({ ...state, valueD: 2, version: 2 } as unknown),
+          },
+          {
+            version: 2,
+            versionKey: 'version',
+            migrate: (state) =>
+              ({ ...state, valueE: 3, version: 3 } as unknown),
+          },
+        ],
         source: (state) =>
           state.pipe(
             debounceTime(10),
@@ -118,7 +132,35 @@ describe('PersistState', () => {
         rehydrate({ features: { [key]: b } })
       );
       expect(dispatch).toHaveBeenCalledWith(
-        rehydrate({ features: { [key]: ac } })
+        rehydrate({
+          features: { [key]: ac },
+        })
+      );
+      service.ngOnDestroy();
+    }));
+
+    it('should  run migrations', fakeAsync(() => {
+      const ac = { valueA: 2, valueC: 'd', version: 1 };
+      const b = { valueB: { a: 2 } };
+      testStorage.getItem.mockImplementation((key) => {
+        if (key === 'test-b') {
+          return of(b);
+        }
+        if (key === 'test-a-c') {
+          return of(ac);
+        }
+        return of(null);
+      });
+
+      service.addRoot();
+      tick();
+      expect(dispatch).toHaveBeenCalledWith(
+        rehydrate({ features: { [key]: b } })
+      );
+      expect(dispatch).toHaveBeenCalledWith(
+        rehydrate({
+          features: { [key]: { ...ac, version: 3, valueD: 2, valueE: 3 } },
+        })
       );
       service.ngOnDestroy();
     }));
@@ -134,6 +176,7 @@ describe('PersistState', () => {
             a: 2,
           },
           valueC: 'd',
+          version: 0,
         },
       });
       tick();
@@ -195,6 +238,31 @@ describe('PersistState', () => {
       tick();
       expect(dispatch).toHaveBeenCalledWith(
         rehydrate({ features: { [key]: state } })
+      );
+      service.ngOnDestroy();
+    }));
+
+    it('should run migrations', fakeAsync(() => {
+      const state = { valueB: { a: 2, valueA: 2, valueC: 'd' } };
+      testStorage.getItem.mockReturnValue(of(state));
+
+      service.addFeature({
+        key,
+        states: [
+          {
+            storage: testStorage as StateStorage,
+            migrations: [
+              {
+                version: undefined,
+                migrate: (state) => ({ ...state, version: 1 } as unknown),
+              },
+            ],
+          },
+        ],
+      });
+      tick();
+      expect(dispatch).toHaveBeenCalledWith(
+        rehydrate({ features: { [key]: { ...state, version: 1 } } })
       );
       service.ngOnDestroy();
     }));

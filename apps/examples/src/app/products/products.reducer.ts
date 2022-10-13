@@ -8,10 +8,12 @@ export interface Product {
 
 export interface ProductsState {
   products: Record<string, Product>;
+  version: number;
 }
 
 const initialState = Object.freeze<ProductsState>({
   products: {},
+  version: 1,
 });
 
 export const productFeature = createFeature({

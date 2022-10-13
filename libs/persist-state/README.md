@@ -54,6 +54,7 @@ const reducers = {
           runGuard: () => typeof window !== 'undefined',
           source: (state) => state,
           storageKey: `${storageKeyPrefix}-${key}@store`,
+          migrations: [],
           skip: 1
         },
         // next states to persist, same reducer key can be
@@ -80,7 +81,11 @@ Each state can be described by multiple state configs with the following propert
 - `source`: a method that receives the observable of a state and return what to save from it (by default - the entire state).
 - `storageKey`: the name under which the store state is saved (by default - the prefix plus store name plus a `@store` suffix).
 - `runGuard` - returns whether the actual implementation should be run. The default is `() => typeof window !== 'undefined'`
-- `skip` - The number of state changes skipped before the state is persisted. Used to skip the initial state change. The default is `1`.
+- `skip` - the number of state changes skipped before the state is persisted. Used to skip the initial state change. The default is `1`.
+- `migrations` - the array of migrations to run on the state before `rehydrated` event is fired. The default is `[]`.
+  - `version` - the version of the state to migrate from.
+  - `versionKey` - the key in the state that contains the version. The default is `version`.
+  - `migrate` - the function that receives the state and returns the migrated state.
 
 ### For feature states
 

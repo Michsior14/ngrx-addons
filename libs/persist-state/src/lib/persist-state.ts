@@ -1,10 +1,9 @@
 import type { OnDestroy } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { isEqual } from '@ngrx-addons/common';
-import type { ActionReducerMap} from '@ngrx/store';
+import type { ActionReducerMap } from '@ngrx/store';
 import { Store } from '@ngrx/store';
-import type {
-  Observable} from 'rxjs';
+import type { Observable } from 'rxjs';
 import {
   distinctUntilChanged,
   filter,
@@ -21,12 +20,14 @@ import {
 import { rehydrate } from './persist-state.actions';
 import type {
   PersistStateConfig,
-  PersistStateFeatureConfig} from './persist-state.config';
-import {
-  PersistStateRootConfig,
+  PersistStateFeatureConfig,
 } from './persist-state.config';
+import { PersistStateRootConfig } from './persist-state.config';
 
 const rootState = 'root' as const;
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type StateSlice = Record<string, any>;
 
 @Injectable()
 export class PersistState<
@@ -92,6 +93,7 @@ export class PersistState<
       storageKey: `${this.#rootConfig.storageKeyPrefix!}${key}@store`,
       source: (state) => state,
       runGuard: () => typeof window !== 'undefined',
+      migrations: [],
       skip: 1,
     };
   }
@@ -114,12 +116,17 @@ export class PersistState<
         return merge(
           // Restore state from storage
           from(storage.getItem(state.storageKey)).pipe(
-            filter((value) => !!value),
-            tap((value) =>
+            filter((value): value is StateSlice => !!value),
+            tap((value) => {
+              // Run migrations if defined
+              if (state.migrations.length) {
+                value = this.runMigrations(value, state.migrations);
+              }
+
               this.store.dispatch(
                 rehydrate({ features: { [state.key]: value } })
-              )
-            )
+              );
+            })
           ),
           // Save state to storage
           state
@@ -145,5 +152,20 @@ export class PersistState<
         )
       )
     );
+  }
+
+  private runMigrations<S>(
+    value: StateSlice,
+    migrations: Required<PersistStateConfig<S>>['migrations']
+  ): StateSlice {
+    migrations.forEach((migration) => {
+      const version = value[
+        (migration.versionKey ?? 'version') as keyof typeof value
+      ] as string | number | undefined;
+      if (migration.version === version) {
+        value = migration.migrate(value) as typeof value;
+      }
+    });
+    return value;
   }
 }
