@@ -5,7 +5,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/libs/sync-state"],
+      "outputs": ["{workspaceRoot}/dist/libs/sync-state"],
       "options": {
         "project": "libs/sync-state/ng-package.json"
       },
@@ -21,7 +21,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/sync-state"],
+      "outputs": ["{workspaceRoot}/coverage/libs/sync-state"],
       "options": {
         "jestConfig": "libs/sync-state/jest.config.ts",
         "passWithNoTests": true,

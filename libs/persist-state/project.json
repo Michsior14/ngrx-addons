@@ -5,7 +5,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/libs/persist-state"],
+      "outputs": ["{workspaceRoot}/dist/libs/persist-state"],
       "options": {
         "project": "libs/persist-state/ng-package.json"
       },
@@ -21,7 +21,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/persist-state"],
+      "outputs": ["{workspaceRoot}/coverage/libs/persist-state"],
       "options": {
         "jestConfig": "libs/persist-state/jest.config.ts",
         "passWithNoTests": true,
