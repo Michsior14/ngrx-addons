@@ -13,7 +13,7 @@ concurrency:
 jobs:
   main:
     name: Nx Cloud - Main Job
-    uses: Michsior14/ci/.github/workflows/nx-cloud-main.yml@501fe178ce3cb7a8f74727a484566a70505d7eaa
+    uses: michsior14/ci/.github/workflows/nx-cloud-main.yml@501fe178ce3cb7a8f74727a484566a70505d7eaa
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     with:
       number-of-agents: 3
@@ -28,6 +28,6 @@ jobs:
 
   agents:
     name: Nx Cloud - Agents
-    uses: Michsior14/ci/.github/workflows/nx-cloud-agents.yml@501fe178ce3cb7a8f74727a484566a70505d7eaa
+    uses: michsior14/ci/.github/workflows/nx-cloud-agents.yml@501fe178ce3cb7a8f74727a484566a70505d7eaa
     with:
       number-of-agents: 3
