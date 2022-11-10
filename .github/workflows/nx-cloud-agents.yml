@@ -205,7 +205,7 @@ jobs:
         if: ${{ inputs.install-commands == '' }}
         run: |
           if [ "${{ steps.package_manager.outputs.name == 'yarn' }}" == "true" ]; then
-            if [ "${{ startsWith(steps.versions.outputs.yarn_version, '1.') }}"" == "true" ]; then
+            if [ "${{ startsWith(steps.versions.outputs.yarn_version, '1.') }}" == "true" ]; then
               echo "Running yarn install --frozen-lockfile"
               yarn install --frozen-lockfile
             else
