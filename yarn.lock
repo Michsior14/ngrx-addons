@@ -9685,9 +9685,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-preset-angular@npm:12.2.2":
-  version: 12.2.2
-  resolution: "jest-preset-angular@npm:12.2.2"
+"jest-preset-angular@npm:12.2.3":
+  version: 12.2.3
+  resolution: "jest-preset-angular@npm:12.2.3"
   dependencies:
     bs-logger: ^0.2.6
     esbuild: ">=0.13.8"
@@ -9696,16 +9696,16 @@ __metadata:
     pretty-format: ^28.0.0
     ts-jest: ^28.0.0
   peerDependencies:
-    "@angular-devkit/build-angular": ">=0.1102.19 <15.0.0"
-    "@angular/compiler-cli": ">=11.2.14 <15.0.0"
-    "@angular/core": ">=11.2.14 <15.0.0"
-    "@angular/platform-browser-dynamic": ">=11.2.14 <15.0.0"
+    "@angular-devkit/build-angular": ">=12.2.18 <16.0.0"
+    "@angular/compiler-cli": ">=12.2.16 <16.0.0"
+    "@angular/core": ">=12.2.16 <16.0.0"
+    "@angular/platform-browser-dynamic": ">=12.2.16 <16.0.0"
     jest: ^28.0.0
-    typescript: ">=4.3"
+    typescript: ">=4.4"
   dependenciesMeta:
     esbuild:
       optional: true
-  checksum: 3ae0d3cd203e464eb18e46c060f74c789803edc6d88994ac89eab7b475470f5428077ebb0205a94ce60d71d053f5824e58cabf42da96d0a380059d23aa7fa122
+  checksum: d950dab1dfb43a0c0ca434847cada9905d7195c88ae631ad56e36e2f84c2fb0bd426688ed4cb359fd374ae13fc3e638e25d997cfaf11c449d02587c32402aac4
   languageName: node
   linkType: hard
 
@@ -11414,7 +11414,7 @@ __metadata:
     jasmine-marbles: ~0.9.2
     jest: ~29.3.1
     jest-environment-jsdom: ~29.3.1
-    jest-preset-angular: 12.2.2
+    jest-preset-angular: 12.2.3
     lint-staged: ~13.0.4
     ng-packagr: 15.0.1
     ngx-deploy-npm: ~4.3.7
