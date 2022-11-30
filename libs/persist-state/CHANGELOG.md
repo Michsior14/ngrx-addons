@@ -4,58 +4,59 @@ This file was generated using [@jscutlery/semver](https://github.com/jscutlery/s
 
 ## [2.0.1](https://github.com/Michsior14/ngrx-addons/compare/persist-state-2.0.0...persist-state-2.0.1) (2022-11-30)
 
+* No changes, bump only for release process
+
 ### Dependency Updates
 
 * `common` updated to version `2.0.1`
 
-
 # [2.0.0](https://github.com/Michsior14/ngrx-addons/compare/persist-state-1.3.0...persist-state-2.0.0) (2022-11-30)
 
-
-
-# [1.3.0](https://github.com/Michsior14/ngrx-addons/compare/persist-state-1.2.0...persist-state-1.3.0) (2022-10-13)
-
-### Dependency Updates
-
-- `common` updated to version `1.0.1`
-
-### Features
-
-- **persist-state:** support migrations ([34731d9](https://github.com/Michsior14/ngrx-addons/commit/34731d9620564aabfa22ac58a32522d4b9b8aa4f))
+* Updated to Angular 15 and Ngrx 15
 
 # [1.3.0](https://github.com/Michsior14/ngrx-addons/compare/persist-state-1.2.0...persist-state-1.3.0) (2022-10-13)
 
 ### Dependency Updates
 
-- `common` updated to version `1.0.0`
+* `common` updated to version `1.0.1`
 
 ### Features
 
-- **persist-state:** support migrations ([34731d9](https://github.com/Michsior14/ngrx-addons/commit/34731d9620564aabfa22ac58a32522d4b9b8aa4f))
+* **persist-state:** support migrations ([34731d9](https://github.com/Michsior14/ngrx-addons/commit/34731d9620564aabfa22ac58a32522d4b9b8aa4f))
+
+# [1.3.0](https://github.com/Michsior14/ngrx-addons/compare/persist-state-1.2.0...persist-state-1.3.0) (2022-10-13)
+
+### Dependency Updates
+
+* `common` updated to version `1.0.0`
+
+### Features
+
+* **persist-state:** support migrations ([34731d9](https://github.com/Michsior14/ngrx-addons/commit/34731d9620564aabfa22ac58a32522d4b9b8aa4f))
 
 # [1.2.0](https://github.com/Michsior14/ngrx-addons/compare/persist-state-1.1.0...persist-state-1.2.0) (2022-09-19)
 
 ### Dependency Updates
 
-- `common` updated to version `1.0.0`
+* `common` updated to version `1.0.0`
 
 ### Features
 
-- add sync state lib ([#9](https://github.com/Michsior14/ngrx-addons/issues/9)) ([9e27911](https://github.com/Michsior14/ngrx-addons/commit/9e279110f4c54c1464da5ad0883912803692044b))
+* add sync state lib ([#9](https://github.com/Michsior14/ngrx-addons/issues/9)) ([9e27911](https://github.com/Michsior14/ngrx-addons/commit/9e279110f4c54c1464da5ad0883912803692044b))
 
 # [1.1.0](https://github.com/Michsior14/ngrx-addons/compare/persist-state-1.0.0...persist-state-1.1.0) (2022-09-11)
 
 ### Bug Fixes
 
-- **persist-state:** add missing rxjs peer dependency ([3318475](https://github.com/Michsior14/ngrx-addons/commit/3318475f72bcaa1a6c715cad3f4f20047fdcf887))
-- **persist-state:** expose createStore ([6160f81](https://github.com/Michsior14/ngrx-addons/commit/6160f8133a3531ed6113ad554b08cd6a3bfbe49f))
+* **persist-state:** add missing rxjs peer dependency ([3318475](https://github.com/Michsior14/ngrx-addons/commit/3318475f72bcaa1a6c715cad3f4f20047fdcf887))
+* **persist-state:** expose createStore ([6160f81](https://github.com/Michsior14/ngrx-addons/commit/6160f8133a3531ed6113ad554b08cd6a3bfbe49f))
 
 ### Features
 
-- **persist-state:** add possibility to adjust number of state skip ([f4aea6e](https://github.com/Michsior14/ngrx-addons/commit/f4aea6ed65cc20355a0cb2adcf4601f41600977a))
+* **persist-state:** add possibility to adjust number of state skip ([f4aea6e](https://github.com/Michsior14/ngrx-addons/commit/f4aea6ed65cc20355a0cb2adcf4601f41600977a))
 
 # 1.0.0 (2022-09-11)
 
 ### Features
 
-- add persist-state package ([c0ed7dc](https://github.com/Michsior14/ngrx-addons/commit/c0ed7dccb4f1a548e17724bc8afb7214227507d6))
+* add persist-state package ([c0ed7dc](https://github.com/Michsior14/ngrx-addons/commit/c0ed7dccb4f1a548e17724bc8afb7214227507d6))
