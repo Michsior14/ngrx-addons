@@ -46,7 +46,7 @@
     "version": {
       "executor": "@jscutlery/semver:version",
       "options": {
-        "postTargets": ["common:github"],
+        "postTargets": ["common:deploy", "common:github"],
         "commitMessageFormat": "release(${projectName}): ${version} [skip ci]",
         "preset": "angular",
         "trackDeps": true

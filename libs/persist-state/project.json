@@ -48,7 +48,7 @@
     "version": {
       "executor": "@jscutlery/semver:version",
       "options": {
-        "postTargets": ["persist-state:github"],
+        "postTargets": ["persist-state:deploy", "persist-state:github"],
         "commitMessageFormat": "release(${projectName}): ${version} [skip ci]",
         "preset": "angular",
         "trackDeps": true
