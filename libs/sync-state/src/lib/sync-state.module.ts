@@ -1,6 +1,6 @@
-import type { ModuleWithProviders} from '@angular/core';
+import type { ModuleWithProviders } from '@angular/core';
 import { NgModule } from '@angular/core';
-import type { Action, ActionReducerMap} from '@ngrx/store';
+import type { Action, ActionReducerMap } from '@ngrx/store';
 import { META_REDUCERS } from '@ngrx/store';
 import { SyncState } from './sync-state';
 import {

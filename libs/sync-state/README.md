@@ -4,8 +4,8 @@ The library for synchronizing state in ngrx between multiple tabs/iframes/window
 
 ## Supported versions
 
-- `angular` 14+
-- `@ngrx/store` 14+
+- `angular` 15+
+- `@ngrx/store` 15+
 
 ## Installation
 

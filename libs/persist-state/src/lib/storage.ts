@@ -1,5 +1,5 @@
 // Based on https://github.com/ngneat/elf/blob/master/packages/persist-state/src/lib/storage.ts
-import type { Observable} from 'rxjs';
+import type { Observable } from 'rxjs';
 import { of } from 'rxjs';
 
 export type Async<T> = Promise<T> | Observable<T>;

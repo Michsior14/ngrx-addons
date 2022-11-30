@@ -5,8 +5,8 @@ Supports local storage, session storage and async storages with [localForage](ht
 
 ## Supported versions
 
-- `angular` 14+
-- `@ngrx/store` 14+
+- `angular` 15+
+- `@ngrx/store` 15+
 
 ## Installation
 
@@ -39,7 +39,7 @@ const reducers = {
 @NgModule({
   imports: [
     StoreModule.forRoot(reducers),
-    // Define after EffectsModule.forRoot() if you want to listen on `rehydrate` action 
+    // Define after EffectsModule.forRoot() if you want to listen on `rehydrate` action
     // type provided for hints on states
     PersistStateModule.forRoot<typeof reducers>({
       states: [

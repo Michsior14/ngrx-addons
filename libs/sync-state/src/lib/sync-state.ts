@@ -1,10 +1,9 @@
 import type { OnDestroy } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { isEqual } from '@ngrx-addons/common';
-import type { ActionReducerMap} from '@ngrx/store';
+import type { ActionReducerMap } from '@ngrx/store';
 import { Store } from '@ngrx/store';
-import type {
-  Observable} from 'rxjs';
+import type { Observable } from 'rxjs';
 import {
   distinctUntilChanged,
   filter,
@@ -21,10 +20,9 @@ import {
 import { storeSyncAction } from './sync-state.actions';
 import type {
   SyncStateConfig,
-  SyncStateFeatureConfig} from './sync-state.config';
-import {
-  SyncStateRootConfig,
+  SyncStateFeatureConfig,
 } from './sync-state.config';
+import { SyncStateRootConfig } from './sync-state.config';
 
 const rootState = 'root' as const;
 

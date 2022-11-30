@@ -1,4 +1,4 @@
-import type { Action} from '@ngrx/store';
+import type { Action } from '@ngrx/store';
 import { createAction, props } from '@ngrx/store';
 import type { FeaturesProps } from './create-meta-reducer';
 import { createMergeReducer } from './create-meta-reducer';
