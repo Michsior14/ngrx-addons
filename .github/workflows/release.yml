@@ -39,7 +39,7 @@ jobs:
       - run: yarn install --immutable
       - name: Version
         shell: bash
-        run: yarn nx affected --base=last-release --target=version --parallel=0 --push ${{ github.event.inputs.options }}
+        run: yarn nx affected --base=last-release --target=version --parallel=1 --push ${{ github.event.inputs.options }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
