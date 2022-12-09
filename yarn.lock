@@ -11941,9 +11941,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ng-packagr@npm:15.0.2":
-  version: 15.0.2
-  resolution: "ng-packagr@npm:15.0.2"
+"ng-packagr@npm:15.0.3":
+  version: 15.0.3
+  resolution: "ng-packagr@npm:15.0.3"
   dependencies:
     "@rollup/plugin-json": ^5.0.0
     "@rollup/plugin-node-resolve": ^15.0.0
@@ -11970,7 +11970,7 @@ __metadata:
     rxjs: ^7.5.6
     sass: ^1.55.0
   peerDependencies:
-    "@angular/compiler-cli": ^15.0.0-next
+    "@angular/compiler-cli": ^15.0.0 || ^15.1.0-next.0 || ^15.2.0-next.0
     tailwindcss: ^2.0.0 || ^3.0.0
     tslib: ^2.3.0
     typescript: ~4.8.2
@@ -11982,7 +11982,7 @@ __metadata:
       optional: true
   bin:
     ng-packagr: cli/main.js
-  checksum: 0b8e246189e16e5624e4c385043fb29aea4469a3e409e73ad8fa205f28ef08168f59e3367fe3e84172dfac0bb458e1ea84217c1606f338ae2d91dbc8fc17bd9e
+  checksum: 1ffb23b4d8cb34dc2004fbdfe254a8542af55b442b735a9f6576f4d2c592afaa4d88094262dcde4f9a8e014f0ab8b079c8431e45666974028ee47c6cb96cb3aa
   languageName: node
   linkType: hard
 
@@ -12037,7 +12037,7 @@ __metadata:
     jest-environment-jsdom: ~29.3.1
     jest-preset-angular: 12.2.3
     lint-staged: ~13.1.0
-    ng-packagr: 15.0.2
+    ng-packagr: 15.0.3
     ngx-deploy-npm: ~4.3.10
     nx: 15.3.0
     postcss: ~8.4.19
