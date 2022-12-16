@@ -25,14 +25,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-angular@npm:15.0.3":
-  version: 15.0.3
-  resolution: "@angular-devkit/build-angular@npm:15.0.3"
+"@angular-devkit/architect@npm:0.1500.4":
+  version: 0.1500.4
+  resolution: "@angular-devkit/architect@npm:0.1500.4"
+  dependencies:
+    "@angular-devkit/core": 15.0.4
+    rxjs: 6.6.7
+  checksum: b6be2ddc3b656cdb86e147238501e6cc00254d9ee711f0dd9c3ae384c1faea84774dcc0b1c11dea489828307e04e081beb0045f12d4d0a879aecabb39d492584
+  languageName: node
+  linkType: hard
+
+"@angular-devkit/build-angular@npm:15.0.4":
+  version: 15.0.4
+  resolution: "@angular-devkit/build-angular@npm:15.0.4"
   dependencies:
     "@ampproject/remapping": 2.2.0
-    "@angular-devkit/architect": 0.1500.3
-    "@angular-devkit/build-webpack": 0.1500.3
-    "@angular-devkit/core": 15.0.3
+    "@angular-devkit/architect": 0.1500.4
+    "@angular-devkit/build-webpack": 0.1500.4
+    "@angular-devkit/core": 15.0.4
     "@babel/core": 7.20.2
     "@babel/generator": 7.20.4
     "@babel/helper-annotate-as-pure": 7.18.6
@@ -43,7 +53,7 @@ __metadata:
     "@babel/runtime": 7.20.1
     "@babel/template": 7.18.10
     "@discoveryjs/json-ext": 0.5.7
-    "@ngtools/webpack": 15.0.3
+    "@ngtools/webpack": 15.0.4
     ansi-colors: 4.1.3
     autoprefixer: 10.4.13
     babel-loader: 9.1.0
@@ -53,7 +63,7 @@ __metadata:
     chokidar: 3.5.3
     copy-webpack-plugin: 11.0.0
     critters: 0.0.16
-    css-loader: 6.7.1
+    css-loader: 6.7.3
     esbuild: 0.15.13
     esbuild-wasm: 0.15.13
     glob: 8.0.3
@@ -117,20 +127,20 @@ __metadata:
       optional: true
     tailwindcss:
       optional: true
-  checksum: d1d68e270d6667686459d19f1ba0928850982d14d4223410fddf7b4fd7ea9eb77b54fa4187f06b1445e65a027abd67776fbdeec7f43a8164ee9e3169c49d25d1
+  checksum: 2c3e835bbac7715d1cf1cb1e27af6f09ad1e8eeb389e18282e0991751e4902c05d017c9d5d836ef2e0f38cfc6540a7ef72d8ed12962d1138c8ebc7f7fee8ac20
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-webpack@npm:0.1500.3":
-  version: 0.1500.3
-  resolution: "@angular-devkit/build-webpack@npm:0.1500.3"
+"@angular-devkit/build-webpack@npm:0.1500.4":
+  version: 0.1500.4
+  resolution: "@angular-devkit/build-webpack@npm:0.1500.4"
   dependencies:
-    "@angular-devkit/architect": 0.1500.3
+    "@angular-devkit/architect": 0.1500.4
     rxjs: 6.6.7
   peerDependencies:
     webpack: ^5.30.0
     webpack-dev-server: ^4.0.0
-  checksum: 3d4079ad05bd933591890111bd23de635d1ae26090f224850e468236c879c4b090375e20a063f4814f1b7e5aa35c3967b9d16d8d58b9f0081c3d7b19cea54864
+  checksum: 5aeb788acbed900c9fa2985d178ba1248e842fd175a5f1e2f4ef5a833e812e7cb0ddc7344fe2b208e0f58ad15c9db4fc8ff6fc9408973df992478cbd84df2250
   languageName: node
   linkType: hard
 
@@ -167,6 +177,24 @@ __metadata:
     chokidar:
       optional: true
   checksum: 2512bd70a4dd0c5632a5a8d02ab4026b65d0b429e3eb6ba1493aa6f1628bf27710f1736418e9f3b4c5b8db3c21ff9974f1dfe6f17098d7a6d71eecf89dbc3d4a
+  languageName: node
+  linkType: hard
+
+"@angular-devkit/core@npm:15.0.4":
+  version: 15.0.4
+  resolution: "@angular-devkit/core@npm:15.0.4"
+  dependencies:
+    ajv: 8.11.0
+    ajv-formats: 2.1.1
+    jsonc-parser: 3.2.0
+    rxjs: 6.6.7
+    source-map: 0.7.4
+  peerDependencies:
+    chokidar: ^3.5.2
+  peerDependenciesMeta:
+    chokidar:
+      optional: true
+  checksum: 428a20d96e237d24a62ae3d5284e3140f906e212883e094cc64ec622a5065234f001bd21f9608ad2478088c1cc40aadf48bd53c399ad02be0c98b61d27d3ba11
   languageName: node
   linkType: hard
 
@@ -3012,14 +3040,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ngtools/webpack@npm:15.0.3":
-  version: 15.0.3
-  resolution: "@ngtools/webpack@npm:15.0.3"
+"@ngtools/webpack@npm:15.0.4":
+  version: 15.0.4
+  resolution: "@ngtools/webpack@npm:15.0.4"
   peerDependencies:
     "@angular/compiler-cli": ^15.0.0
     typescript: ~4.8.2
     webpack: ^5.54.0
-  checksum: 6f168a6250060bab9bae9827a14e3e109e3326cb0c79a6e00763a67ddb9c5e11892debc8c0d5b3e5dfa6dd4d266b4cb5ae11809f0e85234d73e71879c9f26871
+  checksum: 978fa56a13a86974d678c57344a5e4390cddf29fadb4adb1e1012210b77c4c91a581af9d2488f164258ce6a03918b60585c3c559523bf6c6a2bf415c11990c07
   languageName: node
   linkType: hard
 
@@ -6427,7 +6455,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-loader@npm:6.7.1, css-loader@npm:^6.4.0":
+"css-loader@npm:6.7.3":
+  version: 6.7.3
+  resolution: "css-loader@npm:6.7.3"
+  dependencies:
+    icss-utils: ^5.1.0
+    postcss: ^8.4.19
+    postcss-modules-extract-imports: ^3.0.0
+    postcss-modules-local-by-default: ^4.0.0
+    postcss-modules-scope: ^3.0.0
+    postcss-modules-values: ^4.0.0
+    postcss-value-parser: ^4.2.0
+    semver: ^7.3.8
+  peerDependencies:
+    webpack: ^5.0.0
+  checksum: 20f435f73d6d776ade4b8dd6c83e7eee65a139f510b2c7575e45d7500ce1b72618b408f4841afc7f34e1aaeef25603ddd10fd4920461907483e1e1e4472bff1f
+  languageName: node
+  linkType: hard
+
+"css-loader@npm:^6.4.0":
   version: 6.7.1
   resolution: "css-loader@npm:6.7.1"
   dependencies:
@@ -11990,7 +12036,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ngrx-addons@workspace:."
   dependencies:
-    "@angular-devkit/build-angular": 15.0.3
+    "@angular-devkit/build-angular": 15.0.4
     "@angular-eslint/eslint-plugin": 15.1.0
     "@angular-eslint/eslint-plugin-template": 15.1.0
     "@angular-eslint/template-parser": 15.1.0
@@ -13774,7 +13820,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.2.14, postcss@npm:^8.3.5, postcss@npm:^8.3.7, postcss@npm:^8.4.14, postcss@npm:^8.4.16, postcss@npm:^8.4.7, postcss@npm:~8.4.20":
+"postcss@npm:^8.2.14, postcss@npm:^8.3.5, postcss@npm:^8.3.7, postcss@npm:^8.4.14, postcss@npm:^8.4.16, postcss@npm:^8.4.19, postcss@npm:^8.4.7, postcss@npm:~8.4.20":
   version: 8.4.20
   resolution: "postcss@npm:8.4.20"
   dependencies:
@@ -14659,7 +14705,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:7.3.8, semver@npm:7.x, semver@npm:^7.0.0, semver@npm:^7.1.1, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7":
+"semver@npm:7.3.8, semver@npm:7.x, semver@npm:^7.0.0, semver@npm:^7.1.1, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.3.8":
   version: 7.3.8
   resolution: "semver@npm:7.3.8"
   dependencies:
