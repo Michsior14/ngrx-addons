@@ -144,24 +144,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/core@npm:14.2.9":
-  version: 14.2.9
-  resolution: "@angular-devkit/core@npm:14.2.9"
-  dependencies:
-    ajv: 8.11.0
-    ajv-formats: 2.1.1
-    jsonc-parser: 3.1.0
-    rxjs: 6.6.7
-    source-map: 0.7.4
-  peerDependencies:
-    chokidar: ^3.5.2
-  peerDependenciesMeta:
-    chokidar:
-      optional: true
-  checksum: ae2fb54494f66e8d2b8a3997f92076f45bd073126afae33efd09d675e5db33140a23f507217c3d13afd5c3d0325ecb0ad6f6dcabbc3930b78c631fdc0c7da1aa
-  languageName: node
-  linkType: hard
-
 "@angular-devkit/core@npm:15.0.3, @angular-devkit/core@npm:^15.0.0-next.0":
   version: 15.0.3
   resolution: "@angular-devkit/core@npm:15.0.3"
@@ -208,19 +190,6 @@ __metadata:
     ora: 5.4.1
     rxjs: 6.6.7
   checksum: 23e94cef21f16777bdd772164e19992ea462270316cbc40a3e45ce793c4e79c02cb1bc982688f0df1355228f53d2d44dcb547552244dabe7b5437b9e5d1964d9
-  languageName: node
-  linkType: hard
-
-"@angular-devkit/schematics@npm:^14.0.0-rc.0":
-  version: 14.2.9
-  resolution: "@angular-devkit/schematics@npm:14.2.9"
-  dependencies:
-    "@angular-devkit/core": 14.2.9
-    jsonc-parser: 3.1.0
-    magic-string: 0.26.2
-    ora: 5.4.1
-    rxjs: 6.6.7
-  checksum: 8ff8b83c13beaaef58e3aafa5453c19ae3a40b0c8f0810b5f7cebf24e715c71e3bceea0540058d09934ceeab4e8677f91cdcb8b07b6032f1f335dd8b5f1d6921
   languageName: node
   linkType: hard
 
@@ -2937,49 +2906,48 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ngrx/component-store@npm:15.0.0":
-  version: 15.0.0
-  resolution: "@ngrx/component-store@npm:15.0.0"
+"@ngrx/component-store@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@ngrx/component-store@npm:15.1.0"
   dependencies:
     tslib: ^2.0.0
   peerDependencies:
     "@angular/core": ^15.0.0
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: 8962e6822436b6d6eb2c04df9613a4a7af29522ef57a55c62e84caed4c1c7c9ff139fdfbbabf5c5f8bdb05f7535d11d015897b7220e1953f80dfd108397bc3a5
+  checksum: 0398ae5c84630171b6e562838d59a35d8d959b4dc62726f36ddf4fb85dea2fddcb5cbf6d001dae2d189b70e230f7ac793c5b47706e60280cfd83a0e159215659
   languageName: node
   linkType: hard
 
-"@ngrx/effects@npm:15.0.0":
-  version: 15.0.0
-  resolution: "@ngrx/effects@npm:15.0.0"
+"@ngrx/effects@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@ngrx/effects@npm:15.1.0"
   dependencies:
     tslib: ^2.0.0
   peerDependencies:
     "@angular/core": ^15.0.0
-    "@ngrx/store": 15.0.0
+    "@ngrx/store": 15.1.0
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: 88af8e672372fcda475a9c75d3c2609810514aa096c5f05733ad2c0444a2209218360cb4d0dc34f4d9d329574c8c180142d8fc8b92930cb2feb46d531a21a848
+  checksum: 85dc32259cf72ec388f5a16b2ca140e1cb47aec2d16973b671392c8f23e2afbc391e7ee5f895cdd5f1c3e297b1d2b4e6ae47470af6f6aee59fe2948c91b05820
   languageName: node
   linkType: hard
 
-"@ngrx/entity@npm:15.0.0":
-  version: 15.0.0
-  resolution: "@ngrx/entity@npm:15.0.0"
+"@ngrx/entity@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@ngrx/entity@npm:15.1.0"
   dependencies:
     tslib: ^2.0.0
   peerDependencies:
     "@angular/core": ^15.0.0
-    "@ngrx/store": 15.0.0
+    "@ngrx/store": 15.1.0
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: 4aefc1f88868774846167e4f57dc21be8777b1a473aa86e77b194de2bfb7d4669ee4c50d148309af3a3e10618fee5d847f132de66da55790b5968a403f9510f6
+  checksum: 439354352837f7a329f273ed08c9b0fb58ce97e99758538711e05b840b9ddc7ddbac86190cefc184e14942fcce570c61c4315a00c79ecd570e62ec953001f213
   languageName: node
   linkType: hard
 
-"@ngrx/eslint-plugin@npm:15.0.0":
-  version: 15.0.0
-  resolution: "@ngrx/eslint-plugin@npm:15.0.0"
+"@ngrx/eslint-plugin@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@ngrx/eslint-plugin@npm:15.1.0"
   dependencies:
-    "@angular-devkit/schematics": ^14.0.0-rc.0
     "@typescript-eslint/experimental-utils": ^5.4.0
     eslint-etc: ^5.1.0
     semver: ^7.3.5
@@ -2987,56 +2955,53 @@ __metadata:
   peerDependencies:
     eslint: ">=8.0.0"
     typescript: ">=4.4.0"
-  checksum: 5d02f87bfd03efadcf77767ffef6a172ceacf8e3869816270064eaa7c8e3ae8b37b8be0db9df642c6aab8f3feb295efd566d00229f8173f36ed4e689870d4f88
+  checksum: 63a71721dfe647006e39f9ec72c9f07706a550699dd52dfc72a5711e0eaa0b47ebf0ab8d400a1ff5dbce76083a74931dce314b1f053c66ea2005235ea7573293
   languageName: node
   linkType: hard
 
-"@ngrx/router-store@npm:15.0.0":
-  version: 15.0.0
-  resolution: "@ngrx/router-store@npm:15.0.0"
+"@ngrx/router-store@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@ngrx/router-store@npm:15.1.0"
   dependencies:
     tslib: ^2.0.0
   peerDependencies:
     "@angular/common": ^15.0.0
     "@angular/core": ^15.0.0
     "@angular/router": ^15.0.0
-    "@ngrx/store": 15.0.0
+    "@ngrx/store": 15.1.0
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: f71951f4aad6328ef5988abfba4bdf3b8d40b19a608484c0bdc636b2e4c170efa17765bbbe5ec7ac170467242db9d8120359ab98e99d41f26f1390204ce2934a
+  checksum: a7550bc906f9ce91f209aa59d7c58a9b4d42a0780afdf4d57fec279bb3c7d4c84241b6d11e47f8f7cf9b0e64d20fb7a8556aaa09bb4d1ee7f56d4155a8d1cb5e
   languageName: node
   linkType: hard
 
-"@ngrx/schematics@npm:15.0.0":
-  version: 15.0.0
-  resolution: "@ngrx/schematics@npm:15.0.0"
-  peerDependencies:
-    "@angular-devkit/core": 15.0.0
-    "@angular-devkit/schematics": 14.2.9
-  checksum: a33660ef688d3488cdeec111016f07bd0dbd1048a74c8a71649c493c1242337fe46b1e9a67e8a97a858f680378b875774ca323e4903f190abc6cd8319ae2b9cd
+"@ngrx/schematics@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@ngrx/schematics@npm:15.1.0"
+  checksum: 21dc22b69b6778fd917a529532d7766436313515e6f5fa48bd969d7ce6c71062e4824f8c928cfb97db437ecbd388f51ed9bd78d69020e1b587e824e61fd8c2f5
   languageName: node
   linkType: hard
 
-"@ngrx/store-devtools@npm:15.0.0":
-  version: 15.0.0
-  resolution: "@ngrx/store-devtools@npm:15.0.0"
+"@ngrx/store-devtools@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@ngrx/store-devtools@npm:15.1.0"
   dependencies:
     tslib: ^2.0.0
   peerDependencies:
-    "@ngrx/store": 15.0.0
+    "@ngrx/store": 15.1.0
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: c8755570bcb8ffe956368c77ff155a4001d5892ae9f12395365ff9db9e4a371f968f452a0950af3e6cc388d36d46385bd39bf498ec140e9e35b9d5bdb75366e2
+  checksum: dd3d5275d8d203f177a4d4cced0c71f35d02be6236b90d1b4f0cd7b65ca7cf75f3f94cb3f1e516ecddd5332a8e556bdb0c15534ffdf424f3846c65040314d982
   languageName: node
   linkType: hard
 
-"@ngrx/store@npm:15.0.0":
-  version: 15.0.0
-  resolution: "@ngrx/store@npm:15.0.0"
+"@ngrx/store@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@ngrx/store@npm:15.1.0"
   dependencies:
     tslib: ^2.0.0
   peerDependencies:
     "@angular/core": ^15.0.0
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: db2bf86f963157ea8ed05d5bd00d4e3def107b88f6485ef8d95632ef3c9faa6007d58945d0e9f8ae59c6b834c99f82eca2194bc6b7cab922d7f6f193407a9be3
+  checksum: d651a0171e2660c065b3e5fc6786f24158f10edb1ce5ef9491170ebadee4405d9ce94731ae0aae2edf73891b02a85c92d67cb216e04741c62d7539c487b272c1
   languageName: node
   linkType: hard
 
@@ -10926,13 +10891,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonc-parser@npm:3.1.0":
-  version: 3.1.0
-  resolution: "jsonc-parser@npm:3.1.0"
-  checksum: c39b66b96c4ecb269187f4cd24fb3400b43d944eb023f5df9d9f4ab87cd396e26541d521b22379621458156badaf96a2520a75511e14fc15be8ad33eb88cbc91
-  languageName: node
-  linkType: hard
-
 "jsonc-parser@npm:3.2.0, jsonc-parser@npm:^3.2.0":
   version: 3.2.0
   resolution: "jsonc-parser@npm:3.2.0"
@@ -11407,15 +11365,6 @@ __metadata:
   version: 7.14.0
   resolution: "lru-cache@npm:7.14.0"
   checksum: 88f1a8c2fd3bafc69121104740dcebc71e4ace97fb03f0ccf3b7d52df7dc10eedb78951af74f08437cf5fdb8c50d5956a0bcc944a073540f027efd8357f87cd1
-  languageName: node
-  linkType: hard
-
-"magic-string@npm:0.26.2":
-  version: 0.26.2
-  resolution: "magic-string@npm:0.26.2"
-  dependencies:
-    sourcemap-codec: ^1.4.8
-  checksum: abffa31439bccebdce3554ae496331c130af4d97f8cb96f4753ef5a4b7d5eb03d346107a0673b55187d7cbd67eb512ddc4424f82849a297dba571769896053ca
   languageName: node
   linkType: hard
 
@@ -12054,14 +12003,14 @@ __metadata:
     "@commitlint/cli": ~17.3.0
     "@commitlint/config-angular": ~17.3.0
     "@jscutlery/semver": ~2.29.2
-    "@ngrx/component-store": 15.0.0
-    "@ngrx/effects": 15.0.0
-    "@ngrx/entity": 15.0.0
-    "@ngrx/eslint-plugin": 15.0.0
-    "@ngrx/router-store": 15.0.0
-    "@ngrx/schematics": 15.0.0
-    "@ngrx/store": 15.0.0
-    "@ngrx/store-devtools": 15.0.0
+    "@ngrx/component-store": 15.1.0
+    "@ngrx/effects": 15.1.0
+    "@ngrx/entity": 15.1.0
+    "@ngrx/eslint-plugin": 15.1.0
+    "@ngrx/router-store": 15.1.0
+    "@ngrx/schematics": 15.1.0
+    "@ngrx/store": 15.1.0
+    "@ngrx/store-devtools": 15.1.0
     "@nrwl/angular": 15.3.3
     "@nrwl/cli": 15.3.3
     "@nrwl/eslint-plugin-nx": 15.3.3
