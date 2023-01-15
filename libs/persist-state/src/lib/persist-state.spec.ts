@@ -212,7 +212,7 @@ describe('PersistState', () => {
     it('should protect from re-adding the feature', fakeAsync(() => {
       const listen = jest.spyOn(
         service as typeof service & {
-          listenOnStates: typeof service['listenOnStates'];
+          listenOnStates: (typeof service)['listenOnStates'];
         },
         'listenOnStates'
       );
