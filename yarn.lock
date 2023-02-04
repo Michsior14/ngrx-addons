@@ -3410,21 +3410,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nrwl/devkit@npm:15.2.3":
-  version: 15.2.3
-  resolution: "@nrwl/devkit@npm:15.2.3"
-  dependencies:
-    "@phenomnomnominal/tsquery": 4.1.1
-    ejs: ^3.1.7
-    ignore: ^5.0.4
-    semver: 7.3.4
-    tslib: ^2.3.0
-  peerDependencies:
-    nx: ">= 14 <= 16"
-  checksum: d9876cdd0b1598c4e02271c738907790420775d1ee4c1415c02b19828d38a4a542ebfc60e675702e2abff6b8985bd0ba1d9df46c24220f3b2a069c6875a3d90a
-  languageName: node
-  linkType: hard
-
 "@nrwl/devkit@npm:15.6.2":
   version: 15.6.2
   resolution: "@nrwl/devkit@npm:15.6.2"
@@ -11669,7 +11654,7 @@ __metadata:
     jest-preset-angular: 12.2.6
     lint-staged: ~13.1.0
     ng-packagr: 15.1.1
-    ngx-deploy-npm: ~4.3.10
+    ngx-deploy-npm: ~5.0.0
     nx: 15.6.2
     postcss: ~8.4.21
     postcss-import: ~15.1.0
@@ -11686,12 +11671,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"ngx-deploy-npm@npm:~4.3.10":
-  version: 4.3.10
-  resolution: "ngx-deploy-npm@npm:4.3.10"
-  dependencies:
-    "@nrwl/devkit": 15.2.3
-  checksum: d785750b903f927ad175a6e9986eddf4f4cb9d282193c1d888054129f7f55fecd0bc9d8e62161d97044642d31b982627c26266d5db2d420ac07a959811cad617
+"ngx-deploy-npm@npm:~5.0.0":
+  version: 5.0.0
+  resolution: "ngx-deploy-npm@npm:5.0.0"
+  peerDependencies:
+    "@nrwl/devkit": ^15.0.0
+    "@nrwl/workspace": ^15.0.0
+    nx: ^15.0.0
+  checksum: 8516392ea55694628923a16a53adfaa0dc03894d075b1a094be9548bb9642543c1a3c0690095dfa38b7baaeafcaaca750569b2a45faa172e35d33db7453e61b6
   languageName: node
   linkType: hard
 
