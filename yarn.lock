@@ -3100,19 +3100,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jscutlery/semver@npm:~2.29.3":
-  version: 2.29.3
-  resolution: "@jscutlery/semver@npm:2.29.3"
+"@jscutlery/semver@npm:~2.30.0":
+  version: 2.30.0
+  resolution: "@jscutlery/semver@npm:2.30.0"
   dependencies:
     chalk: 4.1.2
     conventional-changelog: ^3.1.25
     conventional-recommended-bump: ^6.1.0
     detect-indent: 6.1.0
     inquirer: 8.2.5
-    rxjs: 7.6.0
+    rxjs: 7.8.0
   peerDependencies:
     "@nrwl/devkit": ^15.0.0
-  checksum: 1a139f1319eb789a890265bbd16399ca889ad67d73fcad04c4d8a49c1dfda12264008ab0524a56ca4fa8dd6ed663b2fcb41081005bc635a995cf2a2f91dad210
+  checksum: 26c3dd7ad6bc2c36a9f7d6e12972d1d72a197d0d07103992de975fc0b3629a8bc40f8e5bf7479ce463d17d610572aa8ee449f30de8b4ef2a08f1a21570845d45
   languageName: node
   linkType: hard
 
@@ -11638,7 +11638,7 @@ __metadata:
     "@angular/router": 15.1.2
     "@commitlint/cli": ~17.4.2
     "@commitlint/config-angular": ~17.4.2
-    "@jscutlery/semver": ~2.29.3
+    "@jscutlery/semver": ~2.30.0
     "@ngrx/component-store": 15.2.1
     "@ngrx/effects": 15.2.1
     "@ngrx/entity": 15.2.1
@@ -13975,16 +13975,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:7.6.0":
-  version: 7.6.0
-  resolution: "rxjs@npm:7.6.0"
-  dependencies:
-    tslib: ^2.1.0
-  checksum: 595404f4ff7c0547c43a6441e7df324d172da6fd56d47a655563f387edb812d7cfed7a58a5f5267bf2724803aa0823b1dafa37e8a34460e92479249c6427adc8
-  languageName: node
-  linkType: hard
-
-"rxjs@npm:^7.5.5, rxjs@npm:^7.5.6, rxjs@npm:~7.8.0":
+"rxjs@npm:7.8.0, rxjs@npm:^7.5.5, rxjs@npm:^7.5.6, rxjs@npm:~7.8.0":
   version: 7.8.0
   resolution: "rxjs@npm:7.8.0"
   dependencies:
