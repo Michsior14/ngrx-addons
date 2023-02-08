@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [2.0.2](https://github.com/Michsior14/ngrx-addons/compare/sync-state-2.0.1...sync-state-2.0.2) (2023-02-08)
+
+### Dependency Updates
+
+* `common` updated to version `2.0.2`
+
+
 ## [2.0.1](https://github.com/Michsior14/ngrx-addons/compare/sync-state-2.0.0...sync-state-2.0.1) (2022-11-30)
 
 - No changes, bump only for release process
