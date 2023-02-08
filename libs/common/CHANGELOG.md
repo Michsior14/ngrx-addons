@@ -2,6 +2,10 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [2.0.2](https://github.com/Michsior14/ngrx-addons/compare/common-2.0.1...common-2.0.2) (2023-02-08)
+
+
+
 ## [2.0.1](https://github.com/Michsior14/ngrx-addons/compare/common-2.0.0...common-2.0.1) (2022-11-30)
 
 - No changes, bump only for release process
