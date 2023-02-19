@@ -2707,7 +2707,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/core@npm:^29.4.2, @jest/core@npm:^29.4.3":
+"@jest/core@npm:^29.4.3":
   version: 29.4.3
   resolution: "@jest/core@npm:29.4.3"
   dependencies:
@@ -3096,7 +3096,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/types@npm:^29.4.2, @jest/types@npm:^29.4.3":
+"@jest/types@npm:^29.4.3":
   version: 29.4.3
   resolution: "@jest/types@npm:29.4.3"
   dependencies:
@@ -4166,17 +4166,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
-  version: 18.11.11
-  resolution: "@types/node@npm:18.11.11"
-  checksum: c7a61a1f60a1b8561d6ce021a4334b66ce9896ab3f380fc2bf653e370533e801defa67eea47441ea1b7c2c7b0a70336093ae2f017b13786ca5325a0f1e2d11d2
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:~16.18.12":
-  version: 16.18.12
-  resolution: "@types/node@npm:16.18.12"
-  checksum: d57b30a9e408bca51b57a1f5118335b2266ff30d66ae87c828630a9391fd1005229ce6b648492374dc393db2e4eae56212d16ef57c8a40e7b25f6306353dd1b1
+"@types/node@npm:*, @types/node@npm:~18.14.0":
+  version: 18.14.0
+  resolution: "@types/node@npm:18.14.0"
+  checksum: c4b19a3e0a5d97fea4e70edffc095455aec4662883a9fc4bea5d39808995989a58501f2c7e716cfdefe82bc00edeaa93a40ede2a69c9459bd86ad61adab35c55
   languageName: node
   linkType: hard
 
@@ -9550,7 +9543,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-cli@npm:^29.4.2":
+"jest-cli@npm:^29.4.3":
   version: 29.4.3
   resolution: "jest-cli@npm:29.4.3"
   dependencies:
@@ -10358,14 +10351,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:29.4.2":
-  version: 29.4.2
-  resolution: "jest@npm:29.4.2"
+"jest@npm:~29.4.3":
+  version: 29.4.3
+  resolution: "jest@npm:29.4.3"
   dependencies:
-    "@jest/core": ^29.4.2
-    "@jest/types": ^29.4.2
+    "@jest/core": ^29.4.3
+    "@jest/types": ^29.4.3
     import-local: ^3.0.2
-    jest-cli: ^29.4.2
+    jest-cli: ^29.4.3
   peerDependencies:
     node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
   peerDependenciesMeta:
@@ -10373,7 +10366,7 @@ __metadata:
       optional: true
   bin:
     jest: bin/jest.js
-  checksum: 8729ee89b8682cf26fc1619b1e4d101487cc59d13f6b90f6636fbedd59864853c323b02fb791cb0e59e7f4787ec55c2b49abe56495f56ae91357f4af8c17cadd
+  checksum: 57a677678b1f9394adf41543a284919fc78e147ccd1dd6c21b263d69127e069331500dbe81d5214daa9facff4a3363e0621fc4786dc0bf568d88533581dc5f65
   languageName: node
   linkType: hard
 
@@ -11631,7 +11624,7 @@ __metadata:
     "@nrwl/workspace": 15.7.2
     "@schematics/angular": ~15.1.6
     "@types/jest": ~29.4.0
-    "@types/node": ~16.18.12
+    "@types/node": ~18.14.0
     "@types/uuid": ^9.0.0
     "@typescript-eslint/eslint-plugin": 5.52.0
     "@typescript-eslint/parser": 5.52.0
@@ -11639,7 +11632,7 @@ __metadata:
     eslint-config-prettier: ~8.6.0
     husky: ~8.0.3
     jasmine-marbles: ~0.9.2
-    jest: 29.4.2
+    jest: ~29.4.3
     jest-environment-jsdom: ~29.4.3
     jest-preset-angular: 13.0.0
     lint-staged: ~13.1.2
