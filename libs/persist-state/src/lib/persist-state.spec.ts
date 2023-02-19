@@ -21,14 +21,10 @@ describe('PersistState', () => {
   };
 
   const testStorage = {
-    getItem: jest.fn(
-      <T>(_key: string): Async<T | null | undefined> => of(null)
-    ),
-    setItem: jest.fn(
-      (_key: string, _value: Record<string, unknown>): Async<unknown> =>
-        of(true)
-    ),
-    removeItem: jest.fn((_key: string): Async<boolean> => of(true)),
+    getItem: <T>(_key: string): Async<T | null | undefined> => of(null),
+    setItem: (_key: string, _value: Record<string, unknown>): Async<unknown> =>
+      of(true),
+    removeItem: (_key: string): Async<boolean> => of(true),
   };
 
   const rootConfig: PersistStateRootConfig<
@@ -76,6 +72,8 @@ describe('PersistState', () => {
   let store: MockStore<typeof initialState>;
   let service: PersistState;
   let dispatch: jest.SpyInstance;
+  let getItem: jest.SpyInstance;
+  let setItem: jest.SpyInstance;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -90,6 +88,8 @@ describe('PersistState', () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     store = TestBed.inject(MockStore);
     dispatch = jest.spyOn(store, 'dispatch');
+    getItem = jest.spyOn(testStorage, 'getItem');
+    setItem = jest.spyOn(testStorage, 'setItem');
   });
 
   it('should be created', () => {
@@ -100,9 +100,9 @@ describe('PersistState', () => {
     it('should guard listening on changes', fakeAsync(() => {
       service.addRoot();
       tick();
-      expect(testStorage.getItem).not.toHaveBeenCalledWith('test-guarded');
-      expect(testStorage.getItem).toHaveBeenCalledWith('test-b');
-      expect(testStorage.getItem).toHaveBeenCalledWith('test-a-c');
+      expect(getItem).not.toHaveBeenCalledWith('test-guarded');
+      expect(getItem).toHaveBeenCalledWith('test-b');
+      expect(getItem).toHaveBeenCalledWith('test-a-c');
       service.ngOnDestroy();
     }));
 
@@ -116,7 +116,7 @@ describe('PersistState', () => {
     it('should rehydrate', fakeAsync(() => {
       const ac = { valueA: 2, valueC: 'd' };
       const b = { valueB: { a: 2 } };
-      testStorage.getItem.mockImplementation((key) => {
+      getItem.mockImplementation((key) => {
         if (key === 'test-b') {
           return of(b);
         }
@@ -139,10 +139,10 @@ describe('PersistState', () => {
       service.ngOnDestroy();
     }));
 
-    it('should  run migrations', fakeAsync(() => {
+    it('should run migrations', fakeAsync(() => {
       const ac = { valueA: 2, valueC: 'd', version: 1 };
       const b = { valueB: { a: 2 } };
-      testStorage.getItem.mockImplementation((key) => {
+      getItem.mockImplementation((key) => {
         if (key === 'test-b') {
           return of(b);
         }
@@ -181,16 +181,16 @@ describe('PersistState', () => {
       });
       tick();
 
-      expect(testStorage.setItem).toBeCalledTimes(1);
-      expect(testStorage.setItem).toHaveBeenCalledWith('test-b', {
+      expect(setItem).toBeCalledTimes(1);
+      expect(setItem).toHaveBeenCalledWith('test-b', {
         valueB: {
           a: 2,
         },
       });
 
       tick(15);
-      expect(testStorage.setItem).toBeCalledTimes(2);
-      expect(testStorage.setItem).toHaveBeenCalledWith('test-a-c', {
+      expect(setItem).toBeCalledTimes(2);
+      expect(setItem).toHaveBeenCalledWith('test-a-c', {
         valueA: 2,
         valueC: 'd',
       });
@@ -203,8 +203,8 @@ describe('PersistState', () => {
     it('should not listen if states are empty', fakeAsync(() => {
       service.addFeature({ key, states: [] });
       tick();
-      expect(testStorage.getItem).not.toHaveBeenCalled();
-      expect(testStorage.setItem).not.toHaveBeenCalled();
+      expect(getItem).not.toHaveBeenCalled();
+      expect(setItem).not.toHaveBeenCalled();
       expect(dispatch).not.toHaveBeenCalled();
       service.ngOnDestroy();
     }));
@@ -225,7 +225,7 @@ describe('PersistState', () => {
 
     it('should rehydrate', fakeAsync(() => {
       const state = { valueB: { a: 2, valueA: 2, valueC: 'd' } };
-      testStorage.getItem.mockReturnValue(of(state));
+      getItem.mockReturnValue(of(state));
 
       service.addFeature({
         key,
@@ -244,7 +244,7 @@ describe('PersistState', () => {
 
     it('should run migrations', fakeAsync(() => {
       const state = { valueB: { a: 2, valueA: 2, valueC: 'd' } };
-      testStorage.getItem.mockReturnValue(of(state));
+      getItem.mockReturnValue(of(state));
 
       service.addFeature({
         key,
