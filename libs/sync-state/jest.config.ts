@@ -5,12 +5,7 @@ export default {
   displayName: 'sync-state',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.spec.json',
-      stringifyContentPathRegex: '\\.(html|svg)$',
-    },
-  },
+  globals: {},
   coverageDirectory: '../../coverage/libs/sync-state',
   collectCoverageFrom: [
     'src/lib/**/*.ts',
