@@ -1880,13 +1880,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:~17.4.4":
-  version: 17.4.4
-  resolution: "@commitlint/cli@npm:17.4.4"
+"@commitlint/cli@npm:~17.5.0":
+  version: 17.5.0
+  resolution: "@commitlint/cli@npm:17.5.0"
   dependencies:
     "@commitlint/format": ^17.4.4
     "@commitlint/lint": ^17.4.4
-    "@commitlint/load": ^17.4.4
+    "@commitlint/load": ^17.5.0
     "@commitlint/read": ^17.4.4
     "@commitlint/types": ^17.4.4
     execa: ^5.0.0
@@ -1896,7 +1896,7 @@ __metadata:
     yargs: ^17.0.0
   bin:
     commitlint: cli.js
-  checksum: 144c0f048367eb06fecc4eb22be014fa1a106c881ee8e16d16697c788e0917451f8e7f80516452f40ebdd47ca586bb03707d9d2f0976c92cda71cd77b72d223c
+  checksum: 4fb5db3214959f569cc35903679a77809c5a231a58c401ea875e54c34d93f34441d7c7d02bb0a638cf2f18dd65ef34fc5ea0a7e397c657788ee7f424de36a251
   languageName: node
   linkType: hard
 
@@ -1979,9 +1979,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/load@npm:^17.4.4":
-  version: 17.4.4
-  resolution: "@commitlint/load@npm:17.4.4"
+"@commitlint/load@npm:^17.5.0":
+  version: 17.5.0
+  resolution: "@commitlint/load@npm:17.5.0"
   dependencies:
     "@commitlint/config-validator": ^17.4.4
     "@commitlint/execute-rule": ^17.4.0
@@ -1996,8 +1996,8 @@ __metadata:
     lodash.uniq: ^4.5.0
     resolve-from: ^5.0.0
     ts-node: ^10.8.1
-    typescript: ^4.6.4
-  checksum: 2e24475e7d2b790f4355116024d58188781ade9031ebb2aabe75e0aae0aa94107218052f6ef687a26ba00d4dfc2e58f1e54e46da5228a8e2b2185f00edabd498
+    typescript: ^4.6.4 || ^5.0.0
+  checksum: 894375c1beffd7c165a4f21a83da2b30197ceeb4076630eef91eb523a02018a7e53db4d90277e451db46037a994ee92b083f21290bf0ec07a951a309d309dc8f
   languageName: node
   linkType: hard
 
@@ -11727,7 +11727,7 @@ __metadata:
     "@angular/platform-browser": 15.2.3
     "@angular/platform-browser-dynamic": 15.2.3
     "@angular/router": 15.2.3
-    "@commitlint/cli": ~17.4.4
+    "@commitlint/cli": ~17.5.0
     "@commitlint/config-angular": ~17.4.4
     "@jscutlery/semver": ~2.30.1
     "@ngrx/component-store": 15.4.0
@@ -15523,7 +15523,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.9.5, typescript@npm:^4.6.4":
+"typescript@npm:4.9.5":
   version: 4.9.5
   resolution: "typescript@npm:4.9.5"
   bin:
@@ -15533,13 +15533,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.9.5#~builtin<compat/typescript>, typescript@patch:typescript@^4.6.4#~builtin<compat/typescript>":
+"typescript@npm:^4.6.4 || ^5.0.0":
+  version: 5.0.2
+  resolution: "typescript@npm:5.0.2"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: aa0e2a766412a0c9f609133681753cc88098aa44e079820d203dc0628a8fc3997d4e6b93c2c813c483f770698561c3225c5ab3e5c8896639cfc5d94528e3005f
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@4.9.5#~builtin<compat/typescript>":
   version: 4.9.5
   resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 10d31da0caa997927eab0167b7ddacb9ac8d3fd87e6584185b14da32b7f033e727309682fc0395021f4ac110860a3be6054e9b039a996a24d282a20bafc599f4
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^4.6.4 || ^5.0.0#~builtin<compat/typescript>":
+  version: 5.0.2
+  resolution: "typescript@patch:typescript@npm%3A5.0.2#~builtin<compat/typescript>::version=5.0.2&hash=85af82"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 3ff588d800f76d5f46b7ee41ca713d9c4274ea10f3283aa8bb2cec834075622e23a743eb63b8734da4ff2780f946849a009a8571ff59ac297abe4011125361fe
   languageName: node
   linkType: hard
 
