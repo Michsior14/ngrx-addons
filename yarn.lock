@@ -2129,7 +2129,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@csstools/media-query-list-parser@npm:^2.0.0":
+"@csstools/media-query-list-parser@npm:^2.0.0, @csstools/media-query-list-parser@npm:^2.0.2":
   version: 2.0.2
   resolution: "@csstools/media-query-list-parser@npm:2.0.2"
   peerDependencies:
@@ -2269,6 +2269,20 @@ __metadata:
   peerDependencies:
     postcss: ^8.4
   checksum: 4e0e7c2a73a7e8cc5758cd5bb26c4cc346b0320332104dc2efc3ca956b29dd5ad1b90db6e8daeb23b50a108b3dbc634dc8fda7a0be7925ae358a8c5947b466aa
+  languageName: node
+  linkType: hard
+
+"@csstools/postcss-media-minmax@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@csstools/postcss-media-minmax@npm:1.0.0"
+  dependencies:
+    "@csstools/css-calc": ^1.0.1
+    "@csstools/css-parser-algorithms": ^2.1.0
+    "@csstools/css-tokenizer": ^2.1.0
+    "@csstools/media-query-list-parser": ^2.0.2
+  peerDependencies:
+    postcss: ^8.4
+  checksum: 15331ecfb5d3fdeecde811306581630cd495a2f8641db5388f101d1a783e73ad3f747ab329fd4e450bbf33eb87038092b474f878c279abc666f93f685d9b02a5
   languageName: node
   linkType: hard
 
@@ -6749,10 +6763,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cssdb@npm:^7.5.2":
-  version: 7.5.2
-  resolution: "cssdb@npm:7.5.2"
-  checksum: fa9675a125adeb17c57bb5344733f00bcb58c1392ef1db11e77a353447da7fd8b3e751acab1fd30234b3c4e732aea80a4fc7e3674892e3f28dc35048fb982879
+"cssdb@npm:^7.5.3":
+  version: 7.5.3
+  resolution: "cssdb@npm:7.5.3"
+  checksum: 889eb19809f0fe03fbd149284343a8c4a5789ae66c6df462a03fc0c1ebd3ad0f108a18b2a80fb25c860c36b8f7adf0e98f235d2ac642206f5fe5cd9c330c2d22
   languageName: node
   linkType: hard
 
@@ -11793,7 +11807,7 @@ __metadata:
     nx: 15.8.9
     postcss: ~8.4.21
     postcss-import: ~15.1.0
-    postcss-preset-env: ~8.2.0
+    postcss-preset-env: ~8.3.0
     postcss-url: ~10.1.3
     prettier: ~2.8.7
     rxjs: ~7.8.0
@@ -13053,15 +13067,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-media-minmax@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "postcss-media-minmax@npm:5.0.0"
-  peerDependencies:
-    postcss: ^8.1.0
-  checksum: ee04b1b9eb5b003dfea344baf14424cc8b2600c784f37fe9af097252d6e35ed786bbf7ce36d19592d632d238ad15b9128a4247653df0cadcabbe1fbc137295fe
-  languageName: node
-  linkType: hard
-
 "postcss-merge-longhand@npm:^5.1.7":
   version: 5.1.7
   resolution: "postcss-merge-longhand@npm:5.1.7"
@@ -13343,9 +13348,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-preset-env@npm:~8.2.0":
-  version: 8.2.0
-  resolution: "postcss-preset-env@npm:8.2.0"
+"postcss-preset-env@npm:~8.3.0":
+  version: 8.3.0
+  resolution: "postcss-preset-env@npm:8.3.0"
   dependencies:
     "@csstools/postcss-cascade-layers": ^3.0.1
     "@csstools/postcss-color-function": ^2.1.0
@@ -13358,6 +13363,7 @@ __metadata:
     "@csstools/postcss-logical-float-and-clear": ^1.0.1
     "@csstools/postcss-logical-resize": ^1.0.1
     "@csstools/postcss-logical-viewport-units": ^1.0.2
+    "@csstools/postcss-media-minmax": ^1.0.0
     "@csstools/postcss-media-queries-aspect-ratio-number-values": ^1.0.1
     "@csstools/postcss-nested-calc": ^2.0.2
     "@csstools/postcss-normalize-display-values": ^2.0.1
@@ -13373,7 +13379,7 @@ __metadata:
     css-blank-pseudo: ^5.0.2
     css-has-pseudo: ^5.0.2
     css-prefers-color-scheme: ^8.0.2
-    cssdb: ^7.5.2
+    cssdb: ^7.5.3
     postcss-attribute-case-insensitive: ^6.0.2
     postcss-clamp: ^4.1.0
     postcss-color-functional-notation: ^5.0.2
@@ -13392,7 +13398,6 @@ __metadata:
     postcss-initial: ^4.0.1
     postcss-lab-function: ^5.2.0
     postcss-logical: ^6.1.0
-    postcss-media-minmax: ^5.0.0
     postcss-nesting: ^11.2.1
     postcss-opacity-percentage: ^2.0.0
     postcss-overflow-shorthand: ^4.0.1
@@ -13404,7 +13409,7 @@ __metadata:
     postcss-value-parser: ^4.2.0
   peerDependencies:
     postcss: ^8.4
-  checksum: 930758108441e570f9aa938746bd5a0b798234696000bae89dd811bb6ae135f2132399067aa609aae5898bc3b312cb77dfa7b8b88dae81d30705ae90072878c8
+  checksum: 9829e3ac24e234e30968c35c71dbe99a02dc63385dace79272d84f1c8f065403e6b9f4525f8b6d4d2ecbae25663ee722367e880ae4e733404d669223266bf0b9
   languageName: node
   linkType: hard
 
