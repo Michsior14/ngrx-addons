@@ -1,11 +1,12 @@
 {
   "name": "sync-state",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/sync-state/src",
   "prefix": "ngrx-addons",
   "targets": {
     "build": {
-      "executor": "@nrwl/angular:package",
+      "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/sync-state"],
       "options": {
         "project": "libs/sync-state/ng-package.json"
@@ -21,7 +22,7 @@
       "defaultConfiguration": "production"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/sync-state"],
       "options": {
         "jestConfig": "libs/sync-state/jest.config.ts",
@@ -30,7 +31,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/sync-state/**/*.ts",

@@ -13,21 +13,15 @@ concurrency:
 jobs:
   main:
     name: Nx Cloud - Main Job
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.11
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.13.0
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
     with:
       number-of-agents: 3
-      init-commands: |
-        yarn exec nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
-      parallel-commands: |
-        yarn exec nx-cloud record -- yarn exec nx workspace-lint
       parallel-commands-on-agents: |
-        yarn exec nx affected --target=lint --parallel=3
-        yarn exec nx affected --target=test --parallel=3 --ci --code-coverage
-        yarn exec nx affected --target=build --parallel=3
+        yarn nx affected -t lint --parallel=3 & yarn nx affected -t test --parallel=3 --configuration=ci --code-coverage & yarn nx affected -t build --parallel=3
 
   agents:
     name: Nx Cloud - Agents
-    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.11
+    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.13.0
     with:
       number-of-agents: 3
