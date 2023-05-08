@@ -51,7 +51,7 @@
       "options": {
         "postTargets": ["persist-state:github", "persist-state:deploy"],
         "commitMessageFormat": "release(${projectName}): ${version} [skip ci]",
-        "preset": "angular",
+        "preset": "conventional",
         "trackDeps": true
       }
     },

@@ -49,7 +49,7 @@
       "options": {
         "postTargets": ["common:github", "common:deploy"],
         "commitMessageFormat": "release(${projectName}): ${version} [skip ci]",
-        "preset": "angular",
+        "preset": "conventional",
         "trackDeps": true
       }
     },
