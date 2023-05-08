@@ -2,6 +2,17 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [2.0.3-beta.0](https://github.com/Michsior14/ngrx-addons/compare/common-2.0.2...common-2.0.3-beta.0) (2023-05-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* update to angular 16
+
+### Features
+
+* update to angular 16 ([dd051b1](https://github.com/Michsior14/ngrx-addons/commit/dd051b108f79ea3cbf1c15ee241cc9992effb5b3))
+
 ## [2.0.2](https://github.com/Michsior14/ngrx-addons/compare/common-2.0.1...common-2.0.2) (2023-02-08)
 
 
