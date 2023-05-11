@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [3.0.1](https://github.com/Michsior14/ngrx-addons/compare/sync-state-3.0.0...sync-state-3.0.1) (2023-05-11)
+
+
+### Bug Fixes
+
+* provide default type in feature modules ([#179](https://github.com/Michsior14/ngrx-addons/issues/179)) ([3c35ff7](https://github.com/Michsior14/ngrx-addons/commit/3c35ff7f25fe2ee4b3a94b48482b31c66895b954)), closes [#178](https://github.com/Michsior14/ngrx-addons/issues/178)
+
 ## [3.0.0](https://github.com/Michsior14/ngrx-addons/compare/sync-state-3.0.0-beta.0...sync-state-3.0.0) (2023-05-09)
 
 ## [3.0.0-beta.0](https://github.com/Michsior14/ngrx-addons/compare/sync-state-2.0.3-beta.0...sync-state-3.0.0-beta.0) (2023-05-08)
