@@ -1,4 +1,4 @@
-# @ngrx-addons/persist-state
+# @ngrx-addons/persist-state ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ngrx-addons/persist-state?color=%236969b3) ![npm](https://img.shields.io/npm/dm/@ngrx-addons/persist-state?color=%2351ae17) ![NPM](https://img.shields.io/npm/l/@ngrx-addons/persist-state?color=%23f55d3e) ![npm](https://img.shields.io/npm/v/@ngrx-addons/persist-state?color=%2366101f)
 
 The library for persisting state in ngrx. Highly inspired by [@ngneat/elf-persist-state](https://github.com/ngneat/elf/tree/master/packages/persist-state).
 Supports local storage, session storage and async storages with [localForage](https://github.com/localForage/localForage).

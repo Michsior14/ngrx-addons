@@ -1,4 +1,4 @@
-# @ngrx-addons/sync-state
+# @ngrx-addons/sync-state ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ngrx-addons/sync-state?color=%236969b3) ![npm](https://img.shields.io/npm/dm/@ngrx-addons/sync-state?color=%2351ae17) ![NPM](https://img.shields.io/npm/l/@ngrx-addons/sync-state?color=%23f55d3e) ![npm](https://img.shields.io/npm/v/@ngrx-addons/sync-state?color=%2366101f)
 
 The library for synchronizing state in ngrx between multiple tabs/iframes/windows. Highly inspired by [elf-sync-state](https://github.com/RicardoJBarrios/elf-sync-state).
 
