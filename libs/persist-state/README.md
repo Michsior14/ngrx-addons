@@ -5,8 +5,8 @@ Supports local storage, session storage and async storages with [localForage](ht
 
 ## Supported versions
 
-- `angular` 15+
-- `@ngrx/store` 15+
+- `angular` 16+
+- `@ngrx/store` 16+
 
 ## Installation
 
@@ -22,7 +22,7 @@ yarn add @ngrx-addons/persist-state
 
 ## Usage
 
-The module gives ability to persist some of the app’s states, by saving it to `localStorage/sessionStorage` or anything that implements the `StorageEngine API`, and restore it after a refresh. It supports both root and feature states. The only thing you need to do is to add `PersistStateModule.forRoot` to your `AppModule` or `PersistStateModule.forFeature` to your feature module.
+The module gives ability to persist some of the app’s states, by saving it to `localStorage/sessionStorage` or anything that implements the `StorageEngine API`, and restore it after a refresh. It supports both root and feature states. The only thing you need to do is to add `PersistStateModule.forRoot` to your `AppModule` and `PersistStateModule.forFeature` to your feature module.
 
 ### For root states
 
@@ -104,9 +104,15 @@ const counterReducer = ...;
 @NgModule({
   imports: [
     StoreModule.forRoot({}),
-    StoreModule.forFeature('counter', reducer),
-    // .forRoot should be always called, similar to ngrx StoreModule and it's forFeature implemention.
+    // forRoot should be always called, similar to ngrx StoreModule and it's forFeature implementation.
     PersistStateModule.forRoot({ states: [] }),
+  ],
+})
+export class AppModule {}
+
+@NgModule({
+  imports: [
+    StoreModule.forFeature('counter', reducer),
     // type provided for hints on states
     PersistStateModule.forFeature<CounterState>({
       key: 'counter',
@@ -117,9 +123,9 @@ const counterReducer = ...;
         },
       ],
     }),
-  ],
+  ]
 })
-export class AppModule {}
+export class CounterModule {}
 ```
 
 The `forFeature` method accepts an object with the following properties:

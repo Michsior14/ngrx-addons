@@ -4,8 +4,8 @@ The library for synchronizing state in ngrx between multiple tabs/iframes/window
 
 ## Supported versions
 
-- `angular` 15+
-- `@ngrx/store` 15+
+- `angular` 16+
+- `@ngrx/store` 16+
 
 ## Installation
 
@@ -21,7 +21,7 @@ yarn add @ngrx-addons/sync-state
 
 ## Usage
 
-The module gives ability to sync some of the app’s states using [Broadcast Channel API](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API). It supports both root and feature states. The only thing you need to do is to add `SyncStateModule.forRoot` to your `AppModule` or `SyncStateModule.forFeature` to your feature module.
+The module gives ability to sync some of the app’s states using [Broadcast Channel API](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API). It supports both root and feature states. The only thing you need to do is to add `SyncStateModule.forRoot` to your `AppModule` and `SyncStateModule.forFeature` to your feature module.
 
 ### For root states
 
@@ -92,6 +92,15 @@ const counterReducer = ...;
 
 @NgModule({
   imports: [
+    StoreModule.forRoot({}),
+    // forRoot should be always called, similar to ngrx StoreModule and it's forFeature implementation.
+    SyncStateModule.forRoot({ states: [] }),
+  ],
+})
+export class AppModule {}
+
+@NgModule({
+  imports: [
     StoreModule.forFeature('counter', reducer),
     // type provided for hints on states
     SyncStateModule.forFeature<CounterState>({
@@ -104,7 +113,7 @@ const counterReducer = ...;
     }),
   ],
 })
-export class AppModule {}
+export class CounterModule {}
 ```
 
 The `forFeature` method accepts an object with the following properties:
