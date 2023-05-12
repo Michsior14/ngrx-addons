@@ -103,7 +103,10 @@ const counterReducer = ...;
 
 @NgModule({
   imports: [
+    StoreModule.forRoot({}),
     StoreModule.forFeature('counter', reducer),
+    // .forRoot should be always called, similar to ngrx StoreModule and it's forFeature implemention.
+    PersistStateModule.forRoot({ states: [] }),
     // type provided for hints on states
     PersistStateModule.forFeature<CounterState>({
       key: 'counter',
