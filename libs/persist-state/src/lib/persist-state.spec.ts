@@ -4,8 +4,12 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { debounceTime, map, of } from 'rxjs';
 import { PersistState } from './persist-state';
 import { rehydrate } from './persist-state.actions';
-import { PersistStateRootConfig } from './persist-state.config';
+import {
+  PersistStateRootConfig,
+  PersistStateStrategy,
+} from './persist-state.config';
 import type { Async, StateStorage } from './storage';
+import { BeforeAppInit } from '@ngrx-addons/common';
 
 describe('PersistState', () => {
   const key = 'test' as const;
@@ -80,6 +84,7 @@ describe('PersistState', () => {
       providers: [
         PersistState,
         { provide: PersistStateRootConfig, useValue: rootConfig },
+        { provide: PersistStateStrategy, useClass: BeforeAppInit },
         provideMockStore({ initialState }),
       ],
     });

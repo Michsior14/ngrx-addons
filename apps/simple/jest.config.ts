@@ -2,10 +2,10 @@
 import presets from 'jest-preset-angular/presets';
 
 export default {
-  displayName: 'examples',
+  displayName: 'simple',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/examples',
+  coverageDirectory: '../../coverage/apps/simple',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

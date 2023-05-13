@@ -9,8 +9,6 @@ import { selectProductsEntries } from './products/products.selectors';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'examples';
-
   public product = '';
 
   public products = this.store.select(selectProductsEntries);

@@ -29,6 +29,7 @@ The module gives ability to persist some of the app’s states, by saving it to 
 ```ts
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
+import { BeforeAppInit } from '@ngrx-addons/common';
 import { PersistStateModule, localStorageStrategy } from '@ngrx-addons/persist-store';
 
 const counterReducer = ...;
@@ -63,6 +64,8 @@ const reducers = {
       ],
       // optional root options (for all, also feature states)
       storageKeyPrefix: 'some-prefix',
+      // optional rehydration strategy
+      strategy: BeforeAppInit, // or AfterAppInit
     }),
   ],
 })
@@ -73,6 +76,7 @@ The `forRoot` method accepts an object with the following properties:
 
 - `states` - array of states configs (defined below, required)
 - `storageKeyPrefix` - prefix for all storage keys (optional)
+- `strategy` - defines if rehydrate actions should be fired before or after app initialization (optional, default: `BeforeAppInit`)
 
 Each state can be described by multiple state configs with the following properties:
 
@@ -204,4 +208,4 @@ export class AppModule {}
 
 ## Examples
 
-Check the [examples app](../../apps/examples)
+Check [apps](../../apps)

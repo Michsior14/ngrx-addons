@@ -1,10 +1,13 @@
 import type { ModuleWithProviders } from '@angular/core';
 import { NgModule } from '@angular/core';
+import type { WithStrategy } from '@ngrx-addons/common';
+import { BeforeAppInit, afterAppInitProvider } from '@ngrx-addons/common';
 import type { Action, ActionReducerMap } from '@ngrx/store';
 import { META_REDUCERS } from '@ngrx/store';
 import { SyncState } from './sync-state';
 import {
   SyncStateFeatureConfig,
+  SyncStateStrategy,
   SyncStateRootConfig,
 } from './sync-state.config';
 import { SyncStateFeature } from './sync-state.feature';
@@ -19,7 +22,7 @@ export class SyncStateModule {
     T extends ActionReducerMap<any, V>,
     V extends Action = Action
   >(
-    config: SyncStateRootConfig<T, V>
+    config: WithStrategy<SyncStateRootConfig<T, V>>
   ): ModuleWithProviders<SyncStateRootModule> {
     return {
       ngModule: SyncStateRootModule,
@@ -30,6 +33,11 @@ export class SyncStateModule {
           provide: META_REDUCERS,
           useValue: syncStateReducer,
           multi: true,
+        },
+        afterAppInitProvider,
+        {
+          provide: SyncStateStrategy,
+          useExisting: config.strategy ?? BeforeAppInit,
         },
       ],
     };
