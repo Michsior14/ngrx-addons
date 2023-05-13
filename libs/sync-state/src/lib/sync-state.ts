@@ -116,7 +116,7 @@ export class SyncState<
 
         return merge(
           // Sync state from another tab
-          this.syncWhen(
+          this.syncWhen(() =>
             fromEvent<MessageEvent<unknown>>(stateChannel, 'message')
           ).pipe(
             tap(({ data }) => {
@@ -159,7 +159,7 @@ export class SyncState<
     );
   }
 
-  private syncWhen<T>(input: ObservableInput<T>) {
-    return this.strategy.when().pipe(switchMap(() => input));
+  private syncWhen<T>(input: () => ObservableInput<T>) {
+    return this.strategy.when().pipe(switchMap(() => input()));
   }
 }
