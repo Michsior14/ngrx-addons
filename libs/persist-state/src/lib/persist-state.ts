@@ -120,7 +120,9 @@ export class PersistState<
           typeof state.storage === 'function' ? state.storage() : state.storage;
         return merge(
           // Restore state from storage
-          this.rehydrateWhen(from(storage.getItem(state.storageKey))).pipe(
+          this.rehydrateWhen(() =>
+            from(storage.getItem(state.storageKey))
+          ).pipe(
             filter((value): value is StateSlice => !!value),
             tap((value) => {
               // Run migrations if defined
@@ -174,7 +176,7 @@ export class PersistState<
     return value;
   }
 
-  private rehydrateWhen<T>(input: ObservableInput<T>) {
-    return this.strategy.when().pipe(switchMap(() => input));
+  private rehydrateWhen<T>(input: () => ObservableInput<T>) {
+    return this.strategy.when().pipe(switchMap(() => input()));
   }
 }
