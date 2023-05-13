@@ -208,4 +208,4 @@ export class AppModule {}
 
 ## Examples
 
-Check the [examples app](../../apps/examples)
+Check [apps](../../apps)
