@@ -2,6 +2,18 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [3.2.0](https://github.com/Michsior14/ngrx-addons/compare/persist-state-3.1.0...persist-state-3.2.0) (2023-05-13)
+
+
+### Features
+
+* allow skipping configs in `forRoot` calls ([#185](https://github.com/Michsior14/ngrx-addons/issues/185)) ([dbc606c](https://github.com/Michsior14/ngrx-addons/commit/dbc606c34df1dbb28ac0bd126a8ad6c1e85bc02c))
+
+
+### Bug Fixes
+
+* wait to access storage until ready for strategies ([#184](https://github.com/Michsior14/ngrx-addons/issues/184)) ([cdbee08](https://github.com/Michsior14/ngrx-addons/commit/cdbee08b615848b96f3c6effd848608282074d67))
+
 ## [3.1.0](https://github.com/Michsior14/ngrx-addons/compare/persist-state-3.0.1...persist-state-3.1.0) (2023-05-13)
 
 ### Dependency Updates
