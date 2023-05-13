@@ -110,6 +110,9 @@ export abstract class PersistStateFeatureConfig<T> {
   public abstract readonly key: string;
 }
 
+/**
+ * Injection token for the strategy used to initialize the state.
+ */
 export const PersistStateStrategy = new InjectionToken<InitializationStrategy>(
   'persist-state-init-strategy'
 );

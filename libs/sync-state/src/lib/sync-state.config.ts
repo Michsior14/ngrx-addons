@@ -76,6 +76,9 @@ export abstract class SyncStateFeatureConfig<T> {
   public abstract readonly key: string;
 }
 
+/**
+ * Injection token for the strategy used to initialize the state.
+ */
 export const SyncStateStrategy = new InjectionToken<InitializationStrategy>(
   'sync-state-init-strategy'
 );
