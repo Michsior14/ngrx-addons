@@ -1,7 +1,9 @@
-import type { AnyFunction, State } from '@ngrx-addons/common';
+import type { InitializationStrategy } from '@ngrx-addons/common';
+import { type AnyFunction, type State } from '@ngrx-addons/common';
 import type { Action, ActionReducerMap } from '@ngrx/store';
 import type { Observable } from 'rxjs';
 import type { StateStorage } from './storage';
+import { InjectionToken } from '@angular/core';
 
 export interface StateMigration<
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -107,3 +109,7 @@ export abstract class PersistStateFeatureConfig<T> {
    */
   public abstract readonly key: string;
 }
+
+export const PersistStateStrategy = new InjectionToken<InitializationStrategy>(
+  'persist-state-init-strategy'
+);

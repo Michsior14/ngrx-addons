@@ -1,9 +1,9 @@
 import type { OnDestroy } from '@angular/core';
-import { Injectable } from '@angular/core';
-import { isEqual } from '@ngrx-addons/common';
+import { Inject, Injectable } from '@angular/core';
+import { InitializationStrategy, isEqual } from '@ngrx-addons/common';
 import type { ActionReducerMap } from '@ngrx/store';
 import { Store } from '@ngrx/store';
-import type { Observable } from 'rxjs';
+import type { Observable, ObservableInput } from 'rxjs';
 import {
   distinctUntilChanged,
   filter,
@@ -14,6 +14,7 @@ import {
   NEVER,
   skip,
   Subject,
+  switchMap,
   takeUntil,
   tap,
 } from 'rxjs';
@@ -22,7 +23,7 @@ import type {
   SyncStateConfig,
   SyncStateFeatureConfig,
 } from './sync-state.config';
-import { SyncStateRootConfig } from './sync-state.config';
+import { SyncStateStrategy, SyncStateRootConfig } from './sync-state.config';
 
 const rootState = 'root' as const;
 
@@ -37,6 +38,8 @@ export class SyncState<
 
   constructor(
     private readonly store: Store,
+    @Inject(SyncStateStrategy)
+    private readonly strategy: InitializationStrategy,
     rootConfig: SyncStateRootConfig<T>
   ) {
     const { states, channelPrefix, ...restConfig } = rootConfig;
@@ -113,7 +116,9 @@ export class SyncState<
 
         return merge(
           // Sync state from another tab
-          fromEvent<MessageEvent<unknown>>(stateChannel, 'message').pipe(
+          this.syncWhen(
+            fromEvent<MessageEvent<unknown>>(stateChannel, 'message')
+          ).pipe(
             tap(({ data }) => {
               canBePosted = false;
               this.store.dispatch(
@@ -152,5 +157,9 @@ export class SyncState<
         )
       )
     );
+  }
+
+  private syncWhen<T>(input: ObservableInput<T>) {
+    return this.strategy.when().pipe(switchMap(() => input));
   }
 }

@@ -1,4 +1,9 @@
-import type { AnyFunction, State } from '@ngrx-addons/common';
+import { InjectionToken } from '@angular/core';
+import type {
+  AnyFunction,
+  InitializationStrategy,
+  State,
+} from '@ngrx-addons/common';
 import type { Action, ActionReducerMap } from '@ngrx/store';
 import type { Observable } from 'rxjs';
 
@@ -70,3 +75,7 @@ export abstract class SyncStateFeatureConfig<T> {
    */
   public abstract readonly key: string;
 }
+
+export const SyncStateStrategy = new InjectionToken<InitializationStrategy>(
+  'sync-state-init-strategy'
+);

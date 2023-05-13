@@ -1,18 +1,18 @@
 import type { OnDestroy } from '@angular/core';
-import { Injectable } from '@angular/core';
-import { isEqual } from '@ngrx-addons/common';
+import { Inject, Injectable } from '@angular/core';
+import { InitializationStrategy, isEqual } from '@ngrx-addons/common';
 import type { ActionReducerMap } from '@ngrx/store';
 import { Store } from '@ngrx/store';
-import type { Observable } from 'rxjs';
+import type { Observable, ObservableInput } from 'rxjs';
 import {
+  NEVER,
+  Subject,
   distinctUntilChanged,
   filter,
   from,
   map,
   merge,
-  NEVER,
   skip,
-  Subject,
   switchMap,
   takeUntil,
   tap,
@@ -22,7 +22,10 @@ import type {
   PersistStateConfig,
   PersistStateFeatureConfig,
 } from './persist-state.config';
-import { PersistStateRootConfig } from './persist-state.config';
+import {
+  PersistStateStrategy,
+  PersistStateRootConfig,
+} from './persist-state.config';
 
 const rootState = 'root' as const;
 
@@ -40,6 +43,8 @@ export class PersistState<
 
   constructor(
     private readonly store: Store,
+    @Inject(PersistStateStrategy)
+    private readonly strategy: InitializationStrategy,
     rootConfig: PersistStateRootConfig<T>
   ) {
     const { states, storageKeyPrefix, ...restConfig } = rootConfig;
@@ -115,7 +120,7 @@ export class PersistState<
           typeof state.storage === 'function' ? state.storage() : state.storage;
         return merge(
           // Restore state from storage
-          from(storage.getItem(state.storageKey)).pipe(
+          this.rehydrateWhen(from(storage.getItem(state.storageKey))).pipe(
             filter((value): value is StateSlice => !!value),
             tap((value) => {
               // Run migrations if defined
@@ -167,5 +172,9 @@ export class PersistState<
       }
     });
     return value;
+  }
+
+  private rehydrateWhen<T>(input: ObservableInput<T>) {
+    return this.strategy.when().pipe(switchMap(() => input));
   }
 }
