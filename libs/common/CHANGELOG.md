@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [3.1.0](https://github.com/Michsior14/ngrx-addons/compare/common-3.0.0...common-3.1.0) (2023-05-13)
+
+
+### Features
+
+* add initialization strategies ([#183](https://github.com/Michsior14/ngrx-addons/issues/183)) ([3585f44](https://github.com/Michsior14/ngrx-addons/commit/3585f44add4a5c95ae0c737bd8cb90728dbece79)), closes [#182](https://github.com/Michsior14/ngrx-addons/issues/182)
+
 ## [3.0.0](https://github.com/Michsior14/ngrx-addons/compare/common-3.0.0-beta.0...common-3.0.0) (2023-05-09)
 
 ## [3.0.0-beta.0](https://github.com/Michsior14/ngrx-addons/compare/common-2.0.3-beta.0...common-3.0.0-beta.0) (2023-05-08)
