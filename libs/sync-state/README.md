@@ -28,6 +28,7 @@ The module gives ability to sync some of the app’s states using [Broadcast Cha
 ```ts
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
+import { BeforeAppInit } from '@ngrx-addons/common';
 import { SyncStateModule } from '@ngrx-addons/sync-store';
 
 const counterReducer = ...;
@@ -57,6 +58,8 @@ const reducers = {
       ],
       // optional root options (for all, also feature states)
       channelPrefix: 'some-prefix',
+      // optional sync strategy
+      strategy: BeforeAppInit, // or AfterAppInit
     }),
   ],
 })
@@ -67,6 +70,7 @@ The `forRoot` method accepts an object with the following properties:
 
 - `states` - array of states configs (defined below, required)
 - `channelPrefix` - prefix for all channels (optional)
+- `strategy` - defines if sync actions should be allowed before or only after app initialization (optional, default: `BeforeAppInit`)
 
 Each state can be described by multiple state configs with the following properties:
 
