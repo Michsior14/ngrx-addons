@@ -48,11 +48,12 @@ export class SyncState<
   }
 
   public addRoot(): void {
-    const merged = this.#rootConfig.states.map((state) => ({
-      ...this.defaultStateConfig(state.key as string),
-      ...state,
-      key: state.key as string,
-    }));
+    const merged =
+      this.#rootConfig.states?.map((state) => ({
+        ...this.defaultStateConfig(state.key as string),
+        ...state,
+        key: state.key as string,
+      })) ?? [];
     this.listenOnStates(merged, rootState).subscribe();
   }
 

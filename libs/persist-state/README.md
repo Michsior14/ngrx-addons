@@ -107,9 +107,9 @@ const counterReducer = ...;
 
 @NgModule({
   imports: [
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(),
     // forRoot should be always called, similar to ngrx StoreModule and it's forFeature implementation.
-    PersistStateModule.forRoot({ states: [] }),
+    PersistStateModule.forRoot(),
   ],
 })
 export class AppModule {}

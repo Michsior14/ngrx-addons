@@ -58,7 +58,7 @@ export abstract class SyncStateRootConfig<
   /**
    * The list of states to persist.
    */
-  public abstract readonly states: SyncStateRootTyped<T>[];
+  public abstract readonly states?: SyncStateRootTyped<T>[];
   /**
    * The channel prefix.
    */

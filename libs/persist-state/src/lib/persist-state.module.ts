@@ -22,7 +22,7 @@ export class PersistStateModule {
     T extends ActionReducerMap<any, V>,
     V extends Action = Action
   >(
-    config: WithStrategy<PersistStateRootConfig<T, V>>
+    config: WithStrategy<PersistStateRootConfig<T, V>> = {}
   ): ModuleWithProviders<PersistStateRootModule> {
     return {
       ngModule: PersistStateRootModule,

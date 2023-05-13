@@ -22,7 +22,7 @@ export class SyncStateModule {
     T extends ActionReducerMap<any, V>,
     V extends Action = Action
   >(
-    config: WithStrategy<SyncStateRootConfig<T, V>>
+    config: WithStrategy<SyncStateRootConfig<T, V>> = {}
   ): ModuleWithProviders<SyncStateRootModule> {
     return {
       ngModule: SyncStateRootModule,

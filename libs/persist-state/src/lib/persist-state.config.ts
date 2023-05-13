@@ -92,7 +92,7 @@ export abstract class PersistStateRootConfig<
   /**
    * The list of states to persist.
    */
-  public abstract readonly states: PersistStateRootTyped<T>[];
+  public abstract readonly states?: PersistStateRootTyped<T>[];
   /**
    * The storage key prefix.
    */
