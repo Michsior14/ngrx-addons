@@ -63,6 +63,12 @@ export abstract class SyncStateRootConfig<
    * The channel prefix.
    */
   public abstract readonly channelPrefix?: string;
+  /**
+   * The strategy used on application startup to sync the state.
+   *
+   * @default BeforeAppInit
+   */
+  public abstract readonly strategy?: typeof InitializationStrategy;
 }
 
 export abstract class SyncStateFeatureConfig<T> {
