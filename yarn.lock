@@ -250,7 +250,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/cli@npm:~16.0.0":
+"@angular/cli@npm:~16.0.1":
   version: 16.0.1
   resolution: "@angular/cli@npm:16.0.1"
   dependencies:
@@ -4285,7 +4285,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:~18.16.6":
+"@types/node@npm:~18.16.9":
   version: 18.16.9
   resolution: "@types/node@npm:18.16.9"
   checksum: bb3e7192d868297cf0fe89fdc52dfcb3934b5ac398ee09d6b0f8762605e8f71aa344fde91234eea9c7d1500dc895fe60743d972b1605dde4b064edeb8e2f0592
@@ -11293,7 +11293,7 @@ __metadata:
     "@angular-eslint/eslint-plugin-template": 16.0.1
     "@angular-eslint/template-parser": 16.0.1
     "@angular/animations": 16.0.1
-    "@angular/cli": ~16.0.0
+    "@angular/cli": ~16.0.1
     "@angular/common": 16.0.1
     "@angular/compiler": 16.0.1
     "@angular/compiler-cli": 16.0.1
@@ -11322,7 +11322,7 @@ __metadata:
     "@nx/workspace": 16.1.4
     "@schematics/angular": 16.0.1
     "@types/jest": 29.5.1
-    "@types/node": ~18.16.6
+    "@types/node": ~18.16.9
     "@types/uuid": ^9.0.1
     "@typescript-eslint/eslint-plugin": 5.59.5
     "@typescript-eslint/parser": 5.59.5
@@ -11334,7 +11334,7 @@ __metadata:
     jest-preset-angular: 13.1.1
     lint-staged: ~13.2.2
     ng-packagr: 16.0.1
-    ngx-deploy-npm: ~5.2.0
+    ngx-deploy-npm: ~6.0.0
     nx: 16.1.4
     nx-cloud: 16.0.5
     postcss: ~8.4.23
@@ -11352,14 +11352,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"ngx-deploy-npm@npm:~5.2.0":
-  version: 5.2.0
-  resolution: "ngx-deploy-npm@npm:5.2.0"
+"ngx-deploy-npm@npm:~6.0.0":
+  version: 6.0.0
+  resolution: "ngx-deploy-npm@npm:6.0.0"
   peerDependencies:
-    "@nrwl/devkit": ^14.0.0 || ^15.0.0
-    "@nrwl/workspace": ^14.0.0 || ^15.0.0
-    nx: ^14.0.0 || ^15.0.0
-  checksum: 9d1af54c75b650602005c6bd1f69820857e029fe9ad721f5fde7b0571a1ee042833723b34e701e77d3b02eeb5e89abc8d0ff16df7232bdbd8bf6bafd64e0f98d
+    "@nx/devkit": ^16.0.0
+    tslib: 2.5.0
+  checksum: 92adcdf59d87eb5947ab3d54d818ab67e28334b45a57768f2a1b0a052901a66a410b3d12b5345941475b62c87aba211509409608e4cc13e8530674081381a3dc
   languageName: node
   linkType: hard
 
