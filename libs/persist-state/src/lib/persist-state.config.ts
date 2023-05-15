@@ -1,9 +1,9 @@
+import { InjectionToken } from '@angular/core';
 import type { InitializationStrategy } from '@ngrx-addons/common';
 import { type AnyFunction, type State } from '@ngrx-addons/common';
 import type { Action, ActionReducerMap } from '@ngrx/store';
 import type { Observable } from 'rxjs';
 import type { StateStorage } from './storage';
-import { InjectionToken } from '@angular/core';
 
 export interface StateMigration<
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -97,6 +97,12 @@ export abstract class PersistStateRootConfig<
    * The storage key prefix.
    */
   public abstract readonly storageKeyPrefix?: string;
+  /**
+   * The strategy used on application startup to rehydrate the state.
+   *
+   * @default BeforeAppInit
+   */
+  public abstract readonly strategy?: typeof InitializationStrategy;
 }
 
 export abstract class PersistStateFeatureConfig<T> {

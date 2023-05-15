@@ -49,6 +49,7 @@ const appState = {
         {
           key: productFeature.name,
           storage: localStorageStrategy,
+          source: (source) => source.pipe(),
           migrations: [
             {
               version: 1,
