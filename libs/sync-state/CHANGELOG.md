@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [3.2.1](https://github.com/Michsior14/ngrx-addons/compare/sync-state-3.2.0...sync-state-3.2.1) (2023-05-15)
+
+### Dependency Updates
+
+* `common` updated to version `3.1.1`
+
+### Bug Fixes
+
+* forRoot source typings ([#189](https://github.com/Michsior14/ngrx-addons/issues/189)) ([46fc84b](https://github.com/Michsior14/ngrx-addons/commit/46fc84b6a984724795382d9bbd57a5eccde9fef8))
+
 ## [3.2.0](https://github.com/Michsior14/ngrx-addons/compare/sync-state-3.1.0...sync-state-3.2.0) (2023-05-13)
 
 
