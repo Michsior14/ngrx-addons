@@ -20,7 +20,13 @@
       "inputs": ["production", "^production"]
     },
     "version": {
-      "dependsOn": ["^build"]
+      "dependsOn": [
+        {
+          "target": "version",
+          "projects": "dependencies"
+        },
+        "^build"
+      ]
     },
     "test": {
       "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
