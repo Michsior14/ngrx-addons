@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [3.2.2](https://github.com/Michsior14/ngrx-addons/compare/persist-state-3.2.1...persist-state-3.2.2) (2023-05-15)
+
+
+### Bug Fixes
+
+* lock common lib to specific version ([95d8c61](https://github.com/Michsior14/ngrx-addons/commit/95d8c612c8eb6eb1ea830c13b84f214069e40338))
+
 ### [3.2.1](https://github.com/Michsior14/ngrx-addons/compare/persist-state-3.2.0...persist-state-3.2.1) (2023-05-15)
 
 ### Dependency Updates
