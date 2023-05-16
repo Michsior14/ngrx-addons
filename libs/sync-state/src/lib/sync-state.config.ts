@@ -88,3 +88,10 @@ export abstract class SyncStateFeatureConfig<T> {
 export const SyncStateStrategy = new InjectionToken<InitializationStrategy>(
   'sync-state-init-strategy'
 );
+
+/**
+ * Injection token for the list of states to sync.
+ */
+export const SYNC_STATE_FEATURE_CONFIGS = new InjectionToken<
+  SyncStateFeatureConfig<unknown>[]
+>('sync-state-feature-configs');

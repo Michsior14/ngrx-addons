@@ -1,20 +1,22 @@
 import type { OnDestroy } from '@angular/core';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { SyncState } from './sync-state';
-import { SyncStateFeatureConfig } from './sync-state.config';
+import type { SyncStateFeatureConfig } from './sync-state.config';
+import { SYNC_STATE_FEATURE_CONFIGS } from './sync-state.config';
 
 @Injectable()
-export class SyncStateFeature<T> implements OnDestroy {
+export class SyncStateFeature implements OnDestroy {
   constructor(
     private readonly syncState: SyncState,
-    private readonly config: SyncStateFeatureConfig<T>
+    @Inject(SYNC_STATE_FEATURE_CONFIGS)
+    private readonly configs: SyncStateFeatureConfig<unknown>[]
   ) {}
 
-  public addFeature(): void {
-    this.syncState.addFeature(this.config);
+  public addFeatures(): void {
+    this.configs.forEach((config) => this.syncState.addFeature(config));
   }
 
   public ngOnDestroy(): void {
-    this.syncState.removeFeature(this.config.key);
+    this.configs.forEach((config) => this.syncState.removeFeature(config.key));
   }
 }

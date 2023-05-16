@@ -1,20 +1,24 @@
 import type { OnDestroy } from '@angular/core';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { PersistState } from './persist-state';
-import { PersistStateFeatureConfig } from './persist-state.config';
+import type { PersistStateFeatureConfig } from './persist-state.config';
+import { PERSIST_STATE_FEATURE_CONFIGS } from './persist-state.config';
 
 @Injectable()
-export class PersistStateFeature<T> implements OnDestroy {
+export class PersistStateFeature implements OnDestroy {
   constructor(
     private readonly persistState: PersistState,
-    private readonly config: PersistStateFeatureConfig<T>
+    @Inject(PERSIST_STATE_FEATURE_CONFIGS)
+    private readonly configs: PersistStateFeatureConfig<unknown>[]
   ) {}
 
-  public addFeature(): void {
-    this.persistState.addFeature(this.config);
+  public addFeatures(): void {
+    this.configs.forEach((config) => this.persistState.addFeature(config));
   }
 
   public ngOnDestroy(): void {
-    this.persistState.removeFeature(this.config.key);
+    this.configs.forEach((config) =>
+      this.persistState.removeFeature(config.key)
+    );
   }
 }

@@ -1,0 +1,10 @@
+<h1>Persist/Sync features</h1>
+<p>
+  Open another tab and add update states to see sync in action. State will be
+  rehydrated on page refresh.
+</p>
+<button (click)="updateFeatures()">Update states</button>
+<ul>
+  <li>A: {{ aState | async | json }}</li>
+  <li>B: {{ bState | async | json }}</li>
+</ul>

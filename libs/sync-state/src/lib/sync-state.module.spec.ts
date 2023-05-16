@@ -1,7 +1,12 @@
+import {
+  AfterAppInit,
+  BeforeAppInit,
+  afterAppInitProvider,
+} from '@ngrx-addons/common';
 import { META_REDUCERS } from '@ngrx/store';
 import { SyncState } from './sync-state';
 import {
-  SyncStateFeatureConfig,
+  SYNC_STATE_FEATURE_CONFIGS,
   SyncStateRootConfig,
   SyncStateStrategy,
 } from './sync-state.config';
@@ -10,11 +15,6 @@ import { SyncStateFeatureModule } from './sync-state.feature.module';
 import { syncStateReducer } from './sync-state.meta-reducer';
 import { SyncStateModule } from './sync-state.module';
 import { SyncStateRootModule } from './sync-state.root.module';
-import {
-  AfterAppInit,
-  BeforeAppInit,
-  afterAppInitProvider,
-} from '@ngrx-addons/common';
 
 describe('SyncStateModule', () => {
   it('forRoot should return SyncStateRootModule, state and meta reducer', () => {
@@ -69,7 +69,7 @@ describe('SyncStateModule', () => {
     expect(SyncStateModule.forFeature(config)).toEqual({
       ngModule: SyncStateFeatureModule,
       providers: [
-        { provide: SyncStateFeatureConfig, useValue: config },
+        { provide: SYNC_STATE_FEATURE_CONFIGS, useValue: config, multi: true },
         SyncStateFeature,
       ],
     });

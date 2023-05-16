@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { PersistState } from './persist-state';
-import { PersistStateFeatureConfig } from './persist-state.config';
+import type { PersistStateFeatureConfig } from './persist-state.config';
+import { PERSIST_STATE_FEATURE_CONFIGS } from './persist-state.config';
 import { PersistStateFeature } from './persist-state.feature';
 
 describe('PersistStateFeature', () => {
@@ -20,18 +21,18 @@ describe('PersistStateFeature', () => {
     removeFeature: jest.fn(),
   };
 
-  let service: PersistStateFeature<State>;
+  let service: PersistStateFeature;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         PersistStateFeature,
         { provide: PersistState, useValue: persistState },
-        { provide: PersistStateFeatureConfig, useValue: featureConfig },
+        { provide: PERSIST_STATE_FEATURE_CONFIGS, useValue: [featureConfig] },
       ],
     });
 
-    service = TestBed.inject(PersistStateFeature<State>);
+    service = TestBed.inject(PersistStateFeature);
   });
 
   it('should be created', () => {
@@ -40,7 +41,7 @@ describe('PersistStateFeature', () => {
 
   describe('addFeature', () => {
     it('should call addFeature', () => {
-      service.addFeature();
+      service.addFeatures();
       expect(persistState.addFeature).toBeCalledWith(featureConfig);
     });
   });
