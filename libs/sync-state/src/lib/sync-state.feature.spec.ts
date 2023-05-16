@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { SyncState } from './sync-state';
-import { SyncStateFeatureConfig } from './sync-state.config';
+import type { SyncStateFeatureConfig } from './sync-state.config';
+import { SYNC_STATE_FEATURE_CONFIGS } from './sync-state.config';
 import { SyncStateFeature } from './sync-state.feature';
 
 describe('SyncStateFeature', () => {
@@ -20,18 +21,18 @@ describe('SyncStateFeature', () => {
     removeFeature: jest.fn(),
   };
 
-  let service: SyncStateFeature<State>;
+  let service: SyncStateFeature;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         SyncStateFeature,
         { provide: SyncState, useValue: syncState },
-        { provide: SyncStateFeatureConfig, useValue: featureConfig },
+        { provide: SYNC_STATE_FEATURE_CONFIGS, useValue: [featureConfig] },
       ],
     });
 
-    service = TestBed.inject(SyncStateFeature<State>);
+    service = TestBed.inject(SyncStateFeature);
   });
 
   it('should be created', () => {
@@ -40,7 +41,7 @@ describe('SyncStateFeature', () => {
 
   describe('addFeature', () => {
     it('should call addFeature', () => {
-      service.addFeature();
+      service.addFeatures();
       expect(syncState.addFeature).toBeCalledWith(featureConfig);
     });
   });

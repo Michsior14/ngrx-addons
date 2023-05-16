@@ -93,7 +93,7 @@ Each state can be described by multiple state configs with the following propert
 
 ### For feature states
 
-Remember to add features only once, in any case only the first registration will be used.
+Remember to add features only once, in any case only the last registration will be used.
 
 ```ts
 import { NgModule } from '@angular/core';

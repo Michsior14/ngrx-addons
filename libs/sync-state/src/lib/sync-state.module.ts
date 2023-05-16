@@ -4,8 +4,9 @@ import { BeforeAppInit, afterAppInitProvider } from '@ngrx-addons/common';
 import type { Action, ActionReducerMap } from '@ngrx/store';
 import { META_REDUCERS } from '@ngrx/store';
 import { SyncState } from './sync-state';
+import type { SyncStateFeatureConfig } from './sync-state.config';
 import {
-  SyncStateFeatureConfig,
+  SYNC_STATE_FEATURE_CONFIGS,
   SyncStateRootConfig,
   SyncStateStrategy,
 } from './sync-state.config';
@@ -44,11 +45,11 @@ export class SyncStateModule {
 
   public static forFeature<T>(
     config: SyncStateFeatureConfig<T>
-  ): ModuleWithProviders<SyncStateFeatureModule<T>> {
+  ): ModuleWithProviders<SyncStateFeatureModule> {
     return {
       ngModule: SyncStateFeatureModule,
       providers: [
-        { provide: SyncStateFeatureConfig, useValue: config },
+        { provide: SYNC_STATE_FEATURE_CONFIGS, useValue: config, multi: true },
         SyncStateFeature,
       ],
     };

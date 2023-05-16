@@ -122,3 +122,10 @@ export abstract class PersistStateFeatureConfig<T> {
 export const PersistStateStrategy = new InjectionToken<InitializationStrategy>(
   'persist-state-init-strategy'
 );
+
+/**
+ * Injection token for the list of states to persist.
+ */
+export const PERSIST_STATE_FEATURE_CONFIGS = new InjectionToken<
+  PersistStateFeatureConfig<unknown>[]
+>('persist-state-feature-configs');

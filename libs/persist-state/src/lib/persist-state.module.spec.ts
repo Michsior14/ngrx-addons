@@ -6,7 +6,7 @@ import {
 import { META_REDUCERS } from '@ngrx/store';
 import { PersistState } from './persist-state';
 import {
-  PersistStateFeatureConfig,
+  PERSIST_STATE_FEATURE_CONFIGS,
   PersistStateRootConfig,
   PersistStateStrategy,
 } from './persist-state.config';
@@ -69,7 +69,11 @@ describe('PersistStateModule', () => {
     expect(PersistStateModule.forFeature(config)).toEqual({
       ngModule: PersistStateFeatureModule,
       providers: [
-        { provide: PersistStateFeatureConfig, useValue: config },
+        {
+          provide: PERSIST_STATE_FEATURE_CONFIGS,
+          useValue: config,
+          multi: true,
+        },
         PersistStateFeature,
       ],
     });

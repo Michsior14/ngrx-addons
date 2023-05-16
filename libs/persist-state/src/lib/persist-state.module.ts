@@ -4,8 +4,9 @@ import { BeforeAppInit, afterAppInitProvider } from '@ngrx-addons/common';
 import type { Action, ActionReducerMap } from '@ngrx/store';
 import { META_REDUCERS } from '@ngrx/store';
 import { PersistState } from './persist-state';
+import type { PersistStateFeatureConfig } from './persist-state.config';
 import {
-  PersistStateFeatureConfig,
+  PERSIST_STATE_FEATURE_CONFIGS,
   PersistStateRootConfig,
   PersistStateStrategy,
 } from './persist-state.config';
@@ -44,11 +45,15 @@ export class PersistStateModule {
 
   public static forFeature<T>(
     config: PersistStateFeatureConfig<T>
-  ): ModuleWithProviders<PersistStateFeatureModule<T>> {
+  ): ModuleWithProviders<PersistStateFeatureModule> {
     return {
       ngModule: PersistStateFeatureModule,
       providers: [
-        { provide: PersistStateFeatureConfig, useValue: config },
+        {
+          provide: PERSIST_STATE_FEATURE_CONFIGS,
+          useValue: config,
+          multi: true,
+        },
         PersistStateFeature,
       ],
     };
