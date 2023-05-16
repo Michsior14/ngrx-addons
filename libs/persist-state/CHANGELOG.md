@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [3.2.3](https://github.com/Michsior14/ngrx-addons/compare/persist-state-3.2.2...persist-state-3.2.3) (2023-05-16)
+
+
+### Bug Fixes
+
+* forFeatures registered only once ([#192](https://github.com/Michsior14/ngrx-addons/issues/192)) ([21bcd0c](https://github.com/Michsior14/ngrx-addons/commit/21bcd0c630de2f2087eadf3f2877ce3be153273d)), closes [#191](https://github.com/Michsior14/ngrx-addons/issues/191)
+
 ### [3.2.2](https://github.com/Michsior14/ngrx-addons/compare/persist-state-3.2.1...persist-state-3.2.2) (2023-05-15)
 
 
