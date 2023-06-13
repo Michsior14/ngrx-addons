@@ -3574,7 +3574,7 @@ __metadata:
     jest-environment-jsdom: 29.5.0
     jest-preset-angular: 13.1.1
     lint-staged: ~13.2.2
-    ng-packagr: 16.0.1
+    ng-packagr: 16.1.0
     ngx-deploy-npm: ~6.0.0
     nx: 16.3.1
     nx-cloud: 16.0.5
@@ -11755,9 +11755,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ng-packagr@npm:16.0.1":
-  version: 16.0.1
-  resolution: "ng-packagr@npm:16.0.1"
+"ng-packagr@npm:16.1.0":
+  version: 16.1.0
+  resolution: "ng-packagr@npm:16.1.0"
   dependencies:
     "@rollup/plugin-json": ^6.0.0
     "@rollup/plugin-node-resolve": ^15.0.0
@@ -11785,10 +11785,10 @@ __metadata:
     rxjs: ^7.5.6
     sass: ^1.55.0
   peerDependencies:
-    "@angular/compiler-cli": ^16.0.0-next.0
+    "@angular/compiler-cli": ^16.0.0 || ^16.1.0-next.0
     tailwindcss: ^2.0.0 || ^3.0.0
     tslib: ^2.3.0
-    typescript: ">=4.9.3 <5.1"
+    typescript: ">=4.9.3 <5.2"
   dependenciesMeta:
     esbuild:
       optional: true
@@ -11797,7 +11797,7 @@ __metadata:
       optional: true
   bin:
     ng-packagr: cli/main.js
-  checksum: 83de7337bca021be3f836b828d4a22b3fa3356fffbfb479b48ea8ee6c71e97fdae03e8f091bd468bb9825812c19d3a2cccaaf6b0c5ea3b89e5d648f34aa5e41f
+  checksum: 4370d14181cee055f35862acd3b5905db1845c496da46c5e4bc9f3dd1755d4343f7390d07621381f24b39aa1610d9bf891d8c46b14ee86c39e7c8b6e149ff5b6
   languageName: node
   linkType: hard
 
