@@ -40,7 +40,7 @@ describe('strategies', () => {
 
     it('should implement OnDestroy', () => {
       const afterAppInit = new AfterAppInit();
-      expect(() => afterAppInit.ngOnDestroy()).not.toThrow();
+      expect(() => { afterAppInit.ngOnDestroy(); }).not.toThrow();
     });
   });
 

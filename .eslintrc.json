@@ -41,8 +41,8 @@
       "files": ["*.ts", "*.tsx"],
       "extends": [
         "plugin:@nx/typescript",
-        "plugin:@typescript-eslint/strict",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:@typescript-eslint/strict-type-checked",
+        "plugin:@typescript-eslint/stylistic-type-checked",
         "plugin:@ngrx/recommended-requiring-type-checking"
       ],
       "rules": {

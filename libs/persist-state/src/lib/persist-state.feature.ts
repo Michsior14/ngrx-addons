@@ -13,12 +13,12 @@ export class PersistStateFeature implements OnDestroy {
   ) {}
 
   public addFeatures(): void {
-    this.configs.forEach((config) => this.persistState.addFeature(config));
+    this.configs.forEach((config) => { this.persistState.addFeature(config); });
   }
 
   public ngOnDestroy(): void {
     this.configs.forEach((config) =>
-      this.persistState.removeFeature(config.key)
+      { this.persistState.removeFeature(config.key); }
     );
   }
 }

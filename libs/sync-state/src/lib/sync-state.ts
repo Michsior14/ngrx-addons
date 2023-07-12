@@ -81,7 +81,7 @@ export class SyncState<
   }
 
   public ngOnDestroy(): void {
-    this.#features.forEach((_, key) => this.removeFeature(key));
+    this.#features.forEach((_, key) => { this.removeFeature(key); });
     this.#destroyer.next(rootState);
     this.#destroyer.complete();
   }
@@ -92,7 +92,6 @@ export class SyncState<
       channel: `${this.#rootConfig.channelPrefix!}${key}@store`,
       source: (state) => state,
       runGuard: () =>
-        typeof window !== 'undefined' &&
         typeof window.BroadcastChannel !== 'undefined',
       skip: 1,
     };
@@ -147,7 +146,7 @@ export class SyncState<
                   canBePosted = true;
                 }
               }),
-              finalize(() => stateChannel.close())
+              finalize(() => { stateChannel.close(); })
             )
         );
       })

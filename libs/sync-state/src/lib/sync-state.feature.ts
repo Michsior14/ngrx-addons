@@ -13,10 +13,10 @@ export class SyncStateFeature implements OnDestroy {
   ) {}
 
   public addFeatures(): void {
-    this.configs.forEach((config) => this.syncState.addFeature(config));
+    this.configs.forEach((config) => { this.syncState.addFeature(config); });
   }
 
   public ngOnDestroy(): void {
-    this.configs.forEach((config) => this.syncState.removeFeature(config.key));
+    this.configs.forEach((config) => { this.syncState.removeFeature(config.key); });
   }
 }

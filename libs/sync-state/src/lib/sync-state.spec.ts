@@ -35,7 +35,7 @@ class MockBroadcastChannel implements BroadcastChannel {
         .get(this.name)
         ?.subject.pipe(takeUntil(this.#destroy))
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        .subscribe((data) => listener(new MessageEvent('message', { data })));
+        .subscribe((data) => { listener(new MessageEvent('message', { data })); });
     });
   removeEventListener = jest.fn();
   dispatchEvent = jest.fn();

@@ -10,7 +10,7 @@ export class ProductsEffects {
     () => {
       return this.actions.pipe(
         ofType(storeRehydrateAction),
-        tap((action) => console.log('rehydrate', action))
+        tap((action) => { console.log('rehydrate', action); })
       );
     },
     { dispatch: false }
@@ -20,7 +20,7 @@ export class ProductsEffects {
     () => {
       return this.actions.pipe(
         ofType(storeSyncAction),
-        tap((action) => console.log('sync', action))
+        tap((action) => { console.log('sync', action); })
       );
     },
     { dispatch: false }

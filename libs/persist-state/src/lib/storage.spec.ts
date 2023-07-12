@@ -7,13 +7,13 @@ describe('storage', () => {
   describe('noopStorage', () => {
     it('should return mocked values', waitForAsync(() => {
       from(noopStorage.getItem('key')).subscribe((value) =>
-        expect(value).toBeNull()
+        { expect(value).toBeNull(); }
       );
       from(noopStorage.setItem('key', {})).subscribe((value) =>
-        expect(value).toBe(true)
+        { expect(value).toBe(true); }
       );
       from(noopStorage.removeItem('key')).subscribe((value) =>
-        expect(value).toBe(true)
+        { expect(value).toBe(true); }
       );
     }));
   });

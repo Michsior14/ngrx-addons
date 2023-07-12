@@ -45,7 +45,7 @@ export class AfterAppInit implements InitializationStrategy, OnDestroy {
 export const afterAppInitProvider = {
   provide: APP_BOOTSTRAP_LISTENER,
   multi: true,
-  useFactory: (afterInit: AfterAppInit) => () => afterInit.markAsInitialized(),
+  useFactory: (afterInit: AfterAppInit) => () => { afterInit.markAsInitialized(); },
   deps: [AfterAppInit],
 };
 
