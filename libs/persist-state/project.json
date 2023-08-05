@@ -9,7 +9,8 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/persist-state"],
       "options": {
-        "project": "libs/persist-state/ng-package.json"
+        "project": "libs/persist-state/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": true
       },
       "configurations": {
         "production": {

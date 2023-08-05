@@ -9,7 +9,8 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/sync-state"],
       "options": {
-        "project": "libs/sync-state/ng-package.json"
+        "project": "libs/sync-state/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": true
       },
       "configurations": {
         "production": {
