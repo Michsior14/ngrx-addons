@@ -2,6 +2,11 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [3.2.4](https://github.com/Michsior14/ngrx-addons/compare/persist-state-3.2.3...persist-state-3.2.4) (2023-08-05)
+
+### Dependency Updates
+
+* `common` updated to version `3.1.2`
 ### [3.2.3](https://github.com/Michsior14/ngrx-addons/compare/persist-state-3.2.2...persist-state-3.2.3) (2023-05-16)
 
 
