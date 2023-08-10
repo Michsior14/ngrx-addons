@@ -15,8 +15,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v3
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
@@ -37,14 +35,14 @@ jobs:
           git config user.name "GitHub Bot"
           git config user.email "gituser@example.com"
       - run: yarn install --immutable
-      - name: Version
-        shell: bash
-        run: yarn nx affected --base=last-release --target=version --parallel=1 --push ${{ github.event.inputs.options }}
+      - name: Lerna version
+        run: 'yarn lerna version ${{ github.event.inputs.options }} --message "release: %s [skip ci]" --create-release github --yes'
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Tag last-release
-        shell: bash
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: yarn build
+      - name: Lerna publish
         run: |
-          git tag -f last-release
-          git push origin last-release --force
+          npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          yarn lerna publish from-package --yes
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

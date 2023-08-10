@@ -1,0 +1,16 @@
+{
+  "version": "3.2.4",
+  "npmClient": "yarn",
+  "packages": ["libs/*"],
+  "command": {
+    "version": {
+      "allowBranch": "main",
+      "conventionalCommits": true,
+      "changelogPreset": "conventionalcommits"
+    },
+    "publish": {
+      "directory": "{workspaceRoot}/dist/{projectRoot}"
+    }
+  },
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json"
+}
