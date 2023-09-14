@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
  * Include keys from the state
  */
 export const includeKeys = <T extends object>(
-  keys: (keyof T)[]
+  keys: (keyof T)[],
 ): OperatorFunction<T, Partial<T>> => {
   return pipe(
     map((state) =>
@@ -15,7 +15,7 @@ export const includeKeys = <T extends object>(
           toSave[key as keyof T] = state[key as keyof T];
         }
         return toSave;
-      }, {})
-    )
+      }, {}),
+    ),
   );
 };

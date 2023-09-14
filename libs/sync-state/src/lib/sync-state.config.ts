@@ -38,7 +38,7 @@ export interface SyncStateConfig<S> {
 export interface SyncStateRoot<
   T,
   K extends keyof T,
-  S = T[K] extends AnyFunction ? State<T[K]> : never
+  S = T[K] extends AnyFunction ? State<T[K]> : never,
 > extends SyncStateConfig<S> {
   /**
    * The name of a store slice to persist.
@@ -53,7 +53,7 @@ type SyncStateRootTyped<T> = {
 export abstract class SyncStateRootConfig<
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   T extends ActionReducerMap<any, V>,
-  V extends Action = Action
+  V extends Action = Action,
 > {
   /**
    * The list of states to persist.
@@ -86,7 +86,7 @@ export abstract class SyncStateFeatureConfig<T> {
  * Injection token for the strategy used to initialize the state.
  */
 export const SyncStateStrategy = new InjectionToken<InitializationStrategy>(
-  'sync-state-init-strategy'
+  'sync-state-init-strategy',
 );
 
 /**

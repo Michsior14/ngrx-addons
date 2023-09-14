@@ -7,11 +7,11 @@ export class SyncStateRootModule {
     state: SyncState,
     @Optional()
     @SkipSelf()
-    parentModule?: SyncStateRootModule
+    parentModule?: SyncStateRootModule,
   ) {
     if (parentModule) {
       throw new Error(
-        'SyncStateRootModule is already loaded. Import it only once at AppModule!'
+        'SyncStateRootModule is already loaded. Import it only once at AppModule!',
       );
     }
 

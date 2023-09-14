@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
  * Exclude keys from the state
  */
 export const excludeKeys = <T extends object>(
-  keys: (keyof T)[]
+  keys: (keyof T)[],
 ): OperatorFunction<T, Partial<T>> => {
   return pipe(
     map((state) =>
@@ -16,7 +16,7 @@ export const excludeKeys = <T extends object>(
           toSave[key as keyof T] = state[key as keyof T];
         }
         return toSave;
-      }, {})
-    )
+      }, {}),
+    ),
   );
 };

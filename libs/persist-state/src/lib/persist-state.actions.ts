@@ -6,7 +6,7 @@ export const REHYDRATE = '@ngrx-addons/persist-state/rehydrate';
 export const storeRehydrateAction = createAction(
   REHYDRATE,
   // eslint-disable-next-line @ngrx/prefer-inline-action-props
-  props<FeaturesProps>()
+  props<FeaturesProps>(),
 );
 
 export const rehydrate = storeRehydrateAction;

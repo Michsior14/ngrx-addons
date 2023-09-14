@@ -10,7 +10,7 @@ export interface StateMigration<
   TOldState = any,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   TNewState = any,
-  TVersionKey = string
+  TVersionKey = string,
 > {
   /**
    * The version of the state to migrate from.
@@ -72,7 +72,7 @@ export interface PersistStateConfig<S> {
 export interface PersistStateRoot<
   T,
   K extends keyof T,
-  S = T[K] extends AnyFunction ? State<T[K]> : never
+  S = T[K] extends AnyFunction ? State<T[K]> : never,
 > extends PersistStateConfig<S> {
   /**
    * The name of a store slice to persist.
@@ -87,7 +87,7 @@ type PersistStateRootTyped<T> = {
 export abstract class PersistStateRootConfig<
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   T extends ActionReducerMap<any, V>,
-  V extends Action = Action
+  V extends Action = Action,
 > {
   /**
    * The list of states to persist.
@@ -120,7 +120,7 @@ export abstract class PersistStateFeatureConfig<T> {
  * Injection token for the strategy used to initialize the state.
  */
 export const PersistStateStrategy = new InjectionToken<InitializationStrategy>(
-  'persist-state-init-strategy'
+  'persist-state-init-strategy',
 );
 
 /**

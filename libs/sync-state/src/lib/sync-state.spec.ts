@@ -25,8 +25,8 @@ class MockBroadcastChannel implements BroadcastChannel {
   });
   postMessage = jest
     .fn()
-    .mockImplementation((message) =>
-      channels.get(this.name)?.subject.next(message)
+    .mockImplementation(
+      (message) => channels.get(this.name)?.subject.next(message),
     );
   addEventListener = jest
     .fn()
@@ -35,7 +35,9 @@ class MockBroadcastChannel implements BroadcastChannel {
         .get(this.name)
         ?.subject.pipe(takeUntil(this.#destroy))
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        .subscribe((data) => { listener(new MessageEvent('message', { data })); });
+        .subscribe((data) => {
+          listener(new MessageEvent('message', { data }));
+        });
     });
   removeEventListener = jest.fn();
   dispatchEvent = jest.fn();
@@ -72,7 +74,7 @@ describe('SyncState', () => {
           source: (state) =>
             state.pipe(
               debounceTime(10),
-              map(({ valueA, valueC }) => ({ valueA, valueC }))
+              map(({ valueA, valueC }) => ({ valueA, valueC })),
             ),
         },
       ],
@@ -132,11 +134,11 @@ describe('SyncState', () => {
       tick();
       channels.get('test-b')?.instance.postMessage(b);
       expect(dispatch).toHaveBeenCalledWith(
-        storeSyncAction({ features: { [key]: b } })
+        storeSyncAction({ features: { [key]: b } }),
       );
       channels.get('test-a-c')?.instance.postMessage(ac);
       expect(dispatch).toHaveBeenCalledWith(
-        storeSyncAction({ features: { [key]: ac } })
+        storeSyncAction({ features: { [key]: ac } }),
       );
       service.ngOnDestroy();
     }));
@@ -162,13 +164,13 @@ describe('SyncState', () => {
           valueB: {
             a: 2,
           },
-        }
+        },
       );
 
       tick(15);
       expect(channels.get('test-a-c')?.instance.postMessage).toBeCalledTimes(1);
       expect(
-        channels.get('test-a-c')?.instance.postMessage
+        channels.get('test-a-c')?.instance.postMessage,
       ).toHaveBeenCalledWith({
         valueA: 2,
         valueC: 'd',
@@ -213,7 +215,7 @@ describe('SyncState', () => {
         service as typeof service & {
           listenOnStates: (typeof service)['listenOnStates'];
         },
-        'listenOnStates'
+        'listenOnStates',
       );
       service.addFeature({ key, states: [] });
       service.addFeature({ key, states: [] });
@@ -233,7 +235,7 @@ describe('SyncState', () => {
       tick();
 
       expect(dispatch).toHaveBeenCalledWith(
-        storeSyncAction({ features: { [key]: state } })
+        storeSyncAction({ features: { [key]: state } }),
       );
       service.ngOnDestroy();
     }));

@@ -20,9 +20,9 @@ export class PersistStateModule {
   public static forRoot<
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     T extends ActionReducerMap<any, V>,
-    V extends Action = Action
+    V extends Action = Action,
   >(
-    config: PersistStateRootConfig<T, V> = {}
+    config: PersistStateRootConfig<T, V> = {},
   ): ModuleWithProviders<PersistStateRootModule> {
     return {
       ngModule: PersistStateRootModule,
@@ -44,7 +44,7 @@ export class PersistStateModule {
   }
 
   public static forFeature<T>(
-    config: PersistStateFeatureConfig<T>
+    config: PersistStateFeatureConfig<T>,
   ): ModuleWithProviders<PersistStateFeatureModule> {
     return {
       ngModule: PersistStateFeatureModule,

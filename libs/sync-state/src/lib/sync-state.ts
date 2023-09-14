@@ -29,7 +29,7 @@ const rootState = 'root' as const;
 
 @Injectable()
 export class SyncState<
-  T extends ActionReducerMap<unknown> = ActionReducerMap<unknown>
+  T extends ActionReducerMap<unknown> = ActionReducerMap<unknown>,
 > implements OnDestroy
 {
   #rootConfig: SyncStateRootConfig<T>;
@@ -40,7 +40,7 @@ export class SyncState<
     private readonly store: Store,
     @Inject(SyncStateStrategy)
     private readonly strategy: InitializationStrategy,
-    rootConfig: SyncStateRootConfig<T>
+    rootConfig: SyncStateRootConfig<T>,
   ) {
     const { states, channelPrefix, ...restConfig } = rootConfig;
     const prefix = channelPrefix ? `${channelPrefix}-` : '';
@@ -81,7 +81,9 @@ export class SyncState<
   }
 
   public ngOnDestroy(): void {
-    this.#features.forEach((_, key) => { this.removeFeature(key); });
+    this.#features.forEach((_, key) => {
+      this.removeFeature(key);
+    });
     this.#destroyer.next(rootState);
     this.#destroyer.complete();
   }
@@ -91,15 +93,14 @@ export class SyncState<
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       channel: `${this.#rootConfig.channelPrefix!}${key}@store`,
       source: (state) => state,
-      runGuard: () =>
-        typeof window.BroadcastChannel !== 'undefined',
+      runGuard: () => typeof window.BroadcastChannel !== 'undefined',
       skip: 1,
     };
   }
 
   private listenOnStates<S>(
     states: Required<SyncStateConfig<S> & { key: string }>[],
-    feature: string
+    feature: string,
   ): Observable<unknown> {
     if (states.length === 0) {
       return NEVER;
@@ -117,14 +118,14 @@ export class SyncState<
         return merge(
           // Sync state from another tab
           this.syncWhen(() =>
-            fromEvent<MessageEvent<unknown>>(stateChannel, 'message')
+            fromEvent<MessageEvent<unknown>>(stateChannel, 'message'),
           ).pipe(
             tap(({ data }) => {
               canBePosted = false;
               this.store.dispatch(
-                storeSyncAction({ features: { [state.key]: data } })
+                storeSyncAction({ features: { [state.key]: data } }),
               );
-            })
+            }),
           ),
           // Sync state to another tab
           state
@@ -132,9 +133,9 @@ export class SyncState<
               this.store.pipe(
                 map(
                   (storeState) =>
-                    storeState[state.key as keyof typeof storeState]
-                )
-              )
+                    storeState[state.key as keyof typeof storeState],
+                ),
+              ),
             )
             .pipe(
               distinctUntilChanged(isEqual),
@@ -146,16 +147,18 @@ export class SyncState<
                   canBePosted = true;
                 }
               }),
-              finalize(() => { stateChannel.close(); })
-            )
+              finalize(() => {
+                stateChannel.close();
+              }),
+            ),
         );
-      })
+      }),
     ).pipe(
       takeUntil(
         this.#destroyer.pipe(
-          filter((destroyFeature) => destroyFeature === feature)
-        )
-      )
+          filter((destroyFeature) => destroyFeature === feature),
+        ),
+      ),
     );
   }
 

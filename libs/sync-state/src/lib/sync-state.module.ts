@@ -20,9 +20,9 @@ export class SyncStateModule {
   public static forRoot<
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     T extends ActionReducerMap<any, V>,
-    V extends Action = Action
+    V extends Action = Action,
   >(
-    config: SyncStateRootConfig<T, V> = {}
+    config: SyncStateRootConfig<T, V> = {},
   ): ModuleWithProviders<SyncStateRootModule> {
     return {
       ngModule: SyncStateRootModule,
@@ -44,7 +44,7 @@ export class SyncStateModule {
   }
 
   public static forFeature<T>(
-    config: SyncStateFeatureConfig<T>
+    config: SyncStateFeatureConfig<T>,
   ): ModuleWithProviders<SyncStateFeatureModule> {
     return {
       ngModule: SyncStateFeatureModule,

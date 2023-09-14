@@ -21,7 +21,7 @@ export const featureA = createFeature({
         ...state,
         a: state.a + 1,
       };
-    })
+    }),
   ),
 });
 

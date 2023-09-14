@@ -55,19 +55,19 @@ describe('PersistState', () => {
           {
             version: 1,
             migrate: (state) =>
-              ({ ...state, valueD: 2, version: 2 } as unknown),
+              ({ ...state, valueD: 2, version: 2 }) as unknown,
           },
           {
             version: 2,
             versionKey: 'version',
             migrate: (state) =>
-              ({ ...state, valueE: 3, version: 3 } as unknown),
+              ({ ...state, valueE: 3, version: 3 }) as unknown,
           },
         ],
         source: (state) =>
           state.pipe(
             debounceTime(10),
-            map(({ valueA, valueC }) => ({ valueA, valueC }))
+            map(({ valueA, valueC }) => ({ valueA, valueC })),
           ),
       },
     ],
@@ -134,12 +134,12 @@ describe('PersistState', () => {
       service.addRoot();
       tick();
       expect(dispatch).toHaveBeenCalledWith(
-        rehydrate({ features: { [key]: b } })
+        rehydrate({ features: { [key]: b } }),
       );
       expect(dispatch).toHaveBeenCalledWith(
         rehydrate({
           features: { [key]: ac },
-        })
+        }),
       );
       service.ngOnDestroy();
     }));
@@ -160,12 +160,12 @@ describe('PersistState', () => {
       service.addRoot();
       tick();
       expect(dispatch).toHaveBeenCalledWith(
-        rehydrate({ features: { [key]: b } })
+        rehydrate({ features: { [key]: b } }),
       );
       expect(dispatch).toHaveBeenCalledWith(
         rehydrate({
           features: { [key]: { ...ac, version: 3, valueD: 2, valueE: 3 } },
-        })
+        }),
       );
       service.ngOnDestroy();
     }));
@@ -219,7 +219,7 @@ describe('PersistState', () => {
         service as typeof service & {
           listenOnStates: (typeof service)['listenOnStates'];
         },
-        'listenOnStates'
+        'listenOnStates',
       );
       service.addFeature({ key, states: [] });
       service.addFeature({ key, states: [] });
@@ -242,7 +242,7 @@ describe('PersistState', () => {
       });
       tick();
       expect(dispatch).toHaveBeenCalledWith(
-        rehydrate({ features: { [key]: state } })
+        rehydrate({ features: { [key]: state } }),
       );
       service.ngOnDestroy();
     }));
@@ -259,7 +259,7 @@ describe('PersistState', () => {
             migrations: [
               {
                 version: undefined,
-                migrate: (state) => ({ ...state, version: 1 } as unknown),
+                migrate: (state) => ({ ...state, version: 1 }) as unknown,
               },
             ],
           },
@@ -267,7 +267,7 @@ describe('PersistState', () => {
       });
       tick();
       expect(dispatch).toHaveBeenCalledWith(
-        rehydrate({ features: { [key]: { ...state, version: 1 } } })
+        rehydrate({ features: { [key]: { ...state, version: 1 } } }),
       );
       service.ngOnDestroy();
     }));

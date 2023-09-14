@@ -5,5 +5,5 @@ export const { selectProducts, selectProductsState } = productFeature;
 
 export const selectProductsEntries = createSelector(
   selectProducts,
-  (products) => Object.entries(products)
+  (products) => Object.entries(products),
 );

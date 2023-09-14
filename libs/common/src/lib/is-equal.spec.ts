@@ -7,10 +7,12 @@ describe('isEqual', () => {
     expect(
       isEqual(
         { a: [{ b: 1 }, { b: { a: 1 } }] },
-        { a: [{ b: 1 }, { b: { a: 1 } }] }
-      )
+        { a: [{ b: 1 }, { b: { a: 1 } }] },
+      ),
     ).toBe(true);
-    [undefined, null].forEach((test) => { expect(isEqual(test, test)).toBe(true); });
+    [undefined, null].forEach((test) => {
+      expect(isEqual(test, test)).toBe(true);
+    });
   });
 
   it('should return false if one is empty', () => {

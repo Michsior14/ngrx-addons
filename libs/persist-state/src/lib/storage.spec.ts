@@ -6,15 +6,15 @@ import { createStorage, noopStorage } from './storage';
 describe('storage', () => {
   describe('noopStorage', () => {
     it('should return mocked values', waitForAsync(() => {
-      from(noopStorage.getItem('key')).subscribe((value) =>
-        { expect(value).toBeNull(); }
-      );
-      from(noopStorage.setItem('key', {})).subscribe((value) =>
-        { expect(value).toBe(true); }
-      );
-      from(noopStorage.removeItem('key')).subscribe((value) =>
-        { expect(value).toBe(true); }
-      );
+      from(noopStorage.getItem('key')).subscribe((value) => {
+        expect(value).toBeNull();
+      });
+      from(noopStorage.setItem('key', {})).subscribe((value) => {
+        expect(value).toBe(true);
+      });
+      from(noopStorage.removeItem('key')).subscribe((value) => {
+        expect(value).toBe(true);
+      });
     }));
   });
 
@@ -44,7 +44,7 @@ describe('storage', () => {
       await promise(storage.setItem(key, testObject));
       expect(implementation.setItem).toBeCalledWith(
         key,
-        JSON.stringify(testObject)
+        JSON.stringify(testObject),
       );
 
       await promise(storage.removeItem(key));

@@ -7,11 +7,11 @@ export class PersistStateRootModule {
     state: PersistState,
     @Optional()
     @SkipSelf()
-    parentModule?: PersistStateRootModule
+    parentModule?: PersistStateRootModule,
   ) {
     if (parentModule) {
       throw new Error(
-        'PersistStateRootModule is already loaded. Import it only once at AppModule!'
+        'PersistStateRootModule is already loaded. Import it only once at AppModule!',
       );
     }
 

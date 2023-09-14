@@ -7,7 +7,7 @@ describe('createMergeReducer', () => {
   const merge = 'MERGE';
   const reducer = createMergeReducer(
     (action: Action): action is FeaturesProps & Action =>
-      action.type === 'MERGE'
+      action.type === 'MERGE',
   );
   // eslint-disable-next-line @ngrx/prefer-inline-action-props
   const mergeAction = createAction(merge, props<FeaturesProps>());

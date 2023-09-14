@@ -40,7 +40,9 @@ describe('strategies', () => {
 
     it('should implement OnDestroy', () => {
       const afterAppInit = new AfterAppInit();
-      expect(() => { afterAppInit.ngOnDestroy(); }).not.toThrow();
+      expect(() => {
+        afterAppInit.ngOnDestroy();
+      }).not.toThrow();
     });
   });
 
@@ -53,7 +55,7 @@ describe('strategies', () => {
       } satisfies Record<keyof AfterAppInit, jest.Mock>;
 
       const factory = afterAppInitProvider.useFactory(
-        afterAppInitMock as unknown as AfterAppInit
+        afterAppInitMock as unknown as AfterAppInit,
       );
       factory();
       expect(afterAppInitMock.markAsInitialized).toHaveBeenCalled();

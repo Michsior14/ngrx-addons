@@ -23,7 +23,7 @@ import { FeatureBModule } from './feature-b/feature-b.module';
           strictActionImmutability: true,
           strictStateImmutability: true,
         },
-      }
+      },
     ),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     PersistStateModule.forRoot(),

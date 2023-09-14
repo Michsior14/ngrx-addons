@@ -7,7 +7,7 @@ export type Async<T> = Promise<T> | Observable<T>;
 export interface StateStorage {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getItem<T extends Record<string, any>>(
-    key: string
+    key: string,
   ): Async<T | null | undefined>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   setItem(key: string, value: Record<string, any>): Async<any>;

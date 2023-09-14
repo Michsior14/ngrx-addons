@@ -34,7 +34,7 @@ type StateSlice = Record<string, any>;
 
 @Injectable()
 export class PersistState<
-  T extends ActionReducerMap<unknown> = ActionReducerMap<unknown>
+  T extends ActionReducerMap<unknown> = ActionReducerMap<unknown>,
 > implements OnDestroy
 {
   #rootConfig: PersistStateRootConfig<T>;
@@ -45,7 +45,7 @@ export class PersistState<
     private readonly store: Store,
     @Inject(PersistStateStrategy)
     private readonly strategy: InitializationStrategy,
-    rootConfig: PersistStateRootConfig<T>
+    rootConfig: PersistStateRootConfig<T>,
   ) {
     const { states, storageKeyPrefix, ...restConfig } = rootConfig;
     const keyPrefix = storageKeyPrefix ? `${storageKeyPrefix}-` : '';
@@ -86,13 +86,15 @@ export class PersistState<
   }
 
   public ngOnDestroy(): void {
-    this.#features.forEach((_, key) => { this.removeFeature(key); });
+    this.#features.forEach((_, key) => {
+      this.removeFeature(key);
+    });
     this.#destroyer.next(rootState);
     this.#destroyer.complete();
   }
 
   private defaultStateConfig<S>(
-    key: string
+    key: string,
   ): Required<Omit<PersistStateConfig<S>, 'storage'>> {
     return {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -106,7 +108,7 @@ export class PersistState<
 
   private listenOnStates<S>(
     states: Required<PersistStateConfig<S> & { key: string }>[],
-    feature: string
+    feature: string,
   ): Observable<unknown> {
     if (states.length === 0) {
       return NEVER;
@@ -122,7 +124,7 @@ export class PersistState<
         return merge(
           // Restore state from storage
           this.rehydrateWhen(() =>
-            from(storage.getItem(state.storageKey))
+            from(storage.getItem(state.storageKey)),
           ).pipe(
             filter((value): value is StateSlice => !!value),
             tap((value) => {
@@ -132,9 +134,9 @@ export class PersistState<
               }
 
               this.store.dispatch(
-                rehydrate({ features: { [state.key]: value } })
+                rehydrate({ features: { [state.key]: value } }),
               );
-            })
+            }),
           ),
           // Save state to storage
           state
@@ -142,29 +144,29 @@ export class PersistState<
               this.store.pipe(
                 map(
                   (storeState) =>
-                    storeState[state.key as keyof typeof storeState]
-                )
-              )
+                    storeState[state.key as keyof typeof storeState],
+                ),
+              ),
             )
             .pipe(
               distinctUntilChanged(isEqual),
               skip(state.skip),
-              switchMap((value) => storage.setItem(state.storageKey, value))
-            )
+              switchMap((value) => storage.setItem(state.storageKey, value)),
+            ),
         );
-      })
+      }),
     ).pipe(
       takeUntil(
         this.#destroyer.pipe(
-          filter((destroyFeature) => destroyFeature === feature)
-        )
-      )
+          filter((destroyFeature) => destroyFeature === feature),
+        ),
+      ),
     );
   }
 
   private runMigrations<S>(
     value: StateSlice,
-    migrations: Required<PersistStateConfig<S>>['migrations']
+    migrations: Required<PersistStateConfig<S>>['migrations'],
   ): StateSlice {
     migrations.forEach((migration) => {
       const version = value[

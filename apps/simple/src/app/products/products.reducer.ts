@@ -25,20 +25,20 @@ export const productFeature = createFeature({
       (state, { name }): ProductsState => ({
         ...state,
         products: { ...state.products, [uuid()]: { name } },
-      })
+      }),
     ),
     on(
       productsActions.removeProduct,
       (state, { id }): ProductsState => ({
         ...state,
         products: Object.fromEntries(
-          Object.entries(state.products).filter(([key]) => key !== id)
+          Object.entries(state.products).filter(([key]) => key !== id),
         ),
-      })
+      }),
     ),
     on(
       productsActions.removeProducts,
-      (state): ProductsState => ({ ...state, products: {} })
-    )
+      (state): ProductsState => ({ ...state, products: {} }),
+    ),
   ),
 });

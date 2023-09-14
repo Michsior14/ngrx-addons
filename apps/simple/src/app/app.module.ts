@@ -47,7 +47,7 @@ const appState = {
                   ...state,
                   additionalProp: 'here',
                   version: 2,
-                } as ProductsState & { additionalProp: string }),
+                }) as ProductsState & { additionalProp: string },
             },
           ],
         } as const,
