@@ -29,16 +29,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/architect@npm:0.1602.5":
-  version: 0.1602.5
-  resolution: "@angular-devkit/architect@npm:0.1602.5"
-  dependencies:
-    "@angular-devkit/core": 16.2.5
-    rxjs: 7.8.1
-  checksum: 91a72d8870b11a4043ca8e1d2c9615576e324f5e234900a14f5e91d916cc9843d6540c756da76b4dc94ba94132b3e149448abd4bdda844b32ce812f98b6d5c9a
-  languageName: node
-  linkType: hard
-
 "@angular-devkit/architect@npm:0.1602.6":
   version: 0.1602.6
   resolution: "@angular-devkit/architect@npm:0.1602.6"
@@ -49,14 +39,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-angular@npm:16.2.5":
-  version: 16.2.5
-  resolution: "@angular-devkit/build-angular@npm:16.2.5"
+"@angular-devkit/build-angular@npm:16.2.6":
+  version: 16.2.6
+  resolution: "@angular-devkit/build-angular@npm:16.2.6"
   dependencies:
     "@ampproject/remapping": 2.2.1
-    "@angular-devkit/architect": 0.1602.5
-    "@angular-devkit/build-webpack": 0.1602.5
-    "@angular-devkit/core": 16.2.5
+    "@angular-devkit/architect": 0.1602.6
+    "@angular-devkit/build-webpack": 0.1602.6
+    "@angular-devkit/core": 16.2.6
     "@babel/core": 7.22.9
     "@babel/generator": 7.22.9
     "@babel/helper-annotate-as-pure": 7.22.5
@@ -68,7 +58,7 @@ __metadata:
     "@babel/runtime": 7.22.6
     "@babel/template": 7.22.5
     "@discoveryjs/json-ext": 0.5.7
-    "@ngtools/webpack": 16.2.5
+    "@ngtools/webpack": 16.2.6
     "@vitejs/plugin-basic-ssl": 1.0.1
     ansi-colors: 4.1.3
     autoprefixer: 10.4.14
@@ -152,39 +142,20 @@ __metadata:
       optional: true
     tailwindcss:
       optional: true
-  checksum: ef6ebbc4dba732cd86b5f3ec0b8a21f217ec6631d662fb21406c07d4b0ba2d3b844b4129cc40873b579a01ff9159c167f37849f70714f9a684e7f3c8a8806029
+  checksum: 7430e38ac68cc075b0736302ed7ba1d075faaa5b908f2bec42cf3f20ca3cfa952a6dc333286251251e5aaeb9f36f280d22a24a6c8a8e405ab4d9a8f012405e65
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-webpack@npm:0.1602.5":
-  version: 0.1602.5
-  resolution: "@angular-devkit/build-webpack@npm:0.1602.5"
+"@angular-devkit/build-webpack@npm:0.1602.6":
+  version: 0.1602.6
+  resolution: "@angular-devkit/build-webpack@npm:0.1602.6"
   dependencies:
-    "@angular-devkit/architect": 0.1602.5
+    "@angular-devkit/architect": 0.1602.6
     rxjs: 7.8.1
   peerDependencies:
     webpack: ^5.30.0
     webpack-dev-server: ^4.0.0
-  checksum: b7edae9a8f17ae06dafd198df7829d43a4c8f4bf095a79fb89b3ff306371c59f051afe3e2a1b76be9ce27fba9bad3b22a6dee49bdc072b1bdbaabdc71fc0303e
-  languageName: node
-  linkType: hard
-
-"@angular-devkit/core@npm:16.2.5":
-  version: 16.2.5
-  resolution: "@angular-devkit/core@npm:16.2.5"
-  dependencies:
-    ajv: 8.12.0
-    ajv-formats: 2.1.1
-    jsonc-parser: 3.2.0
-    picomatch: 2.3.1
-    rxjs: 7.8.1
-    source-map: 0.7.4
-  peerDependencies:
-    chokidar: ^3.5.2
-  peerDependenciesMeta:
-    chokidar:
-      optional: true
-  checksum: f8058c064bf03ad86298e7df3e91a2283c6ccabce428f33b04b0e466e5838a2874e0830ce57b2cc1a1a8444d6c85ac86b9a2651aae413879704fac409e644941
+  checksum: 7b4db9751b630f052946874c5eabd352a6cd58e0d7e457529201c3a04ca0959b97ca2cb86caad9c54f98fd2f208c121140fdc80f233a2b00c7f61eaa02ef934b
   languageName: node
   linkType: hard
 
@@ -204,19 +175,6 @@ __metadata:
     chokidar:
       optional: true
   checksum: c8bd41fcd7fdea69f5c1513ea4377d03fa7148c1d5c29359657e1d0802ffdbddfe5ca593279c2ea66e5da22169f77b265d76aadd16733fc6f1c4bff37ec3d536
-  languageName: node
-  linkType: hard
-
-"@angular-devkit/schematics@npm:16.2.5":
-  version: 16.2.5
-  resolution: "@angular-devkit/schematics@npm:16.2.5"
-  dependencies:
-    "@angular-devkit/core": 16.2.5
-    jsonc-parser: 3.2.0
-    magic-string: 0.30.1
-    ora: 5.4.1
-    rxjs: 7.8.1
-  checksum: 50e02042d43e6cc80a1259467211df79bab56b593933b99b310cf8de3f29b866a80ddb5e26d3eb8d7840c8d1c678619cb3da4ff8322686c809f97d791db2211a
   languageName: node
   linkType: hard
 
@@ -3674,9 +3632,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ngrx-addons/root@workspace:."
   dependencies:
-    "@angular-devkit/build-angular": 16.2.5
-    "@angular-devkit/core": 16.2.5
-    "@angular-devkit/schematics": 16.2.5
+    "@angular-devkit/build-angular": 16.2.6
+    "@angular-devkit/core": 16.2.6
+    "@angular-devkit/schematics": 16.2.6
     "@angular-eslint/eslint-plugin": 16.2.0
     "@angular-eslint/eslint-plugin-template": 16.2.0
     "@angular-eslint/template-parser": 16.2.0
@@ -3707,7 +3665,7 @@ __metadata:
     "@nx/js": 16.9.1
     "@nx/linter": 16.9.1
     "@nx/workspace": 16.9.1
-    "@schematics/angular": 16.2.5
+    "@schematics/angular": 16.2.6
     "@types/jest": 29.5.5
     "@types/node": ~18.18.0
     "@types/uuid": ^9.0.4
@@ -3839,14 +3797,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ngtools/webpack@npm:16.2.5":
-  version: 16.2.5
-  resolution: "@ngtools/webpack@npm:16.2.5"
+"@ngtools/webpack@npm:16.2.6":
+  version: 16.2.6
+  resolution: "@ngtools/webpack@npm:16.2.6"
   peerDependencies:
     "@angular/compiler-cli": ^16.0.0
     typescript: ">=4.9.3 <5.2"
     webpack: ^5.54.0
-  checksum: d9a06b7af7ef9ab00530d5beba6ab7bc98adee5dc3ea2eea9cef1256af4ecc1d6d7d38bf6d329978b28285b0923d303722b5be93da7371c2031ed0efe5553516
+  checksum: 9ca328cc8598542c99223680825277be37fd3a89e94d64804756b016974e1d46af851a4da388af57cf59722dea408266c6ded2632a312e55d90134d930634b10
   languageName: node
   linkType: hard
 
@@ -4699,17 +4657,6 @@ __metadata:
     rollup:
       optional: true
   checksum: 18a1f5a9afa993a76663cc2102169cd546786b39a3e92bdc8a2a0b408b509d070a02b20970a30daa9d5d0b1b591b5e7734add84b3aaf263178aef5a26cfab2cf
-  languageName: node
-  linkType: hard
-
-"@schematics/angular@npm:16.2.5":
-  version: 16.2.5
-  resolution: "@schematics/angular@npm:16.2.5"
-  dependencies:
-    "@angular-devkit/core": 16.2.5
-    "@angular-devkit/schematics": 16.2.5
-    jsonc-parser: 3.2.0
-  checksum: e783c931eed9836062bc4edc928443e0b3ccecd37c8fa264ef99f90b803601f22153fcfdb122973a7946fd2eafee5ce139daf7e78dc3f94bae1b41fbfce6b794
   languageName: node
   linkType: hard
 
