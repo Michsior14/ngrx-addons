@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       options:
-        description: 'Semver options (https://github.com/jscutlery/semver#available-options)'
+        description: 'Lerna options (https://github.com/lerna/lerna/tree/main/libs/commands/version#readme)'
         type: string
         required: false
 

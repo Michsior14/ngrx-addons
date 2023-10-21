@@ -9,8 +9,7 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/sync-state"],
       "options": {
-        "project": "libs/sync-state/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": true
+        "project": "libs/sync-state/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -32,11 +31,12 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
           "libs/sync-state/**/*.ts",
-          "libs/sync-state/**/*.html"
+          "libs/sync-state/**/*.html",
+          "libs/sync-state/package.json"
         ]
       }
     }

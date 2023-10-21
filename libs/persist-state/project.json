@@ -9,8 +9,7 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/persist-state"],
       "options": {
-        "project": "libs/persist-state/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": true
+        "project": "libs/persist-state/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -32,11 +31,12 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
           "libs/persist-state/**/*.ts",
-          "libs/persist-state/**/*.html"
+          "libs/persist-state/**/*.html",
+          "libs/persist-state/package.json"
         ]
       }
     }

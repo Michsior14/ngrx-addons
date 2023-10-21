@@ -9,8 +9,7 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/common"],
       "options": {
-        "project": "libs/common/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": true
+        "project": "libs/common/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -32,10 +31,14 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/common/**/*.ts", "libs/common/**/*.html"]
+        "lintFilePatterns": [
+          "libs/common/**/*.ts",
+          "libs/common/**/*.html",
+          "libs/common/package.json"
+        ]
       }
     }
   },
