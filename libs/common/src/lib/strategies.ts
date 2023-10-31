@@ -20,7 +20,7 @@ export abstract class InitializationStrategy {
   providedIn: 'root',
 })
 export class AfterAppInit implements InitializationStrategy, OnDestroy {
-  #initialized = new ReplaySubject<void>(1);
+  readonly #initialized = new ReplaySubject<void>(1);
 
   public when(): Observable<void> {
     return this.#initialized.pipe(first());
