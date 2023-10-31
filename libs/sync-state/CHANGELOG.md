@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/Michsior14/ngrx-addons/compare/v4.0.0...v4.0.1) (2023-10-31)
+
+### Bug Fixes
+
+- make sure streams are always completed ([180a99b](https://github.com/Michsior14/ngrx-addons/commit/180a99bc9418c0d1d7994ad31028e2ebfd637f4f))
+
 ## 4.0.0 (2023-08-10)
 
 ### ⚠ BREAKING CHANGES

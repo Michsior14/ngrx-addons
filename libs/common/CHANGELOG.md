@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/Michsior14/ngrx-addons/compare/v4.0.0...v4.0.1) (2023-10-31)
+
+**Note:** Version bump only for package @ngrx-addons/common
+
 ## 4.0.0 (2023-08-10)
 
 ### ⚠ BREAKING CHANGES
