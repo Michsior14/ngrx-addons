@@ -5,15 +5,15 @@ import type { ActionReducerMap } from '@ngrx/store';
 import { Store } from '@ngrx/store';
 import type { Observable, ObservableInput } from 'rxjs';
 import {
+  Subject,
   distinctUntilChanged,
   filter,
   finalize,
   fromEvent,
   map,
   merge,
-  NEVER,
+  of,
   skip,
-  Subject,
   switchMap,
   takeUntil,
   tap,
@@ -23,7 +23,7 @@ import type {
   SyncStateConfig,
   SyncStateFeatureConfig,
 } from './sync-state.config';
-import { SyncStateStrategy, SyncStateRootConfig } from './sync-state.config';
+import { SyncStateRootConfig, SyncStateStrategy } from './sync-state.config';
 
 const rootState = 'root' as const;
 
@@ -32,9 +32,9 @@ export class SyncState<
   T extends ActionReducerMap<unknown> = ActionReducerMap<unknown>,
 > implements OnDestroy
 {
-  #rootConfig: SyncStateRootConfig<T>;
-  #features = new Map<string, boolean>();
-  #destroyer = new Subject<string>();
+  readonly #rootConfig: SyncStateRootConfig<T>;
+  readonly #features = new Map<string, boolean>();
+  readonly #destroyer = new Subject<string>();
 
   constructor(
     private readonly store: Store,
@@ -103,13 +103,13 @@ export class SyncState<
     feature: string,
   ): Observable<unknown> {
     if (states.length === 0) {
-      return NEVER;
+      return of(undefined);
     }
 
     return merge(
       ...states.map((state) => {
         if (!state.runGuard()) {
-          return NEVER;
+          return of(undefined);
         }
 
         const stateChannel = new BroadcastChannel(state.channel);

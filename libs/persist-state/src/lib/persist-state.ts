@@ -5,13 +5,14 @@ import type { ActionReducerMap } from '@ngrx/store';
 import { Store } from '@ngrx/store';
 import type { Observable, ObservableInput } from 'rxjs';
 import {
-  NEVER,
   Subject,
+  defaultIfEmpty,
   distinctUntilChanged,
   filter,
   from,
   map,
   merge,
+  of,
   skip,
   switchMap,
   takeUntil,
@@ -23,8 +24,8 @@ import type {
   PersistStateFeatureConfig,
 } from './persist-state.config';
 import {
-  PersistStateStrategy,
   PersistStateRootConfig,
+  PersistStateStrategy,
 } from './persist-state.config';
 
 const rootState = 'root' as const;
@@ -37,9 +38,9 @@ export class PersistState<
   T extends ActionReducerMap<unknown> = ActionReducerMap<unknown>,
 > implements OnDestroy
 {
-  #rootConfig: PersistStateRootConfig<T>;
-  #features = new Map<string, boolean>();
-  #destroyer = new Subject<string>();
+  readonly #rootConfig: PersistStateRootConfig<T>;
+  readonly #features = new Map<string, boolean>();
+  readonly #destroyer = new Subject<string>();
 
   constructor(
     private readonly store: Store,
@@ -111,13 +112,13 @@ export class PersistState<
     feature: string,
   ): Observable<unknown> {
     if (states.length === 0) {
-      return NEVER;
+      return of(undefined);
     }
 
     return merge(
       ...states.map((state) => {
         if (!state.runGuard()) {
-          return NEVER;
+          return of(undefined);
         }
         const storage =
           typeof state.storage === 'function' ? state.storage() : state.storage;
@@ -137,6 +138,7 @@ export class PersistState<
                 rehydrate({ features: { [state.key]: value } }),
               );
             }),
+            defaultIfEmpty(undefined),
           ),
           // Save state to storage
           state
