@@ -39,14 +39,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-angular@npm:16.2.8":
-  version: 16.2.8
-  resolution: "@angular-devkit/build-angular@npm:16.2.8"
+"@angular-devkit/architect@npm:0.1602.9":
+  version: 0.1602.9
+  resolution: "@angular-devkit/architect@npm:0.1602.9"
+  dependencies:
+    "@angular-devkit/core": "npm:16.2.9"
+    rxjs: "npm:7.8.1"
+  checksum: b712834912e8aff8c894d98a46359b6931523b115e1b2e13b2d3e4e73297dde0298bd8fc5d3bf870eade92704d5f1289605320e62e79f5844bc0c75503747ab9
+  languageName: node
+  linkType: hard
+
+"@angular-devkit/build-angular@npm:16.2.9":
+  version: 16.2.9
+  resolution: "@angular-devkit/build-angular@npm:16.2.9"
   dependencies:
     "@ampproject/remapping": "npm:2.2.1"
-    "@angular-devkit/architect": "npm:0.1602.8"
-    "@angular-devkit/build-webpack": "npm:0.1602.8"
-    "@angular-devkit/core": "npm:16.2.8"
+    "@angular-devkit/architect": "npm:0.1602.9"
+    "@angular-devkit/build-webpack": "npm:0.1602.9"
+    "@angular-devkit/core": "npm:16.2.9"
     "@babel/core": "npm:7.22.9"
     "@babel/generator": "npm:7.22.9"
     "@babel/helper-annotate-as-pure": "npm:7.22.5"
@@ -58,7 +68,7 @@ __metadata:
     "@babel/runtime": "npm:7.22.6"
     "@babel/template": "npm:7.22.5"
     "@discoveryjs/json-ext": "npm:0.5.7"
-    "@ngtools/webpack": "npm:16.2.8"
+    "@ngtools/webpack": "npm:16.2.9"
     "@vitejs/plugin-basic-ssl": "npm:1.0.1"
     ansi-colors: "npm:4.1.3"
     autoprefixer: "npm:10.4.14"
@@ -142,20 +152,20 @@ __metadata:
       optional: true
     tailwindcss:
       optional: true
-  checksum: 41a07240bf9a978c8bc076121c764970726da59abaf8b85cde3abbfa52569180e55148024bd2c8366ccd33971c035b3da1a432c85f9c14ff8e7b84bb809a2efa
+  checksum: d2afb35df232b736341b7613321be972916b5beb84026624e0c9ffc7d0ca804c5a9165c57b2a62834efc8d95b2e1a8f862e92cdc3a2bed8a33cef831de85469d
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-webpack@npm:0.1602.8":
-  version: 0.1602.8
-  resolution: "@angular-devkit/build-webpack@npm:0.1602.8"
+"@angular-devkit/build-webpack@npm:0.1602.9":
+  version: 0.1602.9
+  resolution: "@angular-devkit/build-webpack@npm:0.1602.9"
   dependencies:
-    "@angular-devkit/architect": "npm:0.1602.8"
+    "@angular-devkit/architect": "npm:0.1602.9"
     rxjs: "npm:7.8.1"
   peerDependencies:
     webpack: ^5.30.0
     webpack-dev-server: ^4.0.0
-  checksum: c29944569ea51de16124466f1a9d66d7921754001db5590765583593abc010bc2d3f896530df4a084d63fc7e93cc984b42c883a22d487bc7cd2315ff71f09d8b
+  checksum: cab217db55e12b40f97b6615bfa4d10c5e148f349383203bf794eceb2df4eb0542ccab0bbf2705083cdce380da36de20dfe0cff696ae7579542439408ef831d4
   languageName: node
   linkType: hard
 
@@ -178,6 +188,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@angular-devkit/core@npm:16.2.9":
+  version: 16.2.9
+  resolution: "@angular-devkit/core@npm:16.2.9"
+  dependencies:
+    ajv: "npm:8.12.0"
+    ajv-formats: "npm:2.1.1"
+    jsonc-parser: "npm:3.2.0"
+    picomatch: "npm:2.3.1"
+    rxjs: "npm:7.8.1"
+    source-map: "npm:0.7.4"
+  peerDependencies:
+    chokidar: ^3.5.2
+  peerDependenciesMeta:
+    chokidar:
+      optional: true
+  checksum: f674f538887c28eb2ca5b6d63dbce8918c9f9fedaa3e3dcb76673899739456fdb7ba83fc13fafaff6c64d546ac11821957fee257a28e2ef69eed239ed728240a
+  languageName: node
+  linkType: hard
+
 "@angular-devkit/schematics@npm:16.2.8":
   version: 16.2.8
   resolution: "@angular-devkit/schematics@npm:16.2.8"
@@ -188,6 +217,19 @@ __metadata:
     ora: "npm:5.4.1"
     rxjs: "npm:7.8.1"
   checksum: 8657b5324c7a13d9a95ede9c9eda4240fe986a1923d24de86e7dc57e71247c8e3138618ae603dd68505b46a0916cb45b5ea817d51e57b56ba15abaec70a58b77
+  languageName: node
+  linkType: hard
+
+"@angular-devkit/schematics@npm:16.2.9":
+  version: 16.2.9
+  resolution: "@angular-devkit/schematics@npm:16.2.9"
+  dependencies:
+    "@angular-devkit/core": "npm:16.2.9"
+    jsonc-parser: "npm:3.2.0"
+    magic-string: "npm:0.30.1"
+    ora: "npm:5.4.1"
+    rxjs: "npm:7.8.1"
+  checksum: 54ed72901ebd64426334c6e79bc7bab196fd8492c6cc7492928e3fb8608e01346f64175bf7816492ce646926ece3a6ca8ec647e8ac979cab92276c88ad3b5602
   languageName: node
   linkType: hard
 
@@ -3602,9 +3644,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ngrx-addons/root@workspace:."
   dependencies:
-    "@angular-devkit/build-angular": "npm:16.2.8"
-    "@angular-devkit/core": "npm:16.2.8"
-    "@angular-devkit/schematics": "npm:16.2.8"
+    "@angular-devkit/build-angular": "npm:16.2.9"
+    "@angular-devkit/core": "npm:16.2.9"
+    "@angular-devkit/schematics": "npm:16.2.9"
     "@angular-eslint/eslint-plugin": "npm:16.2.0"
     "@angular-eslint/eslint-plugin-template": "npm:16.2.0"
     "@angular-eslint/template-parser": "npm:16.2.0"
@@ -3635,7 +3677,7 @@ __metadata:
     "@nx/jest": "npm:17.0.2"
     "@nx/js": "npm:17.0.2"
     "@nx/workspace": "npm:17.0.2"
-    "@schematics/angular": "npm:16.2.8"
+    "@schematics/angular": "npm:16.2.9"
     "@types/jest": "npm:29.5.7"
     "@types/node": "npm:~20.8.10"
     "@types/uuid": "npm:^9.0.6"
@@ -3766,14 +3808,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ngtools/webpack@npm:16.2.8":
-  version: 16.2.8
-  resolution: "@ngtools/webpack@npm:16.2.8"
+"@ngtools/webpack@npm:16.2.9":
+  version: 16.2.9
+  resolution: "@ngtools/webpack@npm:16.2.9"
   peerDependencies:
     "@angular/compiler-cli": ^16.0.0
     typescript: ">=4.9.3 <5.2"
     webpack: ^5.54.0
-  checksum: 61222ae31b697da2bcbc646b25428a8070a8f9440138460ef39f0bfe2d1ad42a89c3f128db252cd9331182975effe25d195c80ffc4010b2e357aa827b6e89e80
+  checksum: 4f94045dffa568e2cf659a805b56ce50fc4204ab6fea432ebcb3bfe8319a61f8c72b16f420dca60ed4703e86f81658ad3e2d731b15d064225191f242801038af
   languageName: node
   linkType: hard
 
@@ -4681,6 +4723,17 @@ __metadata:
     "@angular-devkit/schematics": "npm:16.2.8"
     jsonc-parser: "npm:3.2.0"
   checksum: 41eedc96aede906d3b827f3c15ac069f124aca638f88ecce21f3c86b3ba37a86e4b992d6c52954b1e0eb8f95361f930aae3a8865463757d7ab78548834525945
+  languageName: node
+  linkType: hard
+
+"@schematics/angular@npm:16.2.9":
+  version: 16.2.9
+  resolution: "@schematics/angular@npm:16.2.9"
+  dependencies:
+    "@angular-devkit/core": "npm:16.2.9"
+    "@angular-devkit/schematics": "npm:16.2.9"
+    jsonc-parser: "npm:3.2.0"
+  checksum: 2eba8c44aac031b83e76a491c9cc5626577bb5d66a5f892dae3ce95e3c9e558e70a829a4a57b0591b74f85a9abfe01c86136e04db795598b528c38e337bd5873
   languageName: node
   linkType: hard
 
