@@ -59,10 +59,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "after-init:build:production"
+          "buildTarget": "after-init:build:production"
         },
         "development": {
-          "browserTarget": "after-init:build:development"
+          "buildTarget": "after-init:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -70,7 +70,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "after-init:build"
+        "buildTarget": "after-init:build"
       }
     },
     "lint": {
@@ -86,8 +86,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/apps/after-init"],
       "options": {
-        "jestConfig": "apps/after-init/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "apps/after-init/jest.config.ts"
       }
     }
   },
