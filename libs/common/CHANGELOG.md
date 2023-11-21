@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.0](https://github.com/Michsior14/ngrx-addons/compare/v4.0.1...v5.0.0) (2023-11-21)
+
+### ⚠ BREAKING CHANGES
+
+- update to angular 17 and ngrx 17 (#355)
+
+### Features
+
+- update to angular 17 and ngrx 17 ([#355](https://github.com/Michsior14/ngrx-addons/issues/355)) ([9e0e1bf](https://github.com/Michsior14/ngrx-addons/commit/9e0e1bfefb13cd9673e513f5140788b6d8548141))
+
 ## [4.0.1](https://github.com/Michsior14/ngrx-addons/compare/v4.0.0...v4.0.1) (2023-10-31)
 
 **Note:** Version bump only for package @ngrx-addons/common
