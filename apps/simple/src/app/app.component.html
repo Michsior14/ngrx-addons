@@ -9,9 +9,12 @@
   <button (click)="addProduct()">Add</button>
   <button (click)="removeAll()">Clear all</button>
 </div>
-
-<ul *ngIf="products | async as list">
-  <li *ngFor="let entry of list">
-    {{ entry[1].name }} <button (click)="removeProduct(entry[0])">x</button>
-  </li>
+@if (products | async; as list) {
+  <ul>
+    @for (entry of list; track entry) {
+      <li>
+      {{ entry[1].name }} <button (click)="removeProduct(entry[0])">x</button>
+    </li>
+  }
 </ul>
+}

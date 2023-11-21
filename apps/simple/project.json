@@ -56,10 +56,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "simple:build:production"
+          "buildTarget": "simple:build:production"
         },
         "development": {
-          "browserTarget": "simple:build:development"
+          "buildTarget": "simple:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -67,7 +67,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "simple:build"
+        "buildTarget": "simple:build"
       }
     },
     "lint": {
@@ -80,8 +80,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/apps/simple"],
       "options": {
-        "jestConfig": "apps/simple/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "apps/simple/jest.config.ts"
       }
     }
   },

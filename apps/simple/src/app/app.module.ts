@@ -32,7 +32,9 @@ const appState = {
       },
     }),
     EffectsModule.forRoot([ProductsEffects]),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    !environment.production
+      ? StoreDevtoolsModule.instrument({ connectInZone: true })
+      : [],
     PersistStateModule.forRoot<typeof appState>({
       states: [
         {

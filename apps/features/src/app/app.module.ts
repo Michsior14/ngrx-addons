@@ -25,7 +25,9 @@ import { FeatureBModule } from './feature-b/feature-b.module';
         },
       },
     ),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    !environment.production
+      ? StoreDevtoolsModule.instrument({ connectInZone: true })
+      : [],
     PersistStateModule.forRoot(),
     SyncStateModule.forRoot(),
     FeatureAModule,
