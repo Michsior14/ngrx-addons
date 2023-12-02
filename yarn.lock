@@ -3673,14 +3673,14 @@ __metadata:
     "@angular/router": "npm:17.0.5"
     "@commitlint/cli": "npm:~18.4.3"
     "@commitlint/config-angular": "npm:~18.4.3"
-    "@ngrx/component-store": "npm:17.0.0"
-    "@ngrx/effects": "npm:17.0.0"
-    "@ngrx/entity": "npm:17.0.0"
-    "@ngrx/eslint-plugin": "npm:17.0.0"
-    "@ngrx/router-store": "npm:17.0.0"
-    "@ngrx/schematics": "npm:17.0.0"
-    "@ngrx/store": "npm:17.0.0"
-    "@ngrx/store-devtools": "npm:17.0.0"
+    "@ngrx/component-store": "npm:17.0.1"
+    "@ngrx/effects": "npm:17.0.1"
+    "@ngrx/entity": "npm:17.0.1"
+    "@ngrx/eslint-plugin": "npm:17.0.1"
+    "@ngrx/router-store": "npm:17.0.1"
+    "@ngrx/schematics": "npm:17.0.1"
+    "@ngrx/store": "npm:17.0.1"
+    "@ngrx/store-devtools": "npm:17.0.1"
     "@nx/angular": "npm:17.1.3"
     "@nx/eslint": "npm:17.1.3"
     "@nx/eslint-plugin": "npm:17.1.3"
@@ -3719,49 +3719,49 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ngrx/component-store@npm:17.0.0":
-  version: 17.0.0
-  resolution: "@ngrx/component-store@npm:17.0.0"
+"@ngrx/component-store@npm:17.0.1":
+  version: 17.0.1
+  resolution: "@ngrx/component-store@npm:17.0.1"
   dependencies:
     "@ngrx/operators": "npm:17.0.0-beta.0"
     tslib: "npm:^2.0.0"
   peerDependencies:
     "@angular/core": ^17.0.0
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: f597946d467c19bfb5c62325d0623d2adee5ab6aeda5a1c26439c3bc160234979f458918b9b601bff725cdcba291d27c6fef3e828f23149d4b499c090917156a
+  checksum: fe0cb9b29191b80f7acb326a4301d28af9ff9569eca558fd6b078e2e0c4f99f20e71baa4b7929bcf1b172d8184db3638c44b947d0b546919b451dac10ac03503
   languageName: node
   linkType: hard
 
-"@ngrx/effects@npm:17.0.0":
-  version: 17.0.0
-  resolution: "@ngrx/effects@npm:17.0.0"
+"@ngrx/effects@npm:17.0.1":
+  version: 17.0.1
+  resolution: "@ngrx/effects@npm:17.0.1"
   dependencies:
     "@ngrx/operators": "npm:17.0.0-beta.0"
     tslib: "npm:^2.0.0"
   peerDependencies:
     "@angular/core": ^17.0.0
-    "@ngrx/store": 17.0.0
+    "@ngrx/store": 17.0.1
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: 49d46f16f60277bf4f98d7b09018a432f1eb20eedb83550a3939368e215616d2fdc54650eb3ef8add305717cabdfbc036700b59f8ba65f39c906433069cd6f18
+  checksum: 3f237d1591e0663d665cb0d1fd3acf96be5c9f98db2700a999df3ef627d4f330074941e1335dc858bb5a62d553dc1e56b909df65d22fd2ca84ad951b5a768ab3
   languageName: node
   linkType: hard
 
-"@ngrx/entity@npm:17.0.0":
-  version: 17.0.0
-  resolution: "@ngrx/entity@npm:17.0.0"
+"@ngrx/entity@npm:17.0.1":
+  version: 17.0.1
+  resolution: "@ngrx/entity@npm:17.0.1"
   dependencies:
     tslib: "npm:^2.0.0"
   peerDependencies:
     "@angular/core": ^17.0.0
-    "@ngrx/store": 17.0.0
+    "@ngrx/store": 17.0.1
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: c008f88b421a2556b0a390dce15d143e11f9a0732d4b08b3a2da1962c0f730e10263523346d1810a759af2391cc1caaee04a231404999182f3992bda53347b9b
+  checksum: c881c61fa82832736572c2dc2f1726b8bd830a38e1794ae2857b5ac2d28fc91aeeb4445b5b9eac42742d978dbfbe67172c879999dcbc3f1704206b2cd971fcdc
   languageName: node
   linkType: hard
 
-"@ngrx/eslint-plugin@npm:17.0.0":
-  version: 17.0.0
-  resolution: "@ngrx/eslint-plugin@npm:17.0.0"
+"@ngrx/eslint-plugin@npm:17.0.1":
+  version: 17.0.1
+  resolution: "@ngrx/eslint-plugin@npm:17.0.1"
   dependencies:
     "@typescript-eslint/experimental-utils": "npm:^5.4.0"
     eslint-etc: "npm:^5.1.0"
@@ -3770,7 +3770,7 @@ __metadata:
   peerDependencies:
     eslint: ">=8.0.0"
     typescript: ">=4.4.0"
-  checksum: 404f424222fa1e6c3038a7ed79d58c08c8413dc49ee8c00cb96a803f475b64b3c0c224d4caf4f356908108a5ea593bae8e22344b68ded8290a5c788107485751
+  checksum: 0ec5d799583e182019c03aa718bd10d79e768c92f829b81626bec39e2dfb2891c7cff6edb23224f1b844ba2a9c7a34b67d30139a8efe4afc6735a36e2731e3ca
   languageName: node
   linkType: hard
 
@@ -3785,49 +3785,49 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ngrx/router-store@npm:17.0.0":
-  version: 17.0.0
-  resolution: "@ngrx/router-store@npm:17.0.0"
+"@ngrx/router-store@npm:17.0.1":
+  version: 17.0.1
+  resolution: "@ngrx/router-store@npm:17.0.1"
   dependencies:
     tslib: "npm:^2.0.0"
   peerDependencies:
     "@angular/common": ^17.0.0
     "@angular/core": ^17.0.0
     "@angular/router": ^17.0.0
-    "@ngrx/store": 17.0.0
+    "@ngrx/store": 17.0.1
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: 8aa03a3c0832e73f7e8989f33b4975c9d0f978e03e549ae659b8c06c23e088beb518c228450de817a8b2328fdbff1e40bf90b3db2cb4f23135b8e92e97a0a6dd
+  checksum: 877676680fd5a0760ee0c0c378b5042aa815a2637f83eab5ac70fd6c0978bbfa0ded3e1ff646a1eec2ab897d53c3179b6b13ad8f0102baa0157f7b3e0df32cc0
   languageName: node
   linkType: hard
 
-"@ngrx/schematics@npm:17.0.0":
-  version: 17.0.0
-  resolution: "@ngrx/schematics@npm:17.0.0"
-  checksum: 16be55474de65d11ed540be30a62d64c6c7183d5abec19b930a1ff3eeefe1452a92a7ccabb1ac64f9f8d3dfb821ef0ffb6c213671d38dc3916cb766307ffbff4
+"@ngrx/schematics@npm:17.0.1":
+  version: 17.0.1
+  resolution: "@ngrx/schematics@npm:17.0.1"
+  checksum: 268f6af9e54299d0ff05519629fc6615d9b4207392e0b41e34e95273fbeb9b9410ea8445adb75c71aef5c92a2244ce705d5c129c9b518103d6abf715db553ab7
   languageName: node
   linkType: hard
 
-"@ngrx/store-devtools@npm:17.0.0":
-  version: 17.0.0
-  resolution: "@ngrx/store-devtools@npm:17.0.0"
+"@ngrx/store-devtools@npm:17.0.1":
+  version: 17.0.1
+  resolution: "@ngrx/store-devtools@npm:17.0.1"
   dependencies:
     tslib: "npm:^2.0.0"
   peerDependencies:
-    "@ngrx/store": 17.0.0
+    "@ngrx/store": 17.0.1
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: d69140b6bf864fb5fa053e298f3d389a54697db6e59796d7be6c9501768d4d8221ed34df9427b26ea84b66626645b0b0280767c96936e2314bdf5aa6dd7a24aa
+  checksum: 24945d1992e6ddd312ff813e69412706e024dafecc50ba75df699d4bea70dd08b4df85314750660d7b24651aec952442f99d8cb4e7ab27252d9cace9c8fd6681
   languageName: node
   linkType: hard
 
-"@ngrx/store@npm:17.0.0":
-  version: 17.0.0
-  resolution: "@ngrx/store@npm:17.0.0"
+"@ngrx/store@npm:17.0.1":
+  version: 17.0.1
+  resolution: "@ngrx/store@npm:17.0.1"
   dependencies:
     tslib: "npm:^2.0.0"
   peerDependencies:
     "@angular/core": ^17.0.0
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: 697eedb8af79a6aa411d59bd5502c73d62681eb22f46be90d8d87b4153bfaa7913c55da97536d07cce8f7fe68aeaeda2d24cbec62491e3108af1eb03f49575dd
+  checksum: 59ff28dc25224a2b78eb59238e34a5da07e7c9572bedc62ab5166820113cf1d30f5ec7cdeda04e952c7247b7ccc5f9e04f0f5b6af2f5a49f1c2aef3e61677955
   languageName: node
   linkType: hard
 
