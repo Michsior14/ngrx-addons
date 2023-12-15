@@ -30,14 +30,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/sync-state/**/*.ts",
-          "libs/sync-state/**/*.html",
-          "libs/sync-state/package.json"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": []

@@ -30,14 +30,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/persist-state/**/*.ts",
-          "libs/persist-state/**/*.html",
-          "libs/persist-state/package.json"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": []
