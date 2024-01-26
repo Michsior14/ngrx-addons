@@ -8,6 +8,9 @@ on:
         type: string
         required: false
 
+env:
+  HUSKY: 0
+
 jobs:
   release:
     runs-on: ubuntu-latest
