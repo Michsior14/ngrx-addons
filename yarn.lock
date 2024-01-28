@@ -3461,7 +3461,7 @@ __metadata:
     "@nx/workspace": "npm:17.2.8"
     "@schematics/angular": "npm:17.1.1"
     "@types/jest": "npm:29.5.11"
-    "@types/node": "npm:20.11.7"
+    "@types/node": "npm:20.11.9"
     "@types/uuid": "npm:^9.0.8"
     "@typescript-eslint/eslint-plugin": "npm:6.19.1"
     "@typescript-eslint/parser": "npm:6.19.1"
@@ -4933,12 +4933,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:20.11.7":
+"@types/node@npm:*":
   version: 20.11.7
   resolution: "@types/node@npm:20.11.7"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: ba4b41542b64f21a881a277189e761c553d00af0b1c02f2d8a47ebe8bc29a00ed21b45adf0bf9af2cf8ea6c92a443853d4f7b690081ceaecc150719cc574e9ea
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:20.11.9":
+  version: 20.11.9
+  resolution: "@types/node@npm:20.11.9"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 72f32aa56e97863d0bfee0274ce450245c2e159104a15f0fb3ee389962dfec34de284a679323161f8cf6cdaae9141043e370571988215b94e653a40f9b60078a
   languageName: node
   linkType: hard
 
