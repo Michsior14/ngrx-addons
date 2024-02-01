@@ -39,14 +39,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-angular@npm:17.1.1":
-  version: 17.1.1
-  resolution: "@angular-devkit/build-angular@npm:17.1.1"
+"@angular-devkit/architect@npm:0.1701.2":
+  version: 0.1701.2
+  resolution: "@angular-devkit/architect@npm:0.1701.2"
+  dependencies:
+    "@angular-devkit/core": "npm:17.1.2"
+    rxjs: "npm:7.8.1"
+  checksum: 10c0/c1a1fc7b79a0098e013988ae9cecf31067ed29d1b35de8eec02ca92e078b4aefd81ba32070e0e81558200042688857ebfd3d1d0481ea0cb4b1cecf7daa8cab8b
+  languageName: node
+  linkType: hard
+
+"@angular-devkit/build-angular@npm:17.1.2":
+  version: 17.1.2
+  resolution: "@angular-devkit/build-angular@npm:17.1.2"
   dependencies:
     "@ampproject/remapping": "npm:2.2.1"
-    "@angular-devkit/architect": "npm:0.1701.1"
-    "@angular-devkit/build-webpack": "npm:0.1701.1"
-    "@angular-devkit/core": "npm:17.1.1"
+    "@angular-devkit/architect": "npm:0.1701.2"
+    "@angular-devkit/build-webpack": "npm:0.1701.2"
+    "@angular-devkit/core": "npm:17.1.2"
     "@babel/core": "npm:7.23.7"
     "@babel/generator": "npm:7.23.6"
     "@babel/helper-annotate-as-pure": "npm:7.22.5"
@@ -57,7 +67,7 @@ __metadata:
     "@babel/preset-env": "npm:7.23.7"
     "@babel/runtime": "npm:7.23.7"
     "@discoveryjs/json-ext": "npm:0.5.7"
-    "@ngtools/webpack": "npm:17.1.1"
+    "@ngtools/webpack": "npm:17.1.2"
     "@vitejs/plugin-basic-ssl": "npm:1.0.2"
     ansi-colors: "npm:4.1.3"
     autoprefixer: "npm:10.4.16"
@@ -148,20 +158,20 @@ __metadata:
       optional: true
     tailwindcss:
       optional: true
-  checksum: 10c0/91d9b2d071f01c2dd39a347fcf82bece140703d559c4cd405313dbe9fe2bfcc955c4b674df89a3494f95f0120c6d34f215cf8f8b58d4c3bd8f0bd3e39cbb2773
+  checksum: 10c0/0ce3d21eb8ca729734f27ef1d73c46f5bee47e9b6d700df09cee6d715874140aaf2a76e19ac8f95d1d9dd2465a43098992d8c2404adcabe884ba3db726b23e9f
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-webpack@npm:0.1701.1":
-  version: 0.1701.1
-  resolution: "@angular-devkit/build-webpack@npm:0.1701.1"
+"@angular-devkit/build-webpack@npm:0.1701.2":
+  version: 0.1701.2
+  resolution: "@angular-devkit/build-webpack@npm:0.1701.2"
   dependencies:
-    "@angular-devkit/architect": "npm:0.1701.1"
+    "@angular-devkit/architect": "npm:0.1701.2"
     rxjs: "npm:7.8.1"
   peerDependencies:
     webpack: ^5.30.0
     webpack-dev-server: ^4.0.0
-  checksum: 10c0/361c0f2e36440d8cb21f0c1764adecf6fdc784d1011faeea977110d6b0adb620905c50d95d3557f2f27a6d393694cd1d9f0192b797eab375c7187140fb66ca83
+  checksum: 10c0/5222490d75c322005ed8989c0dc7073661e7007f07ab9232e562b283939d37a580bb94dfaa755b67aaed0148dac1a5d2ce77da8094156d0fcfecc378dd86774e
   languageName: node
   linkType: hard
 
@@ -184,6 +194,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@angular-devkit/core@npm:17.1.2":
+  version: 17.1.2
+  resolution: "@angular-devkit/core@npm:17.1.2"
+  dependencies:
+    ajv: "npm:8.12.0"
+    ajv-formats: "npm:2.1.1"
+    jsonc-parser: "npm:3.2.0"
+    picomatch: "npm:3.0.1"
+    rxjs: "npm:7.8.1"
+    source-map: "npm:0.7.4"
+  peerDependencies:
+    chokidar: ^3.5.2
+  peerDependenciesMeta:
+    chokidar:
+      optional: true
+  checksum: 10c0/2e589c681126238a6d1ff2c256d4b18c64da86303ebae1545bc8f9923b9d282752fc03972c5c2cf8b48bdd3452c301124ee7acc7ab98a8f9d703618b1aeb44d2
+  languageName: node
+  linkType: hard
+
 "@angular-devkit/schematics@npm:17.1.1":
   version: 17.1.1
   resolution: "@angular-devkit/schematics@npm:17.1.1"
@@ -194,6 +223,19 @@ __metadata:
     ora: "npm:5.4.1"
     rxjs: "npm:7.8.1"
   checksum: 10c0/5108d69f0d3af9cd1e8354c8fc004091b5c59d54f4cc1b8f7aeb144366386495edbd52b4bcca62eca5512183009e89a4daf9378c266f0c746b72a7d0b0884749
+  languageName: node
+  linkType: hard
+
+"@angular-devkit/schematics@npm:17.1.2":
+  version: 17.1.2
+  resolution: "@angular-devkit/schematics@npm:17.1.2"
+  dependencies:
+    "@angular-devkit/core": "npm:17.1.2"
+    jsonc-parser: "npm:3.2.0"
+    magic-string: "npm:0.30.5"
+    ora: "npm:5.4.1"
+    rxjs: "npm:7.8.1"
+  checksum: 10c0/30db52fe227f84798598e9880ad6a7afaa5763b352168f3801efc87dea1c16d55426ccd6563b305415e5db0006c2fa00041df70986a873a24b0a3172aa1f84e2
   languageName: node
   linkType: hard
 
@@ -3640,9 +3682,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ngrx-addons/root@workspace:."
   dependencies:
-    "@angular-devkit/build-angular": "npm:17.1.1"
-    "@angular-devkit/core": "npm:17.1.1"
-    "@angular-devkit/schematics": "npm:17.1.1"
+    "@angular-devkit/build-angular": "npm:17.1.2"
+    "@angular-devkit/core": "npm:17.1.2"
+    "@angular-devkit/schematics": "npm:17.1.2"
     "@angular-eslint/eslint-plugin": "npm:17.2.1"
     "@angular-eslint/eslint-plugin-template": "npm:17.2.1"
     "@angular-eslint/template-parser": "npm:17.2.1"
@@ -3673,7 +3715,7 @@ __metadata:
     "@nx/jest": "npm:17.3.0"
     "@nx/js": "npm:17.3.0"
     "@nx/workspace": "npm:17.3.0"
-    "@schematics/angular": "npm:17.1.1"
+    "@schematics/angular": "npm:17.1.2"
     "@types/jest": "npm:29.5.11"
     "@types/node": "npm:20.11.13"
     "@types/uuid": "npm:^9.0.8"
@@ -3818,14 +3860,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ngtools/webpack@npm:17.1.1":
-  version: 17.1.1
-  resolution: "@ngtools/webpack@npm:17.1.1"
+"@ngtools/webpack@npm:17.1.2":
+  version: 17.1.2
+  resolution: "@ngtools/webpack@npm:17.1.2"
   peerDependencies:
     "@angular/compiler-cli": ^17.0.0
     typescript: ">=5.2 <5.4"
     webpack: ^5.54.0
-  checksum: 10c0/e339d92c434d0f07b2c19a4df996942a02b6a837be280ba3befb92a043291d1bce4719ef1b83a7f1cabe4dabb411317e10b7a32aac562bd7b7fb71dcc1ea8243
+  checksum: 10c0/2544563bfe2b4ab65243d761eaf83270d8c4e111530e06f540849323fab81151b919a68fed35db05f48ba74f6c54d5c132300115196f2b4231e342c9eefe6306
   languageName: node
   linkType: hard
 
@@ -4731,6 +4773,17 @@ __metadata:
     "@angular-devkit/schematics": "npm:17.1.1"
     jsonc-parser: "npm:3.2.0"
   checksum: 10c0/02eef70022f8d69ce302f731adc598c35a493b20417abb5caae0da961860a4fa71e273f077aec15396b0b5b3de7e4a9977cf27803ce59e283e7cd7d48bbc2445
+  languageName: node
+  linkType: hard
+
+"@schematics/angular@npm:17.1.2":
+  version: 17.1.2
+  resolution: "@schematics/angular@npm:17.1.2"
+  dependencies:
+    "@angular-devkit/core": "npm:17.1.2"
+    "@angular-devkit/schematics": "npm:17.1.2"
+    jsonc-parser: "npm:3.2.0"
+  checksum: 10c0/302865d4b494b535f93b86a2f3e2f0f60a22cbf1048c5c2ab699816ef6a7f3d2fe07cfa01097de38e82252d031e05e20e93fb2ae76c32362fdb1a499932bdfc1
   languageName: node
   linkType: hard
 
