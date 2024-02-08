@@ -72,16 +72,6 @@
       "options": {
         "buildTarget": "after-init:build"
       }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint"
-    },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/apps/after-init"],
-      "options": {
-        "jestConfig": "apps/after-init/jest.config.ts"
-      }
     }
   },
   "tags": []

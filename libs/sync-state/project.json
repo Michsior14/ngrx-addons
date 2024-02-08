@@ -20,17 +20,6 @@
         }
       },
       "defaultConfiguration": "production"
-    },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/sync-state"],
-      "options": {
-        "jestConfig": "libs/sync-state/jest.config.ts",
-        "codeCoverage": true
-      }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint"
     }
   },
   "tags": []
