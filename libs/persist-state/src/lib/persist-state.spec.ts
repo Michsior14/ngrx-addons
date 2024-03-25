@@ -12,7 +12,7 @@ import type { Async, StateStorage } from './storage';
 import { BeforeAppInit } from '@ngrx-addons/common';
 
 describe('PersistState', () => {
-  const key = 'test' as const;
+  const key = 'test';
   const initialState = {
     [key]: {
       valueA: 1,

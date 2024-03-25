@@ -28,7 +28,7 @@ import {
   PersistStateStrategy,
 } from './persist-state.config';
 
-const rootState = 'root' as const;
+const rootState = 'root';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type StateSlice = Record<string, any>;

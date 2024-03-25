@@ -25,8 +25,8 @@ class MockBroadcastChannel implements BroadcastChannel {
   });
   postMessage = jest
     .fn()
-    .mockImplementation(
-      (message) => channels.get(this.name)?.subject.next(message),
+    .mockImplementation((message) =>
+      channels.get(this.name)?.subject.next(message),
     );
   addEventListener = jest
     .fn()
@@ -44,7 +44,7 @@ class MockBroadcastChannel implements BroadcastChannel {
 }
 
 describe('SyncState', () => {
-  const key = 'test' as const;
+  const key = 'test';
   const initialState = {
     [key]: {
       valueA: 1,

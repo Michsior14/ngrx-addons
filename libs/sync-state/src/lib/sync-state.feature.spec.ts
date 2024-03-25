@@ -5,7 +5,7 @@ import { SYNC_STATE_FEATURE_CONFIGS } from './sync-state.config';
 import { SyncStateFeature } from './sync-state.feature';
 
 describe('SyncStateFeature', () => {
-  const key = 'test' as const;
+  const key = 'test';
 
   interface State {
     a: number;

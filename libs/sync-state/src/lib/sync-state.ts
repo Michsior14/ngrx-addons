@@ -25,7 +25,7 @@ import type {
 } from './sync-state.config';
 import { SyncStateRootConfig, SyncStateStrategy } from './sync-state.config';
 
-const rootState = 'root' as const;
+const rootState = 'root';
 
 @Injectable()
 export class SyncState<

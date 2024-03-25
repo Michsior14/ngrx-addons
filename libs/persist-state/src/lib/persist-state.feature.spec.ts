@@ -5,7 +5,7 @@ import { PERSIST_STATE_FEATURE_CONFIGS } from './persist-state.config';
 import { PersistStateFeature } from './persist-state.feature';
 
 describe('PersistStateFeature', () => {
-  const key = 'test' as const;
+  const key = 'test';
 
   interface State {
     a: number;
