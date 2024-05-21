@@ -5,6 +5,11 @@
   "sourceRoot": "libs/common/src",
   "prefix": "ngrx-addons",
   "targets": {
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "dist/libs/common"
+      }
+    },
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/common"],

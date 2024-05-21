@@ -4,7 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       options:
-        description: 'Lerna options (https://github.com/lerna/lerna/tree/main/libs/commands/version#readme)'
+        description:
+          Addional arguments send to nx release, if empty uses conventional-commits.
+          https://nx.dev/nx-api/nx/documents/release
         type: string
         required: false
 
@@ -38,14 +40,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - run: yarn install --immutable
-      - name: Lerna version
-        run: 'yarn lerna version ${{ github.event.inputs.options }} --message "release: %s [skip ci]" --create-release github --yes'
+      - name: Nx release
+        run: yarn nx release --skip-publish ${{ github.event.inputs.options }}
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn build
-      - name: Lerna publish
+      - name: Nx release
         run: |
           npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-          yarn lerna publish from-package --yes
+          yarn nx release publish ${{ github.event.inputs.options }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

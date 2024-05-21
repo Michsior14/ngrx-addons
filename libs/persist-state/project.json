@@ -5,6 +5,11 @@
   "sourceRoot": "libs/persist-state/src",
   "prefix": "ngrx-addons",
   "targets": {
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "dist/libs/persist-state"
+      }
+    },
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/persist-state"],
