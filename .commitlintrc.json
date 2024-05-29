@@ -1,4 +1,7 @@
 {
-  "extends": ["@commitlint/config-angular"],
+  "extends": [
+    "@commitlint/config-conventional",
+    "@commitlint/config-angular-type-enum"
+  ],
   "rules": {}
 }
