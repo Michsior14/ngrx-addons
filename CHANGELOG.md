@@ -1,3 +1,18 @@
+# 6.0.0 (2024-05-29)
+
+
+### 🚀 Features
+
+- ⚠️  update to angular 18 ([#520](https://github.com/Michsior14/ngrx-addons/pull/520))
+
+#### ⚠️  Breaking Changes
+
+- ⚠️  update to angular 18 ([#520](https://github.com/Michsior14/ngrx-addons/pull/520))
+
+### ❤️  Thank You
+
+- Michał Mrozek @Michsior14
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
