@@ -1,3 +1,19 @@
+# 7.0.0 (2024-06-14)
+
+
+### 🚀 Features
+
+- ⚠️  update to ngrx 18 ([#542](https://github.com/Michsior14/ngrx-addons/pull/542))
+- add standalone api ([#543](https://github.com/Michsior14/ngrx-addons/pull/543))
+
+#### ⚠️  Breaking Changes
+
+- ⚠️  update to ngrx 18 ([#542](https://github.com/Michsior14/ngrx-addons/pull/542))
+
+### ❤️  Thank You
+
+- Michał Mrozek @Michsior14
+
 # 6.0.0 (2024-05-29)
 
 ### 🚀 Features

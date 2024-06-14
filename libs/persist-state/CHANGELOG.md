@@ -1,3 +1,21 @@
+# 7.0.0 (2024-06-14)
+
+
+### 🚀 Features
+
+- ⚠️  update to ngrx 18
+
+- add standalone api
+
+
+#### ⚠️  Breaking Changes
+
+- ⚠️  update to ngrx 18
+
+### ❤️  Thank You
+
+- Michał Mrozek
+
 # 6.0.0 (2024-05-29)
 
 ### 🚀 Features
