@@ -1,0 +1,20 @@
+<h1>Persist/Sync state</h1>
+<p>
+  Open another tab and add the new product to see sync in action. State will be
+  rehydrated on page refresh.
+</p>
+<div>
+  <label for="name">Product name: </label>
+  <input id="name" [(ngModel)]="product" placeholder="name" />
+  <button (click)="addProduct()">Add</button>
+  <button (click)="removeAll()">Clear all</button>
+</div>
+@if (products | async; as list) {
+  <ul>
+    @for (entry of list; track entry) {
+      <li>
+      {{ entry[1].name }} <button (click)="removeProduct(entry[0])">x</button>
+    </li>
+  }
+</ul>
+}

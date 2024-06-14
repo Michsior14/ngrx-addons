@@ -5,8 +5,8 @@ Supports local storage, session storage and async storages with [localForage](ht
 
 ## Supported versions
 
-- `angular` 16+
-- `@ngrx/store` 16+
+- `angular` 18+
+- `@ngrx/store` 18+
 
 ## Installation
 
@@ -22,7 +22,7 @@ yarn add @ngrx-addons/persist-state
 
 ## Usage
 
-The module gives ability to persist some of the app’s states, by saving it to `localStorage/sessionStorage` or anything that implements the `StorageEngine API`, and restore it after a refresh. It supports both root and feature states. The only thing you need to do is to add `PersistStateModule.forRoot` to your `AppModule` and `PersistStateModule.forFeature` to your feature module.
+The module gives ability to persist some of the app’s states, by saving it to `localStorage/sessionStorage` or anything that implements the `StorageEngine API`, and restore it after a refresh. It supports both root and feature states. The only thing you need to do is to add `PersistStateModule.forRoot`/`providePersistStore` to your `AppModule` and `PersistStateModule.forFeature`/`providePersistState` to your feature module.
 
 ### For root states
 
@@ -72,7 +72,55 @@ const reducers = {
 export class AppModule {}
 ```
 
-The `forRoot` method accepts an object with the following properties:
+or in case of using standalone API:
+
+```ts
+import { NgModule } from '@angular/core';
+import { provideStore } from '@ngrx/store';
+import { BeforeAppInit } from '@ngrx-addons/common';
+import { providePersistStore, localStorageStrategy } from '@ngrx-addons/persist-store';
+
+const counterReducer = ...;
+const reducers = {
+  counter: counterReducer,
+} as const;
+
+@NgModule({
+  providers: [
+    provideStore(reducers),
+    // Define after EffectsModule.forRoot() if you want to listen on `rehydrate` action
+    // type provided for hints on states
+    providePersistStore<typeof reducers>({
+      states: [
+        {
+          key: 'counter',
+          // the package exposes localStorageStrategy and
+          // sessionStorageStrategy, optionally you can
+          // provide your own implementation or even
+          // use localForage for indexed db.
+          storage: localStorageStrategy
+          // optional options (default values)
+          runGuard: () => typeof window !== 'undefined',
+          source: (state) => state,
+          storageKey: `${storageKeyPrefix}-${key}@store`,
+          migrations: [],
+          skip: 1
+        },
+        // next states to persist, same reducer key can be
+        // specified multiple times to save parts of the state
+        // to different storages
+      ],
+      // optional root options (for all, also feature states)
+      storageKeyPrefix: 'some-prefix',
+      // optional rehydration strategy
+      strategy: BeforeAppInit, // or AfterAppInit
+    }),
+  ],
+})
+export class AppModule {}
+```
+
+The `forRoot`/`providePersistStore` method accepts an object with the following properties:
 
 - `states` - array of states configs (defined below, required)
 - `storageKeyPrefix` - prefix for all storage keys (optional)
@@ -132,7 +180,46 @@ export class AppModule {}
 export class CounterModule {}
 ```
 
-The `forFeature` method accepts an object with the following properties:
+or in case of using standalone API:
+
+```ts
+import { NgModule } from '@angular/core';
+import { provideStore, provideState } from '@ngrx/store';
+import { providePersistStore, providePersistState, localStorageStrategy } from '@ngrx-addons/persist-store';
+
+interface CounterState {
+  count: number;
+}
+const counterReducer = ...;
+
+@NgModule({
+  providers: [
+    provideStore(),
+    // forRoot should be always called, similar to ngrx StoreModule and it's forFeature implementation.
+    providePersistStore(),
+  ],
+})
+export class AppModule {}
+
+@NgModule({
+  providers: [
+    provideState('counter', reducer),
+    // type provided for hints on states
+    providePersistState<CounterState>({
+      key: 'counter',
+      states: [
+        {
+          // The same options as for root states, except the key
+          storage: localStorageStrategy
+        },
+      ],
+    }),
+  ]
+})
+export class CounterModule {}
+```
+
+The `forFeature`/`providePersistState` method accepts an object with the following properties:
 
 - `key` - the feature key (required)
 - `states` - array of states configs as in `forRoot`, except `key` property (required)

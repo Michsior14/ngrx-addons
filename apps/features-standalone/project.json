@@ -1,0 +1,78 @@
+{
+  "name": "features-standalone",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/features-standalone/src",
+  "prefix": "example",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/features-standalone",
+        "index": "apps/features-standalone/src/index.html",
+        "main": "apps/features-standalone/src/main.ts",
+        "polyfills": "apps/features-standalone/src/polyfills.ts",
+        "tsConfig": "apps/features-standalone/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/features-standalone/src/favicon.ico",
+          "apps/features-standalone/src/assets"
+        ],
+        "styles": ["apps/features-standalone/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/features-standalone/src/environments/environment.ts",
+              "with": "apps/features-standalone/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "features-standalone:build:production"
+        },
+        "development": {
+          "buildTarget": "features-standalone:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "features-standalone:build"
+      }
+    }
+  },
+  "tags": []
+}

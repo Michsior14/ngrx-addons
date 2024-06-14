@@ -1,0 +1,78 @@
+{
+  "name": "simple-standalone",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/simple-standalone/src",
+  "prefix": "example",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/simple-standalone",
+        "index": "apps/simple-standalone/src/index.html",
+        "main": "apps/simple-standalone/src/main.ts",
+        "polyfills": "apps/simple-standalone/src/polyfills.ts",
+        "tsConfig": "apps/simple-standalone/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/simple-standalone/src/favicon.ico",
+          "apps/simple-standalone/src/assets"
+        ],
+        "styles": ["apps/simple-standalone/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/simple-standalone/src/environments/environment.ts",
+              "with": "apps/simple-standalone/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "simple-standalone:build:production"
+        },
+        "development": {
+          "buildTarget": "simple-standalone:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "simple-standalone:build"
+      }
+    }
+  },
+  "tags": []
+}
