@@ -1,16 +1,14 @@
 # 6.0.0 (2024-05-29)
 
-
 ### 🚀 Features
 
-- ⚠️  update to angular 18
+- ⚠️ update to angular 18
 
+#### ⚠️ Breaking Changes
 
-#### ⚠️  Breaking Changes
+- ⚠️ update to angular 18
 
-- ⚠️  update to angular 18
-
-### ❤️  Thank You
+### ❤️ Thank You
 
 - Michał Mrozek
 
