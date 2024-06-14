@@ -1,6 +1,7 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { AfterAppInit } from '@ngrx-addons/common';
 import {
   localStorageStrategy,
   PersistStateModule,
@@ -14,7 +15,6 @@ import { AppComponent } from './app.component';
 import { ProductsEffects } from './products/products.effects';
 import type { ProductsState } from './products/products.reducer';
 import { productFeature } from './products/products.reducer';
-import { AfterAppInit } from '@ngrx-addons/common';
 
 const initializeApp = (): Promise<void> =>
   new Promise((resolve) => {
