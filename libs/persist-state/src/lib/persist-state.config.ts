@@ -129,3 +129,11 @@ export const PersistStateStrategy = new InjectionToken<InitializationStrategy>(
 export const PERSIST_STATE_FEATURE_CONFIGS = new InjectionToken<
   PersistStateFeatureConfig<unknown>[]
 >('persist-state-feature-configs');
+
+export const ROOT_PERSIST_STORE = new InjectionToken<string>(
+  'persist-state-root',
+);
+
+export const FEATURE_PERSIST_STATE = new InjectionToken<string>(
+  'persist-state-feature',
+);

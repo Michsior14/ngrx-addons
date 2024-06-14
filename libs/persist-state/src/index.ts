@@ -14,6 +14,10 @@ export type {
 } from './lib/persist-state.config';
 export { PersistStateFeatureModule } from './lib/persist-state.feature.module';
 export { PersistStateModule } from './lib/persist-state.module';
+export {
+  providePersistState,
+  providePersistStore,
+} from './lib/persist-state.provider';
 export { PersistStateRootModule } from './lib/persist-state.root.module';
 export {
   createStorage,

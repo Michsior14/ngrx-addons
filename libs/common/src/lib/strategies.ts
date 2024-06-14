@@ -1,6 +1,6 @@
 import type { OnDestroy } from '@angular/core';
-import { APP_BOOTSTRAP_LISTENER, Injectable } from '@angular/core';
-import { ReplaySubject, first, of, type Observable } from 'rxjs';
+import { APP_BOOTSTRAP_LISTENER, inject, Injectable } from '@angular/core';
+import { first, of, ReplaySubject, type Observable } from 'rxjs';
 
 /**
  * Interface for strategies implementing way of initialization
@@ -45,10 +45,11 @@ export class AfterAppInit implements InitializationStrategy, OnDestroy {
 export const afterAppInitProvider = {
   provide: APP_BOOTSTRAP_LISTENER,
   multi: true,
-  useFactory: (afterInit: AfterAppInit) => () => {
-    afterInit.markAsInitialized();
-  },
-  deps: [AfterAppInit],
+  useFactory:
+    (afterInit: AfterAppInit = inject(AfterAppInit)) =>
+    () => {
+      afterInit.markAsInitialized();
+    },
 };
 
 /**

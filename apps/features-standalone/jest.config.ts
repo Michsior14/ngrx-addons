@@ -2,14 +2,10 @@
 import presets from 'jest-preset-angular/presets';
 
 export default {
-  displayName: 'persist-state',
+  displayName: 'features-standalone',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/libs/persist-state',
-  collectCoverageFrom: [
-    'src/lib/**/*.ts',
-    '!src/**/+(*.)+(spec|feature.module|root.module).ts',
-  ],
+  coverageDirectory: '../../coverage/apps/features-standalone',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
@@ -26,12 +22,4 @@ export default {
     'jest-preset-angular/build/serializers/ng-snapshot',
     'jest-preset-angular/build/serializers/html-comment',
   ],
-  coverageThreshold: {
-    global: {
-      statements: 90,
-      branches: 80,
-      functions: 80,
-      lines: 90,
-    },
-  },
 };

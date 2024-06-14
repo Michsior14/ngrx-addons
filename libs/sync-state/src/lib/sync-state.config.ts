@@ -95,3 +95,9 @@ export const SyncStateStrategy = new InjectionToken<InitializationStrategy>(
 export const SYNC_STATE_FEATURE_CONFIGS = new InjectionToken<
   SyncStateFeatureConfig<unknown>[]
 >('sync-state-feature-configs');
+
+export const ROOT_SYNC_STORE = new InjectionToken<string>('sync-state-root');
+
+export const FEATURE_SYNC_STATE = new InjectionToken<string>(
+  'sync-state-feature',
+);

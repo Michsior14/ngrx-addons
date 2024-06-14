@@ -4,8 +4,8 @@ The library for synchronizing state in ngrx between multiple tabs/iframes/window
 
 ## Supported versions
 
-- `angular` 16+
-- `@ngrx/store` 16+
+- `angular` 18+
+- `@ngrx/store` 18+
 
 ## Installation
 
@@ -21,7 +21,7 @@ yarn add @ngrx-addons/sync-state
 
 ## Usage
 
-The module gives ability to sync some of the app’s states using [Broadcast Channel API](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API). It supports both root and feature states. The only thing you need to do is to add `SyncStateModule.forRoot` to your `AppModule` and `SyncStateModule.forFeature` to your feature module.
+The module gives ability to sync some of the app’s states using [Broadcast Channel API](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API). It supports both root and feature states. The only thing you need to do is to add `SyncStateModule.forRoot`/`provideSyncStore` to your `AppModule` and `SyncStateModule.forFeature`/`provideSyncState` to your feature module.
 
 ### For root states
 
@@ -66,7 +66,50 @@ const reducers = {
 export class AppModule {}
 ```
 
-The `forRoot` method accepts an object with the following properties:
+or in case of using standalone API:
+
+```ts
+import { NgModule } from '@angular/core';
+import { provideStore } from '@ngrx/store';
+import { BeforeAppInit } from '@ngrx-addons/common';
+import { provideSyncStore } from '@ngrx-addons/sync-store';
+
+const counterReducer = ...;
+const reducers = {
+  counter: counterReducer,
+} as const;
+
+@NgModule({
+  providers: [
+    provideStore(reducers),
+    // type provided for hints on states
+    provideSyncStore<typeof reducers>({
+      states: [
+        {
+          key: 'counter',
+          // optional options (default values)
+          runGuard: () =>
+            typeof window !== 'undefined' &&
+            typeof window.BroadcastChannel !== 'undefined',
+          source: (state) => state,
+          channel: `${channelPrefix}-${key}@store`,
+          skip: 1
+        },
+        // next states to sync, same reducer key can be
+        // specified multiple times to sync parts of the state
+        // using different channels
+      ],
+      // optional root options (for all, also feature states)
+      channelPrefix: 'some-prefix',
+      // optional sync strategy
+      strategy: BeforeAppInit, // or AfterAppInit
+    }),
+  ],
+})
+export class AppModule {}
+```
+
+The `forRoot`/`provideSyncStore` method accepts an object with the following properties:
 
 - `states` - array of states configs (defined below, required)
 - `channelPrefix` - prefix for all channels (optional)
@@ -120,7 +163,45 @@ export class AppModule {}
 export class CounterModule {}
 ```
 
-The `forFeature` method accepts an object with the following properties:
+or in case of using standalone API:
+
+```ts
+import { NgModule } from '@angular/core';
+import { provideStore, provideState } from '@ngrx/store';
+import { provideSyncStore, provideSyncState, } from '@ngrx-addons/sync-store';
+
+interface CounterState {
+  count: number;
+}
+const counterReducer = ...;
+
+@NgModule({
+  providers: [
+    provideStore(),
+    // forRoot should be always called, similar to ngrx StoreModule and it's forFeature implementation.
+    provideSyncStore(),
+  ],
+})
+export class AppModule {}
+
+@NgModule({
+  imports: [
+    provideState('counter', reducer),
+    // type provided for hints on states
+    provideSyncState<CounterState>({
+      key: 'counter',
+      states: [
+        {
+          // The same options as for root states, except the key
+        },
+      ],
+    }),
+  ],
+})
+export class CounterModule {}
+```
+
+The `forFeature`/`provideSyncState` method accepts an object with the following properties:
 
 - `key` - the feature key (required)
 - `states` - array of states configs as in `forRoot`, except `key` property (required)

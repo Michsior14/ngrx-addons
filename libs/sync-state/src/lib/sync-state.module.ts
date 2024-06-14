@@ -1,18 +1,10 @@
 import type { ModuleWithProviders } from '@angular/core';
 import { NgModule } from '@angular/core';
-import { BeforeAppInit, afterAppInitProvider } from '@ngrx-addons/common';
 import type { Action, ActionReducerMap } from '@ngrx/store';
-import { META_REDUCERS } from '@ngrx/store';
-import { SyncState } from './sync-state';
 import type { SyncStateFeatureConfig } from './sync-state.config';
-import {
-  SYNC_STATE_FEATURE_CONFIGS,
-  SyncStateRootConfig,
-  SyncStateStrategy,
-} from './sync-state.config';
-import { SyncStateFeature } from './sync-state.feature';
+import { SyncStateRootConfig } from './sync-state.config';
 import { SyncStateFeatureModule } from './sync-state.feature.module';
-import { syncStateReducer } from './sync-state.meta-reducer';
+import { _provideSyncState, _provideSyncStore } from './sync-state.provider';
 import { SyncStateRootModule } from './sync-state.root.module';
 
 @NgModule()
@@ -26,20 +18,7 @@ export class SyncStateModule {
   ): ModuleWithProviders<SyncStateRootModule> {
     return {
       ngModule: SyncStateRootModule,
-      providers: [
-        SyncState,
-        { provide: SyncStateRootConfig, useValue: config },
-        {
-          provide: META_REDUCERS,
-          useValue: syncStateReducer,
-          multi: true,
-        },
-        afterAppInitProvider,
-        {
-          provide: SyncStateStrategy,
-          useExisting: config.strategy ?? BeforeAppInit,
-        },
-      ],
+      providers: [..._provideSyncStore(config)],
     };
   }
 
@@ -48,10 +27,7 @@ export class SyncStateModule {
   ): ModuleWithProviders<SyncStateFeatureModule> {
     return {
       ngModule: SyncStateFeatureModule,
-      providers: [
-        { provide: SYNC_STATE_FEATURE_CONFIGS, useValue: config, multi: true },
-        SyncStateFeature,
-      ],
+      providers: [..._provideSyncState(config)],
     };
   }
 }
