@@ -6,11 +6,11 @@ import { globalAction } from './shared';
 import { AsyncPipe, JsonPipe } from '@angular/common';
 
 @Component({
-    selector: 'example-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    standalone: true,
-    imports: [AsyncPipe, JsonPipe],
+  selector: 'example-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [AsyncPipe, JsonPipe],
 })
 export class AppComponent {
   public aState = this.store.select(featureA.selectAState);

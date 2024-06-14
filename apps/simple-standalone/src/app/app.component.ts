@@ -6,11 +6,11 @@ import { AsyncPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-    selector: 'example-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    standalone: true,
-    imports: [FormsModule, AsyncPipe],
+  selector: 'example-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [FormsModule, AsyncPipe],
 })
 export class AppComponent {
   public product = '';
