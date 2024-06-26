@@ -32,25 +32,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/architect@npm:0.1800.5":
-  version: 0.1800.5
-  resolution: "@angular-devkit/architect@npm:0.1800.5"
+"@angular-devkit/architect@npm:0.1800.6":
+  version: 0.1800.6
+  resolution: "@angular-devkit/architect@npm:0.1800.6"
   dependencies:
-    "@angular-devkit/core": "npm:18.0.5"
+    "@angular-devkit/core": "npm:18.0.6"
     rxjs: "npm:7.8.1"
-  checksum: 10c0/41bfcce328a56fc7ec71804c5112476ce348c0fb927775010d141c5f56f96df279b8ec314f6f679bd45931c83f0b48716bce76b3755ddffa80050ed7eee5aec8
+  checksum: 10c0/d44716a1996ca76897cbb0642092445e7a19258d9ea3b6a44942377c0e11b048304f5655ffa51383de291c9e825f31cdf8cdd80bbf86831216cb041a6092d18d
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-angular@npm:18.0.5":
-  version: 18.0.5
-  resolution: "@angular-devkit/build-angular@npm:18.0.5"
+"@angular-devkit/build-angular@npm:18.0.6":
+  version: 18.0.6
+  resolution: "@angular-devkit/build-angular@npm:18.0.6"
   dependencies:
     "@ampproject/remapping": "npm:2.3.0"
-    "@angular-devkit/architect": "npm:0.1800.5"
-    "@angular-devkit/build-webpack": "npm:0.1800.5"
-    "@angular-devkit/core": "npm:18.0.5"
-    "@angular/build": "npm:18.0.5"
+    "@angular-devkit/architect": "npm:0.1800.6"
+    "@angular-devkit/build-webpack": "npm:0.1800.6"
+    "@angular-devkit/core": "npm:18.0.6"
+    "@angular/build": "npm:18.0.6"
     "@babel/core": "npm:7.24.5"
     "@babel/generator": "npm:7.24.5"
     "@babel/helper-annotate-as-pure": "npm:7.22.5"
@@ -61,7 +61,7 @@ __metadata:
     "@babel/preset-env": "npm:7.24.5"
     "@babel/runtime": "npm:7.24.5"
     "@discoveryjs/json-ext": "npm:0.5.7"
-    "@ngtools/webpack": "npm:18.0.5"
+    "@ngtools/webpack": "npm:18.0.6"
     "@vitejs/plugin-basic-ssl": "npm:1.1.0"
     ansi-colors: "npm:4.1.3"
     autoprefixer: "npm:10.4.19"
@@ -151,20 +151,20 @@ __metadata:
       optional: true
     tailwindcss:
       optional: true
-  checksum: 10c0/1981cc15bb4613ad8a4d19cf7489913951eae2aea96b72f7bc29038798a04d6bea803a66710054429fad710a8dcd72ba927fa4074b1623706c4c99966b8675b4
+  checksum: 10c0/2fc11c01807c9bf63957cd6ffac408283097b7a8a13787f4ede55378138ee4f507b4513ddf77b4ed76b6b09381331feb0a26708786526478109b533feae049ec
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-webpack@npm:0.1800.5":
-  version: 0.1800.5
-  resolution: "@angular-devkit/build-webpack@npm:0.1800.5"
+"@angular-devkit/build-webpack@npm:0.1800.6":
+  version: 0.1800.6
+  resolution: "@angular-devkit/build-webpack@npm:0.1800.6"
   dependencies:
-    "@angular-devkit/architect": "npm:0.1800.5"
+    "@angular-devkit/architect": "npm:0.1800.6"
     rxjs: "npm:7.8.1"
   peerDependencies:
     webpack: ^5.30.0
     webpack-dev-server: ^5.0.2
-  checksum: 10c0/51aff1e85b3252670aa6c437c18a39a3bbed571e0a27e2e6ff27c78fcf5163edbfff30e24bfbf4124082cf9f9a3e047aefe10e9cdc3251be4497afc001697a06
+  checksum: 10c0/648fb42f74feb2c88cd16e65c9c4eb3f6142c6ad833dca66af0571beefa7cf5465e8f5454d2b29eeac6ad98c8bd9d3cdeab1c6d48eabb73633fac872b41198b7
   languageName: node
   linkType: hard
 
@@ -187,9 +187,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/core@npm:18.0.5":
-  version: 18.0.5
-  resolution: "@angular-devkit/core@npm:18.0.5"
+"@angular-devkit/core@npm:18.0.6":
+  version: 18.0.6
+  resolution: "@angular-devkit/core@npm:18.0.6"
   dependencies:
     ajv: "npm:8.13.0"
     ajv-formats: "npm:3.0.1"
@@ -202,7 +202,7 @@ __metadata:
   peerDependenciesMeta:
     chokidar:
       optional: true
-  checksum: 10c0/dd69f29cf5c7c03adbf6c7b8d40f7e3689bc4c3b110f8bd4f72019a446532fa9a43ebc76293654d9eb3caef150835e8849832ef022fafe657a9eee606e68c117
+  checksum: 10c0/e8697b8af56cf4a0b344edf82d21d1824aad9cf705fa536f7c3d1e4c11c98a7390af8e15add248fc31bb708b186dba52a0246612a5b059f8bf06d7982ff8eed9
   languageName: node
   linkType: hard
 
@@ -219,16 +219,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/schematics@npm:18.0.5":
-  version: 18.0.5
-  resolution: "@angular-devkit/schematics@npm:18.0.5"
+"@angular-devkit/schematics@npm:18.0.6":
+  version: 18.0.6
+  resolution: "@angular-devkit/schematics@npm:18.0.6"
   dependencies:
-    "@angular-devkit/core": "npm:18.0.5"
+    "@angular-devkit/core": "npm:18.0.6"
     jsonc-parser: "npm:3.2.1"
     magic-string: "npm:0.30.10"
     ora: "npm:5.4.1"
     rxjs: "npm:7.8.1"
-  checksum: 10c0/e52791f25bc98b9c07b1d6ba0f49e0897753b8012c1c217c24623bec2424ab858c6dad09f11fd8e1900b14bde8b1ba18ba64fdc08b46fddeb3fca74264d60e1a
+  checksum: 10c0/bc28e8d1e6bc6f576d6573f37bdb720b983c10fa55e85f03b0a3eced5554f72c0d653992ac487db9fcef75b186dc1df1cfc9e5fdd0ba47a9e940d539602d3ae8
   languageName: node
   linkType: hard
 
@@ -306,12 +306,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/build@npm:18.0.5":
-  version: 18.0.5
-  resolution: "@angular/build@npm:18.0.5"
+"@angular/build@npm:18.0.6":
+  version: 18.0.6
+  resolution: "@angular/build@npm:18.0.6"
   dependencies:
     "@ampproject/remapping": "npm:2.3.0"
-    "@angular-devkit/architect": "npm:0.1800.5"
+    "@angular-devkit/architect": "npm:0.1800.6"
     "@babel/core": "npm:7.24.5"
     "@babel/helper-annotate-as-pure": "npm:7.22.5"
     "@babel/helper-split-export-declaration": "npm:7.24.5"
@@ -357,7 +357,7 @@ __metadata:
       optional: true
     tailwindcss:
       optional: true
-  checksum: 10c0/81d12c14f8fd8bd603e9c4a9b43ae1138e215f9b9a9c4366559f85aaa0efa76c61aea748c04aa399fc7f55848ecbf295721cda453ed61c143f50d7c353df440b
+  checksum: 10c0/5b8592bb79a0d270e0cbe2072139b6548f9427ccaee016bfd0155f68a439ed1116e9e7c15297e31fd4f094c5b737f1821a045f1a595d0bb52329d6429748c2f8
   languageName: node
   linkType: hard
 
@@ -3827,9 +3827,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ngrx-addons/root@workspace:."
   dependencies:
-    "@angular-devkit/build-angular": "npm:18.0.5"
-    "@angular-devkit/core": "npm:18.0.5"
-    "@angular-devkit/schematics": "npm:18.0.5"
+    "@angular-devkit/build-angular": "npm:18.0.6"
+    "@angular-devkit/core": "npm:18.0.6"
+    "@angular-devkit/schematics": "npm:18.0.6"
     "@angular-eslint/eslint-plugin": "npm:18.0.1"
     "@angular-eslint/eslint-plugin-template": "npm:18.0.1"
     "@angular-eslint/template-parser": "npm:18.0.1"
@@ -3862,7 +3862,7 @@ __metadata:
     "@nx/jest": "npm:19.3.0"
     "@nx/js": "npm:19.3.0"
     "@nx/workspace": "npm:19.3.0"
-    "@schematics/angular": "npm:18.0.5"
+    "@schematics/angular": "npm:18.0.6"
     "@types/jest": "npm:29.5.12"
     "@types/node": "npm:20.14.9"
     "@types/uuid": "npm:^9.0.8"
@@ -4016,14 +4016,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ngtools/webpack@npm:18.0.5":
-  version: 18.0.5
-  resolution: "@ngtools/webpack@npm:18.0.5"
+"@ngtools/webpack@npm:18.0.6":
+  version: 18.0.6
+  resolution: "@ngtools/webpack@npm:18.0.6"
   peerDependencies:
     "@angular/compiler-cli": ^18.0.0
     typescript: ">=5.4 <5.5"
     webpack: ^5.54.0
-  checksum: 10c0/62a46356bb7d75054eba124fc980aaed24f919555f6d10efaadae2a71646df1a21c8db9b5a7a7a7a5044298b09cd122b8aa504947fae6179364ed946d7051a17
+  checksum: 10c0/98c081476c56da5fb820be711b0922cefc07254ccd0fb0f0f04f628819e90524134ca8f97b7c1ce5b1f02ea18be63b1718e0362d9eef9443eaa741db09070773
   languageName: node
   linkType: hard
 
@@ -4765,14 +4765,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@schematics/angular@npm:18.0.5":
-  version: 18.0.5
-  resolution: "@schematics/angular@npm:18.0.5"
+"@schematics/angular@npm:18.0.6":
+  version: 18.0.6
+  resolution: "@schematics/angular@npm:18.0.6"
   dependencies:
-    "@angular-devkit/core": "npm:18.0.5"
-    "@angular-devkit/schematics": "npm:18.0.5"
+    "@angular-devkit/core": "npm:18.0.6"
+    "@angular-devkit/schematics": "npm:18.0.6"
     jsonc-parser: "npm:3.2.1"
-  checksum: 10c0/8b74cd04cbb792a15cf0fbf1cafe113c95da2a06a3eabb80adbceaf95df94e2a519e1b163b4c53fa2510ab47e2e7c0e818ec3a2274ed7e1e366e19c3003e4113
+  checksum: 10c0/8c562958e80d2da584de7bec617d802a280dd4c0576c76b66ab06c217e1b978c04c7b2e0409e6fc834a045a4b7c97aa2d60356d60c26deecd1930dad63e04dc2
   languageName: node
   linkType: hard
 
