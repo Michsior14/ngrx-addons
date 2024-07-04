@@ -57,9 +57,9 @@ export interface PersistStateConfig<S> {
    */
   migrations?: // eslint-disable-next-line @typescript-eslint/no-explicit-any
   | StateMigration<any, any, keyof S>[]
-    // support readonly pro
+    // support readonly property
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    | Readonly<StateMigration<any, any, keyof S>[]>;
+    | readonly StateMigration<any, any, keyof S>[];
   /**
    * The number of state changes skipped before the state is persisted.
    * Used to skip the initial state change.
