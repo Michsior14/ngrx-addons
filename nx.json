@@ -4,16 +4,10 @@
     "projects": ["libs/*"],
     "changelog": {
       "projectChangelogs": true,
-      "workspaceChangelog": {
-        "createRelease": "github"
-      }
+      "workspaceChangelog": { "createRelease": "github" }
     },
-    "git": {
-      "commitMessage": "release: v{version} [skip ci]"
-    },
-    "version": {
-      "conventionalCommits": true
-    }
+    "git": { "commitMessage": "release: v{version} [skip ci]" },
+    "version": { "conventionalCommits": true }
   },
   "targetDefaults": {
     "build": {
@@ -22,29 +16,15 @@
       "cache": true
     },
     "test": {
-      "options": {
-        "args": ["--passWithNoTests"]
-      },
+      "options": { "args": ["--passWithNoTests"] },
       "configurations": {
-        "ci": {
-          "args": ["--passWithNoTests --coverage --ci"]
-        }
+        "ci": { "args": ["--passWithNoTests --coverage --ci"] }
       }
     }
   },
   "plugins": [
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
-    {
-      "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
-      }
-    }
+    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
+    { "plugin": "@nx/jest/plugin", "options": { "targetName": "test" } }
   ],
   "generators": {
     "@nx/angular:application": {
@@ -53,13 +33,8 @@
       "unitTestRunner": "jest",
       "e2eTestRunner": "none"
     },
-    "@nx/angular:library": {
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nx/angular:component": {
-      "style": "scss"
-    }
+    "@nx/angular:library": { "linter": "eslint", "unitTestRunner": "jest" },
+    "@nx/angular:component": { "style": "scss" }
   },
   "defaultProject": "examples",
   "namedInputs": {
@@ -79,9 +54,8 @@
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx-cloud",
-      "options": {
-        "nxCloudId": "632cc5d3d896ef638cae165b"
-      }
+      "options": { "nxCloudId": "632cc5d3d896ef638cae165b" }
     }
-  }
+  },
+  "nxCloudId": "67536967c9736bb9074122aa"
 }
