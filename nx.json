@@ -74,7 +74,14 @@
       "!{projectRoot}/src/test-setup.[jt]s"
     ]
   },
-  "nxCloudAccessToken": "ZDI5MDk1NDQtNDJlNS00ZDFkLTg2MmItZmRlMzM4ZDVjNDI5fHJlYWQtd3JpdGU=",
   "parallel": 3,
-  "defaultBase": "main"
+  "defaultBase": "main",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx-cloud",
+      "options": {
+        "nxCloudId": "632cc5d3d896ef638cae165b"
+      }
+    }
+  }
 }
