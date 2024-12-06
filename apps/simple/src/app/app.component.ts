@@ -4,9 +4,10 @@ import { productsActions } from './products/products.actions';
 import { selectProductsEntries } from './products/products.selectors';
 
 @Component({
-  selector: 'example-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+    selector: 'example-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: false
 })
 export class AppComponent {
   public product = '';

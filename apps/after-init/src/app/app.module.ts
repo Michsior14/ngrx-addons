@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule, provideAppInitializer } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AfterAppInit } from '@ngrx-addons/common';
@@ -72,7 +72,10 @@ const appState = {
     }),
   ],
   providers: [
-    { provide: APP_INITIALIZER, useFactory: () => initializeApp, multi: true },
+    provideAppInitializer(() => {
+        const initializerFn = (() => initializeApp)();
+        return initializerFn();
+      }),
   ],
   bootstrap: [AppComponent],
 })
