@@ -5,10 +5,10 @@ import { featureB } from './feature-b/feature-b.module';
 import { globalAction } from './shared';
 
 @Component({
-    selector: 'example-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    standalone: false
+  selector: 'example-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  standalone: false,
 })
 export class AppComponent {
   public aState = this.store.select(featureA.selectAState);

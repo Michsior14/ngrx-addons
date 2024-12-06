@@ -73,9 +73,9 @@ const appState = {
   ],
   providers: [
     provideAppInitializer(() => {
-        const initializerFn = (() => initializeApp)();
-        return initializerFn();
-      }),
+      const initializerFn = (() => initializeApp)();
+      return initializerFn();
+    }),
   ],
   bootstrap: [AppComponent],
 })

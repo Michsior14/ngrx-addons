@@ -1,4 +1,10 @@
-import { inject, makeEnvironmentProviders, type EnvironmentProviders, type Provider, provideEnvironmentInitializer } from '@angular/core';
+import {
+  inject,
+  makeEnvironmentProviders,
+  type EnvironmentProviders,
+  type Provider,
+  provideEnvironmentInitializer,
+} from '@angular/core';
 import { BeforeAppInit, afterAppInitProvider } from '@ngrx-addons/common';
 import type { Action, ActionReducerMap } from '@ngrx/store';
 import { META_REDUCERS } from '@ngrx/store';
@@ -80,9 +86,12 @@ export const providePersistStore = <
       },
     },
     provideEnvironmentInitializer(() => {
-        const initializerFn = (() => () => inject(ROOT_PERSIST_STORE))();
-        return initializerFn();
-      }),
+      const initializerFn = (
+        () => () =>
+          inject(ROOT_PERSIST_STORE)
+      )();
+      return initializerFn();
+    }),
   ]);
 };
 
@@ -119,8 +128,11 @@ export const providePersistState = <T>(
       },
     },
     provideEnvironmentInitializer(() => {
-        const initializerFn = (() => () => inject(FEATURE_PERSIST_STATE))();
-        return initializerFn();
-      }),
+      const initializerFn = (
+        () => () =>
+          inject(FEATURE_PERSIST_STATE)
+      )();
+      return initializerFn();
+    }),
   ]);
 };
