@@ -37,15 +37,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-angular@npm:19.0.4":
-  version: 19.0.4
-  resolution: "@angular-devkit/build-angular@npm:19.0.4"
+"@angular-devkit/architect@npm:0.1900.5":
+  version: 0.1900.5
+  resolution: "@angular-devkit/architect@npm:0.1900.5"
+  dependencies:
+    "@angular-devkit/core": "npm:19.0.5"
+    rxjs: "npm:7.8.1"
+  dependenciesMeta:
+    esbuild:
+      built: true
+    puppeteer:
+      built: true
+  checksum: 10c0/31f6cad5dae8b64fd5abc1948a37b3e5adaca6873c5bbb8aa9eeea2b5c8301260746af223ed25022c78b088483579983a17b520776e31486e0dbc8328ee9bbb1
+  languageName: node
+  linkType: hard
+
+"@angular-devkit/build-angular@npm:19.0.5":
+  version: 19.0.5
+  resolution: "@angular-devkit/build-angular@npm:19.0.5"
   dependencies:
     "@ampproject/remapping": "npm:2.3.0"
-    "@angular-devkit/architect": "npm:0.1900.4"
-    "@angular-devkit/build-webpack": "npm:0.1900.4"
-    "@angular-devkit/core": "npm:19.0.4"
-    "@angular/build": "npm:19.0.4"
+    "@angular-devkit/architect": "npm:0.1900.5"
+    "@angular-devkit/build-webpack": "npm:0.1900.5"
+    "@angular-devkit/core": "npm:19.0.5"
+    "@angular/build": "npm:19.0.5"
     "@babel/core": "npm:7.26.0"
     "@babel/generator": "npm:7.26.2"
     "@babel/helper-annotate-as-pure": "npm:7.25.9"
@@ -56,7 +71,7 @@ __metadata:
     "@babel/preset-env": "npm:7.26.0"
     "@babel/runtime": "npm:7.26.0"
     "@discoveryjs/json-ext": "npm:0.6.3"
-    "@ngtools/webpack": "npm:19.0.4"
+    "@ngtools/webpack": "npm:19.0.5"
     "@vitejs/plugin-basic-ssl": "npm:1.1.0"
     ansi-colors: "npm:4.1.3"
     autoprefixer: "npm:10.4.20"
@@ -102,7 +117,7 @@ __metadata:
     "@angular/localize": ^19.0.0
     "@angular/platform-server": ^19.0.0
     "@angular/service-worker": ^19.0.0
-    "@angular/ssr": ^19.0.4
+    "@angular/ssr": ^19.0.5
     "@web/test-runner": ^0.19.0
     browser-sync: ^3.0.2
     jest: ^29.5.0
@@ -143,15 +158,15 @@ __metadata:
       optional: true
     tailwindcss:
       optional: true
-  checksum: 10c0/3da2e7167151995686b5180f6701405ed0ad4dc2ce13a9b7cb4d045860c58b75b99803b1a465e84371c82decd339a85b314ef593dcc80d3e3a3789ecb66f5f21
+  checksum: 10c0/7862ae968344b4f8bc1983513c45ab81075739077d9dd0bb683510d79ce96e0de24202d8491dc568c28f8dd0483cf99fb8be82512fc6459edde7f19d06d4f67f
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-webpack@npm:0.1900.4":
-  version: 0.1900.4
-  resolution: "@angular-devkit/build-webpack@npm:0.1900.4"
+"@angular-devkit/build-webpack@npm:0.1900.5":
+  version: 0.1900.5
+  resolution: "@angular-devkit/build-webpack@npm:0.1900.5"
   dependencies:
-    "@angular-devkit/architect": "npm:0.1900.4"
+    "@angular-devkit/architect": "npm:0.1900.5"
     rxjs: "npm:7.8.1"
   peerDependencies:
     webpack: ^5.30.0
@@ -161,7 +176,7 @@ __metadata:
       built: true
     puppeteer:
       built: true
-  checksum: 10c0/7f9b34652d2407b9d2183e994716e4a2fa5aeec6268c9730de7250037abf6595c624b1f6fd39a544783bf107db1eadd4e5017ca226e10e62d1e0ee9d8251c9aa
+  checksum: 10c0/feec3774a9fe0ee679f1bdee6e8731f59e5d72c27ae2fffc8072b0491eeef7706aded9faccdbbe58638008c1c48212cd254bf5f443edf13eb49f462762be2354
   languageName: node
   linkType: hard
 
@@ -189,6 +204,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@angular-devkit/core@npm:19.0.5":
+  version: 19.0.5
+  resolution: "@angular-devkit/core@npm:19.0.5"
+  dependencies:
+    ajv: "npm:8.17.1"
+    ajv-formats: "npm:3.0.1"
+    jsonc-parser: "npm:3.3.1"
+    picomatch: "npm:4.0.2"
+    rxjs: "npm:7.8.1"
+    source-map: "npm:0.7.4"
+  peerDependencies:
+    chokidar: ^4.0.0
+  dependenciesMeta:
+    esbuild:
+      built: true
+    puppeteer:
+      built: true
+  peerDependenciesMeta:
+    chokidar:
+      optional: true
+  checksum: 10c0/d45147a986dbcf4da9c2b375705aa8994078917803c693ecb2fceecca70bfcd051fb7ab032034f966bc9bc8ac7a100d53e5610bc9cf9064f72102e8ebbf4df46
+  languageName: node
+  linkType: hard
+
 "@angular-devkit/schematics@npm:19.0.4":
   version: 19.0.4
   resolution: "@angular-devkit/schematics@npm:19.0.4"
@@ -204,6 +243,24 @@ __metadata:
     puppeteer:
       built: true
   checksum: 10c0/febfa8ca917f9246bc96619ddea2db24c1433daebc80d6f4491d9d89771c660bd7107bd7a4dcf2030540684c578ee13cef319ce3dfa288d58058c14b7572fcbf
+  languageName: node
+  linkType: hard
+
+"@angular-devkit/schematics@npm:19.0.5":
+  version: 19.0.5
+  resolution: "@angular-devkit/schematics@npm:19.0.5"
+  dependencies:
+    "@angular-devkit/core": "npm:19.0.5"
+    jsonc-parser: "npm:3.3.1"
+    magic-string: "npm:0.30.12"
+    ora: "npm:5.4.1"
+    rxjs: "npm:7.8.1"
+  dependenciesMeta:
+    esbuild:
+      built: true
+    puppeteer:
+      built: true
+  checksum: 10c0/03fbf78b7209a846c007bfe887c4c5b8973b183d7622b6d69e86ec4dd3e50f6bccf9db1f9a1df377bc67bb9006465821b85211688c3ea4c67cd37b8fd67f421c
   languageName: node
   linkType: hard
 
@@ -282,12 +339,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/build@npm:19.0.4":
-  version: 19.0.4
-  resolution: "@angular/build@npm:19.0.4"
+"@angular/build@npm:19.0.5":
+  version: 19.0.5
+  resolution: "@angular/build@npm:19.0.5"
   dependencies:
     "@ampproject/remapping": "npm:2.3.0"
-    "@angular-devkit/architect": "npm:0.1900.4"
+    "@angular-devkit/architect": "npm:0.1900.5"
     "@babel/core": "npm:7.26.0"
     "@babel/helper-annotate-as-pure": "npm:7.25.9"
     "@babel/helper-split-export-declaration": "npm:7.24.7"
@@ -318,7 +375,7 @@ __metadata:
     "@angular/localize": ^19.0.0
     "@angular/platform-server": ^19.0.0
     "@angular/service-worker": ^19.0.0
-    "@angular/ssr": ^19.0.4
+    "@angular/ssr": ^19.0.5
     less: ^4.2.0
     postcss: ^8.4.0
     tailwindcss: ^2.0.0 || ^3.0.0
@@ -345,7 +402,7 @@ __metadata:
       optional: true
     tailwindcss:
       optional: true
-  checksum: 10c0/2383cfc0f0b58c43e1a12ea784d1beaf77b400be1cf64c85618dd8d924667d9409afffff72aa38c2dba51815057165f4f2ff360385eda2625a3ba907e42444f2
+  checksum: 10c0/f7537d3604c83dda43a558441f5a467be013d05d9c54bbf9fe03e3040810b709c516d2f9230b791de09f1aa81af443450ed9e76359d8a5c61390d67908e5f88c
   languageName: node
   linkType: hard
 
@@ -4134,9 +4191,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ngrx-addons/root@workspace:."
   dependencies:
-    "@angular-devkit/build-angular": "npm:19.0.4"
-    "@angular-devkit/core": "npm:19.0.4"
-    "@angular-devkit/schematics": "npm:19.0.4"
+    "@angular-devkit/build-angular": "npm:19.0.5"
+    "@angular-devkit/core": "npm:19.0.5"
+    "@angular-devkit/schematics": "npm:19.0.5"
     "@angular-eslint/eslint-plugin": "npm:19.0.2"
     "@angular-eslint/eslint-plugin-template": "npm:19.0.2"
     "@angular-eslint/template-parser": "npm:19.0.2"
@@ -4169,7 +4226,7 @@ __metadata:
     "@nx/jest": "npm:20.2.0"
     "@nx/js": "npm:20.2.0"
     "@nx/workspace": "npm:20.2.0"
-    "@schematics/angular": "npm:19.0.4"
+    "@schematics/angular": "npm:19.0.5"
     "@swc-node/register": "npm:^1.10.9"
     "@swc/core": "npm:^1.10.0"
     "@swc/helpers": "npm:^0.5.15"
@@ -4315,9 +4372,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ngtools/webpack@npm:19.0.4":
-  version: 19.0.4
-  resolution: "@ngtools/webpack@npm:19.0.4"
+"@ngtools/webpack@npm:19.0.5":
+  version: 19.0.5
+  resolution: "@ngtools/webpack@npm:19.0.5"
   peerDependencies:
     "@angular/compiler-cli": ^19.0.0
     typescript: ">=5.5 <5.7"
@@ -4327,7 +4384,7 @@ __metadata:
       built: true
     puppeteer:
       built: true
-  checksum: 10c0/cfebd2321f16d3aced9a17ce42abffae9f437a4fe2beeee258436bb57e0730ba0970f9dc41ce5678be7963cb88b941e2ee8de7ca751b52649b95aec86fdc7163
+  checksum: 10c0/52863f04f237752b6cd5a1bfd64ef3b8ba2bb2b6b5b4c984301eec2b70bc82243f3d2d5f5d8dc3d0e471d0c58332a486e51ac880c8e4fa19a86f4a81b45a14f5
   languageName: node
   linkType: hard
 
@@ -5462,6 +5519,22 @@ __metadata:
     puppeteer:
       built: true
   checksum: 10c0/57fd9085d0e4732eed9754c2527d516468e45d605c7451f098ee4a2c8908c06b73599104eeb1c050ae3f5b4ecdacaddf9dbcabcd04d2e7f3ee53cfb4b9fbcf30
+  languageName: node
+  linkType: hard
+
+"@schematics/angular@npm:19.0.5":
+  version: 19.0.5
+  resolution: "@schematics/angular@npm:19.0.5"
+  dependencies:
+    "@angular-devkit/core": "npm:19.0.5"
+    "@angular-devkit/schematics": "npm:19.0.5"
+    jsonc-parser: "npm:3.3.1"
+  dependenciesMeta:
+    esbuild:
+      built: true
+    puppeteer:
+      built: true
+  checksum: 10c0/2f1214fc708494bed2d2c5d7fb6c95576328609e956b44b6581c1b68980d9f39d95b6b6b9a87e8ef178ef1951bc1d6f0ed9638b125d9c9e867495b53350559c7
   languageName: node
   linkType: hard
 
