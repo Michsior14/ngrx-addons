@@ -4154,15 +4154,15 @@ __metadata:
     "@commitlint/cli": "npm:~19.6.0"
     "@commitlint/config-angular-type-enum": "npm:~19.5.0"
     "@commitlint/config-conventional": "npm:~19.6.0"
-    "@ngrx/component-store": "npm:19.0.0-rc.0"
-    "@ngrx/effects": "npm:19.0.0-rc.0"
-    "@ngrx/entity": "npm:19.0.0-rc.0"
-    "@ngrx/eslint-plugin": "npm:19.0.0-rc.0"
-    "@ngrx/operators": "npm:19.0.0-rc.0"
-    "@ngrx/router-store": "npm:19.0.0-rc.0"
-    "@ngrx/schematics": "npm:19.0.0-rc.0"
-    "@ngrx/store": "npm:19.0.0-rc.0"
-    "@ngrx/store-devtools": "npm:19.0.0-rc.0"
+    "@ngrx/component-store": "npm:19.0.0"
+    "@ngrx/effects": "npm:19.0.0"
+    "@ngrx/entity": "npm:19.0.0"
+    "@ngrx/eslint-plugin": "npm:19.0.0"
+    "@ngrx/operators": "npm:19.0.0"
+    "@ngrx/router-store": "npm:19.0.0"
+    "@ngrx/schematics": "npm:19.0.0"
+    "@ngrx/store": "npm:19.0.0"
+    "@ngrx/store-devtools": "npm:19.0.0"
     "@nx/angular": "npm:20.2.0"
     "@nx/eslint": "npm:20.2.0"
     "@nx/eslint-plugin": "npm:20.2.0"
@@ -4204,47 +4204,47 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ngrx/component-store@npm:19.0.0-rc.0":
-  version: 19.0.0-rc.0
-  resolution: "@ngrx/component-store@npm:19.0.0-rc.0"
+"@ngrx/component-store@npm:19.0.0":
+  version: 19.0.0
+  resolution: "@ngrx/component-store@npm:19.0.0"
   dependencies:
     tslib: "npm:^2.0.0"
   peerDependencies:
     "@angular/core": ^19.0.0
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: 10c0/952b445704701bd58a88f24443403246805adb75ae48fb248f7e99766856a58553191b950e255db0016831bca585073a787504ee3c180e40a1e499cf7b57f768
+  checksum: 10c0/8926ab85720ec0bc5724ca263d87cba72fcc8a2c2768b90d552d2e6883193022700a59d67559a3036395b057551976252c6b05e4deef9558ace206015e85bbda
   languageName: node
   linkType: hard
 
-"@ngrx/effects@npm:19.0.0-rc.0":
-  version: 19.0.0-rc.0
-  resolution: "@ngrx/effects@npm:19.0.0-rc.0"
+"@ngrx/effects@npm:19.0.0":
+  version: 19.0.0
+  resolution: "@ngrx/effects@npm:19.0.0"
   dependencies:
     tslib: "npm:^2.0.0"
   peerDependencies:
     "@angular/core": ^19.0.0
-    "@ngrx/store": 19.0.0-rc.0
+    "@ngrx/store": 19.0.0
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: 10c0/985feb84accb46f5d5b019b3fa8cf16748c831f5512aa3a2f8a6b9dcbdf8774887dee5fbca63134771a527da57a0f4334d74e4c0c9cd2cc872cf2206cac85bc7
+  checksum: 10c0/8568bd088df554dde7a537a598189bcbbf022cd1532f6647812c4b7030df9e67b295095aad963182f5eb608f2b6a77b3bd907038b9fd7e2fbb9796a328a08091
   languageName: node
   linkType: hard
 
-"@ngrx/entity@npm:19.0.0-rc.0":
-  version: 19.0.0-rc.0
-  resolution: "@ngrx/entity@npm:19.0.0-rc.0"
+"@ngrx/entity@npm:19.0.0":
+  version: 19.0.0
+  resolution: "@ngrx/entity@npm:19.0.0"
   dependencies:
     tslib: "npm:^2.0.0"
   peerDependencies:
     "@angular/core": ^19.0.0
-    "@ngrx/store": 19.0.0-rc.0
+    "@ngrx/store": 19.0.0
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: 10c0/b1821df191bfc0b4b4447b90d4933d1a413afe4e4bba6f0c0a4ba18236ce6c71db8488c1dce14adb53b7e5c49cebe82dbba486b880e5300376062c04b5483d81
+  checksum: 10c0/75d1921300c8fe52c3c3e2c488f906a7bd73d791757e5e7321e70395c580e1a846e464282703971f5fcf96e7a314ab71d9d600a2bbde1972ed102922e4e2a42c
   languageName: node
   linkType: hard
 
-"@ngrx/eslint-plugin@npm:19.0.0-rc.0":
-  version: 19.0.0-rc.0
-  resolution: "@ngrx/eslint-plugin@npm:19.0.0-rc.0"
+"@ngrx/eslint-plugin@npm:19.0.0":
+  version: 19.0.0
+  resolution: "@ngrx/eslint-plugin@npm:19.0.0"
   dependencies:
     semver: "npm:^7.3.5"
     strip-json-comments: "npm:3.1.1"
@@ -4253,65 +4253,65 @@ __metadata:
     eslint: ^8.57.0 || ^9.0.0
     typescript: "*"
     typescript-eslint: ^8.0.0
-  checksum: 10c0/ad9b02aa086bc9aabf7d2e7627063cd862ed0f9f4c7bb52663283c2065315e823b99cbe1206eb4f4587ef1dd88975ecd9397e44e88243361acdc8da0a44ab533
+  checksum: 10c0/a71f106a955129fdc7cbf32bda172ab98cfbcb4d19e68064e7011bd38fbdf2a99638652a665a0d8cf7a2ad7141b6ff37b920df1a1bcf94e2e21e87935ef2f837
   languageName: node
   linkType: hard
 
-"@ngrx/operators@npm:19.0.0-rc.0":
-  version: 19.0.0-rc.0
-  resolution: "@ngrx/operators@npm:19.0.0-rc.0"
+"@ngrx/operators@npm:19.0.0":
+  version: 19.0.0
+  resolution: "@ngrx/operators@npm:19.0.0"
   dependencies:
     tslib: "npm:^2.3.0"
   peerDependencies:
     rxjs: ^6.5.3 || ^7.4.0
-  checksum: 10c0/03b342885a119b8242930dc2a216cb53d5d5bf402b5263a38484fb34b0e9275d5a103bb7403ea5ce74d3e6ce23dcd3baaac2a92615a701dd3a5fceaedf89f8e2
+  checksum: 10c0/2e3b639da73e29c9877efb1da899c3a370dc77c09d4b39c548c37f17d4ce8c7fd64f2aa2884ce08cd514a9dcd0b184eacc67da4a32451daf23b77f5fab03d8ca
   languageName: node
   linkType: hard
 
-"@ngrx/router-store@npm:19.0.0-rc.0":
-  version: 19.0.0-rc.0
-  resolution: "@ngrx/router-store@npm:19.0.0-rc.0"
+"@ngrx/router-store@npm:19.0.0":
+  version: 19.0.0
+  resolution: "@ngrx/router-store@npm:19.0.0"
   dependencies:
     tslib: "npm:^2.0.0"
   peerDependencies:
     "@angular/common": ^19.0.0
     "@angular/core": ^19.0.0
     "@angular/router": ^19.0.0
-    "@ngrx/store": 19.0.0-rc.0
+    "@ngrx/store": 19.0.0
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: 10c0/588f6427a5dbb64039076c269eac734bf79c65133d539cf14b583a31d37406a4734ed3c1ea7de6a779c5923e54d85010e25f276e255044ed1011f15f3550f340
+  checksum: 10c0/472379c26d38a93f39ad184255265dd3a0fd8fe2bc9503300ececfd727e767ff8263f25154bb91dcb77ea1bdeefe34767796ecde6b05d406216adaa085d96fc5
   languageName: node
   linkType: hard
 
-"@ngrx/schematics@npm:19.0.0-rc.0":
-  version: 19.0.0-rc.0
-  resolution: "@ngrx/schematics@npm:19.0.0-rc.0"
-  checksum: 10c0/8225262ee3ccb38247a45ed65ee339809f944dd806f0a60d836f224e13d8a7b29b42aa0d8180d0a054ceca0b09f149bbfb2438c7b34ad6fad0f261acadb61c6c
+"@ngrx/schematics@npm:19.0.0":
+  version: 19.0.0
+  resolution: "@ngrx/schematics@npm:19.0.0"
+  checksum: 10c0/10c460af21a53dca096cbcf04fb84ed02c8cdf446ee093c93aa7dcce780403ce7109fd03fc8f72bf64fc773f78c700dc9c4af796d802ccf774158304b71b84d0
   languageName: node
   linkType: hard
 
-"@ngrx/store-devtools@npm:19.0.0-rc.0":
-  version: 19.0.0-rc.0
-  resolution: "@ngrx/store-devtools@npm:19.0.0-rc.0"
+"@ngrx/store-devtools@npm:19.0.0":
+  version: 19.0.0
+  resolution: "@ngrx/store-devtools@npm:19.0.0"
   dependencies:
     tslib: "npm:^2.0.0"
   peerDependencies:
     "@angular/core": ^19.0.0
-    "@ngrx/store": 19.0.0-rc.0
+    "@ngrx/store": 19.0.0
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: 10c0/628bbd439b3cde972016a06d9a89910dd13ee1e0f3fde3b300d34ee5047842374528f0a6e73bbacc80b3a38d4758ab3c58e3b1c9d06360af7d17d7f09a08cb1e
+  checksum: 10c0/373ddc43adedcbb1d484fd1dc1447f401bbae64886f0150cd3b3cd2821b7c1010940e0f819046ac7989f8e75b7bd9a9154f6e958c8dfc57dc31a0afc4a7817a0
   languageName: node
   linkType: hard
 
-"@ngrx/store@npm:19.0.0-rc.0":
-  version: 19.0.0-rc.0
-  resolution: "@ngrx/store@npm:19.0.0-rc.0"
+"@ngrx/store@npm:19.0.0":
+  version: 19.0.0
+  resolution: "@ngrx/store@npm:19.0.0"
   dependencies:
     tslib: "npm:^2.0.0"
   peerDependencies:
     "@angular/core": ^19.0.0
     rxjs: ^6.5.3 || ^7.5.0
-  checksum: 10c0/bd8f7ab00aa4bdf77a999678140b18ba257daff45d194cd6b9fa933461238fee5ae35c3fe42a26aeb194cf4bb716a9e19eda1a4d5f886d877ad8deace1fea79d
+  checksum: 10c0/108b890c8a637fdf1921b33bd7fcd5137ef69ee8b417d684ee1aa719d38add4582a720da9c593b7e62fe666604b3618366e8b4f39d7ea65806834bc7ec8a5e2d
   languageName: node
   linkType: hard
 
