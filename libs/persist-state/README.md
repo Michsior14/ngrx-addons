@@ -5,8 +5,8 @@ Supports local storage, session storage and async storages with [localForage](ht
 
 ## Supported versions
 
-- `angular` 18+
-- `@ngrx/store` 18+
+- `angular` 19+
+- `@ngrx/store` 19+
 
 ## Installation
 
