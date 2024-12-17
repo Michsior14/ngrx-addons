@@ -1,3 +1,21 @@
+# 8.0.0 (2024-12-17)
+
+### 🚀 Features
+
+- ⚠️  update to angular 19 ([c27dcb1](https://github.com/Michsior14/ngrx-addons/commit/c27dcb1))
+- ⚠️  support ngrx 19 ([8658ea3](https://github.com/Michsior14/ngrx-addons/commit/8658ea3))
+- ⚠️  update ngrx to v19.0.0 ([#733](https://github.com/Michsior14/ngrx-addons/pull/733))
+
+### ⚠️  Breaking Changes
+
+- ⚠️  update ngrx to v19.0.0 ([#733](https://github.com/Michsior14/ngrx-addons/pull/733))
+- ⚠️  support ngrx 19 ([8658ea3](https://github.com/Michsior14/ngrx-addons/commit/8658ea3))
+- ⚠️  update to angular 19 ([c27dcb1](https://github.com/Michsior14/ngrx-addons/commit/c27dcb1))
+
+### ❤️ Thank You
+
+- Michał Mrozek
+
 # 7.0.0 (2024-06-14)
 
 
