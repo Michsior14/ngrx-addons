@@ -4417,7 +4417,7 @@ __metadata:
     husky: "npm:~9.1.7"
     jest: "npm:29.7.0"
     jest-environment-jsdom: "npm:29.7.0"
-    jest-preset-angular: "npm:14.4.2"
+    jest-preset-angular: "npm:14.5.0"
     lint-staged: "npm:~15.3.0"
     ng-packagr: "npm:19.0.1"
     nx: "npm:20.2.2"
@@ -11489,7 +11489,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-environment-jsdom@npm:29.7.0, jest-environment-jsdom@npm:^29.0.0":
+"jest-environment-jsdom@npm:29.7.0, jest-environment-jsdom@npm:^29.7.0":
   version: 29.7.0
   resolution: "jest-environment-jsdom@npm:29.7.0"
   dependencies:
@@ -11616,27 +11616,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-preset-angular@npm:14.4.2":
-  version: 14.4.2
-  resolution: "jest-preset-angular@npm:14.4.2"
+"jest-preset-angular@npm:14.5.0":
+  version: 14.5.0
+  resolution: "jest-preset-angular@npm:14.5.0"
   dependencies:
     bs-logger: "npm:^0.2.6"
     esbuild: "npm:>=0.15.13"
     esbuild-wasm: "npm:>=0.15.13"
-    jest-environment-jsdom: "npm:^29.0.0"
-    jest-util: "npm:^29.0.0"
-    pretty-format: "npm:^29.0.0"
+    jest-environment-jsdom: "npm:^29.7.0"
+    jest-util: "npm:^29.7.0"
+    pretty-format: "npm:^29.7.0"
     ts-jest: "npm:^29.0.0"
   peerDependencies:
     "@angular/compiler-cli": ">=15.0.0 <20.0.0"
     "@angular/core": ">=15.0.0 <20.0.0"
     "@angular/platform-browser-dynamic": ">=15.0.0 <20.0.0"
     jest: ^29.0.0
+    jsdom: ">=20.0.0"
     typescript: ">=4.8"
   dependenciesMeta:
     esbuild:
       optional: true
-  checksum: 10c0/f8447be640beff7a20d00d49a5afab3066568d0b12de8ae2d0c8e266ff1dd5b4b2bf1bed08bce2b178415a28d7b90f31702b36ff28fbf19e34b1d791cb235c97
+  peerDependenciesMeta:
+    jsdom:
+      optional: true
+  checksum: 10c0/5c5a4998eb4aba1c0dea2217fd5e5a75d4e904e398370855dc7589fd6aa3bd3cc8a03ac1a371ce9c89b4fdf74dc95f7e1934ee2e2899c0068fd53b4a78a1913d
   languageName: node
   linkType: hard
 
