@@ -1,4 +1,5 @@
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { BeforeAppInit } from '@ngrx-addons/common';
 import type { ActionReducerMap } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { debounceTime, map, of } from 'rxjs';
@@ -9,7 +10,6 @@ import {
   PersistStateStrategy,
 } from './persist-state.config';
 import type { Async, StateStorage } from './storage';
-import { BeforeAppInit } from '@ngrx-addons/common';
 
 describe('PersistState', () => {
   const key = 'test';
@@ -186,7 +186,7 @@ describe('PersistState', () => {
       });
       tick();
 
-      expect(setItem).toBeCalledTimes(1);
+      expect(setItem).toHaveBeenCalledTimes(1);
       expect(setItem).toHaveBeenCalledWith('test-b', {
         valueB: {
           a: 2,
@@ -194,7 +194,7 @@ describe('PersistState', () => {
       });
 
       tick(15);
-      expect(setItem).toBeCalledTimes(2);
+      expect(setItem).toHaveBeenCalledTimes(2);
       expect(setItem).toHaveBeenCalledWith('test-a-c', {
         valueA: 2,
         valueC: 'd',
@@ -224,7 +224,7 @@ describe('PersistState', () => {
       service.addFeature({ key, states: [] });
       service.addFeature({ key, states: [] });
       tick();
-      expect(listen).toBeCalledTimes(1);
+      expect(listen).toHaveBeenCalledTimes(1);
       service.ngOnDestroy();
     }));
 
@@ -259,7 +259,7 @@ describe('PersistState', () => {
             migrations: [
               {
                 version: undefined,
-                migrate: (state) => ({ ...state, version: 1 }) as unknown,
+                migrate: (state): unknown => ({ ...state, version: 1 }),
               },
             ],
           },

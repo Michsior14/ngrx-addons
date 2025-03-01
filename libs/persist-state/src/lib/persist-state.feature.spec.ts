@@ -42,14 +42,16 @@ describe('PersistStateFeature', () => {
   describe('addFeature', () => {
     it('should call addFeature', () => {
       service.addFeatures();
-      expect(persistState.addFeature).toBeCalledWith(featureConfig);
+      expect(persistState.addFeature).toHaveBeenCalledWith(featureConfig);
     });
   });
 
   describe('ngOnDestroy', () => {
     it('should call removeFeature', () => {
       service.ngOnDestroy();
-      expect(persistState.removeFeature).toBeCalledWith(featureConfig.key);
+      expect(persistState.removeFeature).toHaveBeenCalledWith(
+        featureConfig.key,
+      );
     });
   });
 });

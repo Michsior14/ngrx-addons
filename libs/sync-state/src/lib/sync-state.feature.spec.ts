@@ -42,14 +42,14 @@ describe('SyncStateFeature', () => {
   describe('addFeature', () => {
     it('should call addFeature', () => {
       service.addFeatures();
-      expect(syncState.addFeature).toBeCalledWith(featureConfig);
+      expect(syncState.addFeature).toHaveBeenCalledWith(featureConfig);
     });
   });
 
   describe('ngOnDestroy', () => {
     it('should call removeFeature', () => {
       service.ngOnDestroy();
-      expect(syncState.removeFeature).toBeCalledWith(featureConfig.key);
+      expect(syncState.removeFeature).toHaveBeenCalledWith(featureConfig.key);
     });
   });
 });

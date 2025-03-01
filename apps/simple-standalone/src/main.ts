@@ -1,5 +1,4 @@
 import { enableProdMode, importProvidersFrom } from '@angular/core';
-
 import { FormsModule } from '@angular/forms';
 import { bootstrapApplication, BrowserModule } from '@angular/platform-browser';
 import {
@@ -43,7 +42,7 @@ bootstrapApplication(AppComponent, {
           migrations: [
             {
               version: 1,
-              migrate: (state) =>
+              migrate: (state): ProductsState =>
                 ({
                   ...state,
                   additionalProp: 'here',

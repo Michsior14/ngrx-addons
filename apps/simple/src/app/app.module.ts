@@ -44,7 +44,7 @@ const appState = {
           migrations: [
             {
               version: 1,
-              migrate: (state) =>
+              migrate: (state): ProductsState =>
                 ({
                   ...state,
                   additionalProp: 'here',

@@ -161,7 +161,7 @@ export class SyncState<
     );
   }
 
-  private syncWhen<T>(input: () => ObservableInput<T>) {
+  private syncWhen<T>(input: () => ObservableInput<T>): Observable<T> {
     return this.strategy.when().pipe(switchMap(() => input()));
   }
 }

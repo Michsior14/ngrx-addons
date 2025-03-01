@@ -1,9 +1,9 @@
 import {
   inject,
   makeEnvironmentProviders,
+  provideEnvironmentInitializer,
   type EnvironmentProviders,
   type Provider,
-  provideEnvironmentInitializer,
 } from '@angular/core';
 import { BeforeAppInit, afterAppInitProvider } from '@ngrx-addons/common';
 import type { Action, ActionReducerMap } from '@ngrx/store';
@@ -77,13 +77,13 @@ export const provideSyncStore = <
     ..._provideSyncStore(config),
     {
       provide: ROOT_SYNC_STORE,
-      useFactory: () => {
+      useFactory: (): void => {
         inject(SyncState).addRoot();
       },
     },
     provideEnvironmentInitializer(() => {
       const initializerFn = (
-        () => () =>
+        () => (): string =>
           inject(ROOT_SYNC_STORE)
       )();
       return initializerFn();
@@ -119,13 +119,13 @@ export const provideSyncState = <T>(
     ..._provideSyncState(config),
     {
       provide: FEATURE_SYNC_STATE,
-      useFactory: () => {
+      useFactory: (): void => {
         inject(SyncStateFeature).addFeatures();
       },
     },
     provideEnvironmentInitializer(() => {
       const initializerFn = (
-        () => () =>
+        () => (): string =>
           inject(FEATURE_SYNC_STATE)
       )();
       return initializerFn();

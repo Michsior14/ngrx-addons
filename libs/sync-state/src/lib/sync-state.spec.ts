@@ -17,30 +17,30 @@ class MockBroadcastChannel implements BroadcastChannel {
   constructor(public name: string) {
     channels.set(name, { instance: this, subject: new Subject() });
   }
-  onmessage = jest.fn();
-  onmessageerror = jest.fn();
-  close = jest.fn().mockImplementation(() => {
+  public onmessage = jest.fn();
+  public onmessageerror = jest.fn();
+  public close = jest.fn().mockImplementation(() => {
     this.#destroy.next();
     this.#destroy.complete();
   });
-  postMessage = jest
+  public postMessage = jest
     .fn()
     .mockImplementation((message) =>
       channels.get(this.name)?.subject.next(message),
     );
-  addEventListener = jest
+  public addEventListener = jest
     .fn()
     .mockImplementation((_type, listener: (message: MessageEvent) => void) => {
       channels
         .get(this.name)
         ?.subject.pipe(takeUntil(this.#destroy))
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+
         .subscribe((data) => {
           listener(new MessageEvent('message', { data }));
         });
     });
-  removeEventListener = jest.fn();
-  dispatchEvent = jest.fn();
+  public removeEventListener = jest.fn();
+  public dispatchEvent = jest.fn();
 }
 
 describe('SyncState', () => {
@@ -158,7 +158,9 @@ describe('SyncState', () => {
       });
 
       tick();
-      expect(channels.get('test-b')?.instance.postMessage).toBeCalledTimes(1);
+      expect(
+        channels.get('test-b')?.instance.postMessage,
+      ).toHaveBeenCalledTimes(1);
       expect(channels.get('test-b')?.instance.postMessage).toHaveBeenCalledWith(
         {
           valueB: {
@@ -168,7 +170,9 @@ describe('SyncState', () => {
       );
 
       tick(15);
-      expect(channels.get('test-a-c')?.instance.postMessage).toBeCalledTimes(1);
+      expect(
+        channels.get('test-a-c')?.instance.postMessage,
+      ).toHaveBeenCalledTimes(1);
       expect(
         channels.get('test-a-c')?.instance.postMessage,
       ).toHaveBeenCalledWith({
@@ -196,7 +200,9 @@ describe('SyncState', () => {
 
       tick();
       channels.get('test-b')?.instance.postMessage.mockReset();
-      expect(channels.get('test-b')?.instance.postMessage).not.toBeCalled();
+      expect(
+        channels.get('test-b')?.instance.postMessage,
+      ).not.toHaveBeenCalled();
       service.ngOnDestroy();
     }));
   });
@@ -220,7 +226,7 @@ describe('SyncState', () => {
       service.addFeature({ key, states: [] });
       service.addFeature({ key, states: [] });
       tick();
-      expect(listen).toBeCalledTimes(1);
+      expect(listen).toHaveBeenCalledTimes(1);
       service.ngOnDestroy();
     }));
 

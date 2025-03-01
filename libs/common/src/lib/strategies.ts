@@ -10,7 +10,7 @@ export abstract class InitializationStrategy {
   /**
    * Returns observable that resolves when initialization is done.
    */
-  abstract when(): Observable<void>;
+  public abstract when(): Observable<void>;
 }
 
 /**
@@ -47,7 +47,7 @@ export const afterAppInitProvider = {
   multi: true,
   useFactory:
     (afterInit: AfterAppInit = inject(AfterAppInit)) =>
-    () => {
+    (): void => {
       afterInit.markAsInitialized();
     },
 };
