@@ -1,4 +1,3 @@
-/* eslint-disable */
 import presets from 'jest-preset-angular/presets';
 
 export default {

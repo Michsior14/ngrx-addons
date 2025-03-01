@@ -1,9 +1,9 @@
+import { AsyncPipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { productsActions } from './products/products.actions';
 import { selectProductsEntries } from './products/products.selectors';
-import { AsyncPipe } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'example-root',
@@ -18,7 +18,7 @@ export class AppComponent {
 
   constructor(private readonly store: Store) {}
 
-  public addProduct() {
+  public addProduct(): void {
     if (!this.product.length) {
       return;
     }
@@ -27,7 +27,7 @@ export class AppComponent {
     this.product = '';
   }
 
-  public removeProduct(id: string) {
+  public removeProduct(id: string): void {
     this.store.dispatch(productsActions.removeProduct({ id }));
   }
 

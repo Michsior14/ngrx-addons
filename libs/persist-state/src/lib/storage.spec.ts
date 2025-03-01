@@ -25,7 +25,7 @@ describe('storage', () => {
     });
 
     it('should stringify/parse on object implementing WebStorage API ', async () => {
-      const promise = <T>(fn: Async<T>) => firstValueFrom(from(fn));
+      const promise = <T>(fn: Async<T>): Promise<T> => firstValueFrom(from(fn));
       const implementation = {
         getItem: jest.fn(),
         setItem: jest.fn(),
@@ -42,13 +42,13 @@ describe('storage', () => {
       expect(await promise(storage.getItem(key))).toStrictEqual(undefined);
 
       await promise(storage.setItem(key, testObject));
-      expect(implementation.setItem).toBeCalledWith(
+      expect(implementation.setItem).toHaveBeenCalledWith(
         key,
         JSON.stringify(testObject),
       );
 
       await promise(storage.removeItem(key));
-      expect(implementation.removeItem).toBeCalledWith(key);
+      expect(implementation.removeItem).toHaveBeenCalledWith(key);
     });
   });
 });

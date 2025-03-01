@@ -16,7 +16,7 @@ export class AppComponent {
 
   constructor(private readonly store: Store) {}
 
-  public addProduct() {
+  public addProduct(): void {
     if (!this.product.length) {
       return;
     }
@@ -25,7 +25,7 @@ export class AppComponent {
     this.product = '';
   }
 
-  public removeProduct(id: string) {
+  public removeProduct(id: string): void {
     this.store.dispatch(productsActions.removeProduct({ id }));
   }
 

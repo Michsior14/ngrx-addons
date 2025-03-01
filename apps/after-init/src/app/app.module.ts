@@ -55,7 +55,7 @@ const appState = {
           migrations: [
             {
               version: 1,
-              migrate: (state) =>
+              migrate: (state): ProductsState =>
                 ({
                   ...state,
                   additionalProp: 'here',
@@ -72,8 +72,8 @@ const appState = {
     }),
   ],
   providers: [
-    provideAppInitializer(() => {
-      const initializerFn = (() => initializeApp)();
+    provideAppInitializer((): Promise<void> => {
+      const initializerFn = ((): (() => Promise<void>) => initializeApp)();
       return initializerFn();
     }),
   ],

@@ -181,7 +181,7 @@ export class PersistState<
     return value;
   }
 
-  private rehydrateWhen<T>(input: () => ObservableInput<T>) {
+  private rehydrateWhen<T>(input: () => ObservableInput<T>): Observable<T> {
     return this.strategy.when().pipe(switchMap(() => input()));
   }
 }
