@@ -1,3 +1,7 @@
+## 8.0.1 (2025-03-01)
+
+This was a version bump only for common to align it with other projects, there were no code changes.
+
 # 8.0.0 (2024-12-17)
 
 ### 🚀 Features

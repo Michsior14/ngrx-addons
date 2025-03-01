@@ -1,3 +1,13 @@
+## 8.0.1 (2025-03-01)
+
+### 🩹 Fixes
+
+- **sync-state:** properly sync on skipped states ([#804](https://github.com/Michsior14/ngrx-addons/pull/804))
+
+### ❤️ Thank You
+
+- Michał Mrozek @Michsior14
+
 # 8.0.0 (2024-12-17)
 
 ### 🚀 Features
