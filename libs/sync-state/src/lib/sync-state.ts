@@ -13,7 +13,6 @@ import {
   map,
   merge,
   of,
-  skip,
   switchMap,
   takeUntil,
   tap,
@@ -113,6 +112,7 @@ export class SyncState<
         }
 
         const stateChannel = new BroadcastChannel(state.channel);
+        let skipCounter = 0;
         let canBePosted = true;
 
         return merge(
@@ -139,9 +139,8 @@ export class SyncState<
             )
             .pipe(
               distinctUntilChanged(isEqual),
-              skip(state.skip),
               tap((value) => {
-                if (canBePosted) {
+                if (canBePosted && ++skipCounter > state.skip) {
                   stateChannel.postMessage(value);
                 } else {
                   canBePosted = true;
