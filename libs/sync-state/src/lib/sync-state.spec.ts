@@ -1,11 +1,11 @@
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { BeforeAppInit } from '@ngrx-addons/common';
 import type { ActionReducerMap } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { debounceTime, map, Subject, takeUntil } from 'rxjs';
 import { SyncState } from './sync-state';
 import { storeSyncAction } from './sync-state.actions';
 import { SyncStateRootConfig, SyncStateStrategy } from './sync-state.config';
-import { BeforeAppInit } from '@ngrx-addons/common';
 
 const channels = new Map<
   string,
