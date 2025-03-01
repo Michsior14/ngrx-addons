@@ -1,11 +1,9 @@
 import ngrxEslint from '@ngrx/eslint-plugin/v9';
 import nx from '@nx/eslint-plugin';
+import eslintConfigPrettier from 'eslint-config-prettier';
 import tsEslint from 'typescript-eslint';
 
 export default [
-  {
-    ignores: ['**/dist', '**/coverage'],
-  },
   ...nx.configs['flat/base'],
   ...nx.configs['flat/typescript'].map((config) => ({
     files: ['**/*.ts'],
@@ -23,6 +21,10 @@ export default [
     files: ['**/*.ts'],
     ...config,
   })),
+  eslintConfigPrettier,
+  {
+    ignores: ['**/dist', '**/coverage'],
+  },
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
     rules: {
