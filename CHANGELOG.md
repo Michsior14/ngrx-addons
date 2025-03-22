@@ -1,3 +1,13 @@
+## 8.0.2 (2025-03-22)
+
+### 🩹 Fixes
+
+- **sync-state:** sync both ways after strategy signals readiness ([#824](https://github.com/Michsior14/ngrx-addons/pull/824))
+
+### ❤️ Thank You
+
+- Michał Mrozek @Michsior14
+
 ## 8.0.1 (2025-03-01)
 
 ### 🩹 Fixes
