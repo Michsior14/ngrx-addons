@@ -115,41 +115,41 @@ export class SyncState<
         let skipCounter = 0;
         let canBePosted = true;
 
-        return merge(
-          // Sync state from another tab
-          this.syncWhen(() =>
-            fromEvent<MessageEvent<unknown>>(stateChannel, 'message'),
-          ).pipe(
-            tap(({ data }) => {
-              canBePosted = false;
-              this.store.dispatch(
-                storeSyncAction({ features: { [state.key]: data } }),
-              );
-            }),
-          ),
-          // Sync state to another tab
-          state
-            .source(
-              this.store.pipe(
-                map(
-                  (storeState) =>
-                    storeState[state.key as keyof typeof storeState],
-                ),
-              ),
-            )
-            .pipe(
-              distinctUntilChanged(isEqual),
-              tap((value) => {
-                if (canBePosted && ++skipCounter > state.skip) {
-                  stateChannel.postMessage(value);
-                } else {
-                  canBePosted = true;
-                }
-              }),
-              finalize(() => {
-                stateChannel.close();
+        return this.syncWhen(() =>
+          merge(
+            // Sync state from another tab
+            fromEvent<MessageEvent<unknown>>(stateChannel, 'message').pipe(
+              tap(({ data }) => {
+                canBePosted = false;
+                this.store.dispatch(
+                  storeSyncAction({ features: { [state.key]: data } }),
+                );
               }),
             ),
+            // Sync state to another tab
+            state
+              .source(
+                this.store.pipe(
+                  map(
+                    (storeState) =>
+                      storeState[state.key as keyof typeof storeState],
+                  ),
+                ),
+              )
+              .pipe(
+                distinctUntilChanged(isEqual),
+                tap((value) => {
+                  if (canBePosted && ++skipCounter > state.skip) {
+                    stateChannel.postMessage(value);
+                  } else {
+                    canBePosted = true;
+                  }
+                }),
+                finalize(() => {
+                  stateChannel.close();
+                }),
+              ),
+          ),
         );
       }),
     ).pipe(
