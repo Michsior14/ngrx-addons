@@ -185,7 +185,7 @@ const counterReducer = ...;
 export class AppModule {}
 
 @NgModule({
-  imports: [
+  providers: [
     provideState('counter', reducer),
     // type provided for hints on states
     provideSyncState<CounterState>({
