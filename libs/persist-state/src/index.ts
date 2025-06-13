@@ -11,6 +11,7 @@ export {
 export type {
   PersistStateConfig,
   PersistStateRoot,
+  StateMigration,
 } from './lib/persist-state.config';
 export { PersistStateFeatureModule } from './lib/persist-state.feature.module';
 export { PersistStateModule } from './lib/persist-state.module';
