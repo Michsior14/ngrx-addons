@@ -1,3 +1,13 @@
+## 8.0.3 (2025-06-13)
+
+### 🩹 Fixes
+
+- **persist-state:** expose state migration type ([88b2b5a](https://github.com/Michsior14/ngrx-addons/commit/88b2b5a))
+
+### ❤️ Thank You
+
+- Michał Mrozek
+
 ## 8.0.2 (2025-03-22)
 
 ### 🩹 Fixes
