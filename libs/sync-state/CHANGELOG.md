@@ -1,3 +1,13 @@
+# 9.0.0 (2025-07-30)
+
+### 🚀 Features
+
+- ⚠️  update ngrx monorepo to v20 ([#938](https://github.com/Michsior14/ngrx-addons/pull/938))
+
+### ⚠️  Breaking Changes
+
+- ⚠️  update ngrx monorepo to v20 ([#938](https://github.com/Michsior14/ngrx-addons/pull/938))
+
 ## 8.0.3 (2025-06-13)
 
 This was a version bump only for sync-state to align it with other projects, there were no code changes.
