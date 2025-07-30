@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { PersistStateFeature } from './persist-state.feature';
 
 @NgModule()
 export class PersistStateFeatureModule {
-  constructor(state: PersistStateFeature) {
+  constructor() {
+    const state = inject(PersistStateFeature);
     state.addFeatures();
   }
 }

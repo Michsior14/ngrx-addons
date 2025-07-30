@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { storeRehydrateAction } from '@ngrx-addons/persist-state';
 import { storeSyncAction } from '@ngrx-addons/sync-state';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
@@ -6,6 +6,8 @@ import { tap } from 'rxjs';
 
 @Injectable()
 export class ProductsEffects {
+  private readonly actions = inject(Actions);
+
   public rehydrate = createEffect(
     () => {
       return this.actions.pipe(
@@ -29,6 +31,4 @@ export class ProductsEffects {
     },
     { dispatch: false },
   );
-
-  constructor(private readonly actions: Actions) {}
 }

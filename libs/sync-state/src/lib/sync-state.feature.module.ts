@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { SyncStateFeature } from './sync-state.feature';
 
 @NgModule()
 export class SyncStateFeatureModule {
-  constructor(state: SyncStateFeature) {
+  constructor() {
+    const state = inject(SyncStateFeature);
     state.addFeatures();
   }
 }

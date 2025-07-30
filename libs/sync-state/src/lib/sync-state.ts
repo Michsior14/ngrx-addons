@@ -1,5 +1,5 @@
 import type { OnDestroy } from '@angular/core';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { InitializationStrategy, isEqual } from '@ngrx-addons/common';
 import type { ActionReducerMap } from '@ngrx/store';
 import { Store } from '@ngrx/store';
@@ -31,16 +31,15 @@ export class SyncState<
   T extends ActionReducerMap<unknown> = ActionReducerMap<unknown>,
 > implements OnDestroy
 {
+  private readonly store = inject<Store>(Store);
+  private readonly strategy = inject<InitializationStrategy>(SyncStateStrategy);
+
   readonly #rootConfig: SyncStateRootConfig<T>;
   readonly #features = new Map<string, boolean>();
   readonly #destroyer = new Subject<string>();
 
-  constructor(
-    private readonly store: Store,
-    @Inject(SyncStateStrategy)
-    private readonly strategy: InitializationStrategy,
-    rootConfig: SyncStateRootConfig<T>,
-  ) {
+  constructor() {
+    const rootConfig = inject<SyncStateRootConfig<T>>(SyncStateRootConfig);
     const { states, channelPrefix, ...restConfig } = rootConfig;
     const prefix = channelPrefix ? `${channelPrefix}-` : '';
     this.#rootConfig = { ...restConfig, channelPrefix: prefix, states };

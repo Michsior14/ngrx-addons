@@ -1,5 +1,4 @@
 import { enableProdMode, importProvidersFrom } from '@angular/core';
-
 import { FormsModule } from '@angular/forms';
 import { bootstrapApplication, BrowserModule } from '@angular/platform-browser';
 import { providePersistStore } from '@ngrx-addons/persist-state';

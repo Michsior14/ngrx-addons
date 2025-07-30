@@ -1,5 +1,5 @@
 import type { OnDestroy } from '@angular/core';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { InitializationStrategy, isEqual } from '@ngrx-addons/common';
 import type { ActionReducerMap } from '@ngrx/store';
 import { Store } from '@ngrx/store';
@@ -38,16 +38,19 @@ export class PersistState<
   T extends ActionReducerMap<unknown> = ActionReducerMap<unknown>,
 > implements OnDestroy
 {
+  private readonly store = inject<Store>(Store);
+  private readonly strategy =
+    inject<InitializationStrategy>(PersistStateStrategy);
+
   readonly #rootConfig: PersistStateRootConfig<T>;
   readonly #features = new Map<string, boolean>();
   readonly #destroyer = new Subject<string>();
 
-  constructor(
-    private readonly store: Store,
-    @Inject(PersistStateStrategy)
-    private readonly strategy: InitializationStrategy,
-    rootConfig: PersistStateRootConfig<T>,
-  ) {
+  constructor() {
+    const rootConfig = inject<PersistStateRootConfig<T>>(
+      PersistStateRootConfig,
+    );
+
     const { states, storageKeyPrefix, ...restConfig } = rootConfig;
     const keyPrefix = storageKeyPrefix ? `${storageKeyPrefix}-` : '';
     this.#rootConfig = { ...restConfig, storageKeyPrefix: keyPrefix, states };
