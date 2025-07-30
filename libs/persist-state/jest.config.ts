@@ -1,5 +1,3 @@
-import presets from 'jest-preset-angular/presets';
-
 export default {
   displayName: 'persist-state',
   preset: '../../jest.preset.js',
@@ -13,7 +11,6 @@ export default {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
       {
-        ...presets.defaultTransformerOptions,
         tsconfig: '<rootDir>/tsconfig.spec.json',
         stringifyContentPathRegex: '\\.(html|svg)$',
       },

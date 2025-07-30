@@ -4,6 +4,7 @@
   "projectType": "application",
   "sourceRoot": "apps/features-standalone/src",
   "prefix": "example",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -65,7 +66,8 @@
           "buildTarget": "features-standalone:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "continuous": true
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -73,6 +75,5 @@
         "buildTarget": "features-standalone:build"
       }
     }
-  },
-  "tags": []
+  }
 }

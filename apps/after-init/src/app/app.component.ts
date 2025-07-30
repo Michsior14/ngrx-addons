@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { productsActions } from './products/products.actions';
 import { selectProductsEntries } from './products/products.selectors';
@@ -10,11 +10,11 @@ import { selectProductsEntries } from './products/products.selectors';
   standalone: false,
 })
 export class AppComponent {
+  private readonly store = inject(Store);
+
   public product = '';
 
   public products = this.store.select(selectProductsEntries);
-
-  constructor(private readonly store: Store) {}
 
   public addProduct(): void {
     if (!this.product.length) {
