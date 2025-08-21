@@ -4940,7 +4940,7 @@ __metadata:
     jest-preset-angular: "npm:15.0.0"
     jest-util: "npm:30.0.5"
     lint-staged: "npm:~16.1.0"
-    ng-packagr: "npm:20.1.0"
+    ng-packagr: "npm:20.2.0"
     nx: "npm:21.3.9"
     postcss: "npm:~8.5.3"
     postcss-import: "npm:~16.1.0"
@@ -13989,9 +13989,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ng-packagr@npm:20.1.0":
-  version: 20.1.0
-  resolution: "ng-packagr@npm:20.1.0"
+"ng-packagr@npm:20.2.0":
+  version: 20.2.0
+  resolution: "ng-packagr@npm:20.2.0"
   dependencies:
     "@ampproject/remapping": "npm:^2.3.0"
     "@rollup/plugin-json": "npm:^6.1.0"
@@ -14016,10 +14016,10 @@ __metadata:
     sass: "npm:^1.81.0"
     tinyglobby: "npm:^0.2.12"
   peerDependencies:
-    "@angular/compiler-cli": ^20.0.0 || ^20.1.0-next.0 || ^20.2.0-next.0
+    "@angular/compiler-cli": ^20.0.0 || ^20.2.0-rc
     tailwindcss: ^2.0.0 || ^3.0.0 || ^4.0.0
     tslib: ^2.3.0
-    typescript: ">=5.8 <5.9"
+    typescript: ">=5.8 <6.0"
   dependenciesMeta:
     rollup:
       optional: true
@@ -14028,7 +14028,7 @@ __metadata:
       optional: true
   bin:
     ng-packagr: src/cli/main.js
-  checksum: 10c0/a10e4349527e34a13113ad80b5892f749f867d1d964212520b98c211b9793ca7d95ac5df45a6f00d9d4231e15c7323a2d6e9f41e036cc293c00b9b00d0daf10e
+  checksum: 10c0/7d25a5ea98179a8c25a9dcd75e615ebced462823e108b25d2744533bbd234766c3f4b06538408b85e4cd8c2d5587dbd4a8ba3535ed7dbe52392c56eb39ba7c40
   languageName: node
   linkType: hard
 
