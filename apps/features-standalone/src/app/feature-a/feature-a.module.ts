@@ -15,7 +15,7 @@ export const featureA = createFeature({
   name: 'a',
   reducer: createReducer(
     stateA,
-    on(globalAction, (state) => {
+    on(globalAction, (state): typeof stateA => {
       console.log('Reducer A');
       return {
         ...state,
