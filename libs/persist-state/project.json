@@ -4,6 +4,7 @@
   "projectType": "library",
   "sourceRoot": "libs/persist-state/src",
   "prefix": "ngrx-addons",
+  "tags": [],
   "targets": {
     "nx-release-publish": {
       "options": {
@@ -14,18 +15,16 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/persist-state"],
       "options": {
-        "project": "libs/persist-state/ng-package.json"
+        "project": "libs/persist-state/ng-package.json",
+        "tsConfig": "libs/persist-state/tsconfig.lib.json"
       },
       "configurations": {
         "production": {
           "tsConfig": "libs/persist-state/tsconfig.lib.prod.json"
         },
-        "development": {
-          "tsConfig": "libs/persist-state/tsconfig.lib.json"
-        }
+        "development": {}
       },
       "defaultConfiguration": "production"
     }
-  },
-  "tags": []
+  }
 }

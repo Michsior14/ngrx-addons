@@ -4,6 +4,7 @@
   "projectType": "library",
   "sourceRoot": "libs/sync-state/src",
   "prefix": "ngrx-addons",
+  "tags": [],
   "targets": {
     "nx-release-publish": {
       "options": {
@@ -14,18 +15,16 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/sync-state"],
       "options": {
-        "project": "libs/sync-state/ng-package.json"
+        "project": "libs/sync-state/ng-package.json",
+        "tsConfig": "libs/sync-state/tsconfig.lib.json"
       },
       "configurations": {
         "production": {
           "tsConfig": "libs/sync-state/tsconfig.lib.prod.json"
         },
-        "development": {
-          "tsConfig": "libs/sync-state/tsconfig.lib.json"
-        }
+        "development": {}
       },
       "defaultConfiguration": "production"
     }
-  },
-  "tags": []
+  }
 }

@@ -4,6 +4,7 @@
   "projectType": "library",
   "sourceRoot": "libs/common/src",
   "prefix": "ngrx-addons",
+  "tags": [],
   "targets": {
     "nx-release-publish": {
       "options": {
@@ -14,18 +15,16 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/common"],
       "options": {
-        "project": "libs/common/ng-package.json"
+        "project": "libs/common/ng-package.json",
+        "tsConfig": "libs/common/tsconfig.lib.json"
       },
       "configurations": {
         "production": {
           "tsConfig": "libs/common/tsconfig.lib.prod.json"
         },
-        "development": {
-          "tsConfig": "libs/common/tsconfig.lib.json"
-        }
+        "development": {}
       },
       "defaultConfiguration": "production"
     }
-  },
-  "tags": []
+  }
 }
