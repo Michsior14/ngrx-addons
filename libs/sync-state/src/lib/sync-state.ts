@@ -29,8 +29,7 @@ const rootState = 'root';
 @Injectable()
 export class SyncState<
   T extends ActionReducerMap<unknown> = ActionReducerMap<unknown>,
-> implements OnDestroy
-{
+> implements OnDestroy {
   private readonly store = inject<Store>(Store);
   private readonly strategy = inject<InitializationStrategy>(SyncStateStrategy);
 
@@ -60,9 +59,6 @@ export class SyncState<
       return;
     }
 
-    // Remove in case of re-adding
-    this.removeFeature(feature.key);
-
     this.#features.set(feature.key, true);
     const merged = feature.states.map((state) => ({
       ...this.defaultStateConfig<F>(feature.key),
@@ -79,9 +75,9 @@ export class SyncState<
   }
 
   public ngOnDestroy(): void {
-    this.#features.forEach((_, key) => {
+    for (const key of this.#features.keys()) {
       this.removeFeature(key);
-    });
+    }
     this.#destroyer.next(rootState);
     this.#destroyer.complete();
   }
@@ -91,7 +87,9 @@ export class SyncState<
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       channel: `${this.#rootConfig.channelPrefix!}${key}@store`,
       source: (state) => state,
-      runGuard: () => typeof window.BroadcastChannel !== 'undefined',
+      runGuard: () =>
+        typeof window !== 'undefined' &&
+        typeof window.BroadcastChannel !== 'undefined',
       skip: 1,
     };
   }

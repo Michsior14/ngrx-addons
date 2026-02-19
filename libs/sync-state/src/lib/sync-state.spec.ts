@@ -183,7 +183,7 @@ describe('SyncState', () => {
       service.ngOnDestroy();
     }));
 
-    it('should not post message after state snc', fakeAsync(() => {
+    it('should not post message after state sync', fakeAsync(() => {
       service.addRoot();
 
       const state = { valueB: { a: 2, valueA: 2, valueC: 'd' } };
@@ -244,6 +244,63 @@ describe('SyncState', () => {
         storeSyncAction({ features: { [key]: state } }),
       );
       service.ngOnDestroy();
+    }));
+  });
+
+  describe('SSR (runGuard returns false)', () => {
+    it('should skip syncing when runGuard returns false for root states', fakeAsync(() => {
+      const ssrConfig: SyncStateRootConfig<
+        ActionReducerMap<typeof initialState>
+      > = {
+        states: [{ key, runGuard: (): boolean => false }],
+      };
+
+      TestBed.resetTestingModule();
+      TestBed.configureTestingModule({
+        providers: [
+          SyncState,
+          { provide: SyncStateRootConfig, useValue: ssrConfig },
+          { provide: SyncStateStrategy, useClass: BeforeAppInit },
+          provideMockStore({ initialState }),
+        ],
+      });
+
+      const ssrService = TestBed.inject(SyncState);
+      const ssrStore = TestBed.inject(MockStore);
+      const ssrDispatch = jest.spyOn(ssrStore, 'dispatch');
+
+      ssrService.addRoot();
+      tick();
+
+      expect(ssrDispatch).not.toHaveBeenCalled();
+
+      ssrService.ngOnDestroy();
+    }));
+
+    it('should skip feature syncing when runGuard returns false', fakeAsync(() => {
+      TestBed.resetTestingModule();
+      TestBed.configureTestingModule({
+        providers: [
+          SyncState,
+          { provide: SyncStateRootConfig, useValue: {} },
+          { provide: SyncStateStrategy, useClass: BeforeAppInit },
+          provideMockStore({ initialState }),
+        ],
+      });
+
+      const ssrService = TestBed.inject(SyncState);
+      const ssrStore = TestBed.inject(MockStore);
+      const ssrDispatch = jest.spyOn(ssrStore, 'dispatch');
+
+      ssrService.addFeature({
+        key,
+        states: [{ runGuard: (): boolean => false }],
+      });
+      tick();
+
+      expect(ssrDispatch).not.toHaveBeenCalled();
+
+      ssrService.ngOnDestroy();
     }));
   });
 });
