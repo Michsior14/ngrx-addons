@@ -23,7 +23,7 @@ export default [
   })),
   eslintConfigPrettier,
   {
-    ignores: ['**/dist', '**/coverage'],
+    ignores: ['**/dist', '**/coverage', '**/docs'],
   },
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
