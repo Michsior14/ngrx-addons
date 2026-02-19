@@ -17,7 +17,11 @@ export const isEqual = <T>(prev: T, next: T): boolean => {
     return false;
   }
 
-  if (prevSlices.some((slice) => !isEqual(prev[slice], next[slice]))) {
+  if (
+    prevSlices.some(
+      (slice) => !(slice in next) || !isEqual(prev[slice], next[slice]),
+    )
+  ) {
     return false;
   }
 

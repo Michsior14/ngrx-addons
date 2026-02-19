@@ -94,5 +94,14 @@ describe('isEqual', () => {
     it('should return false for different array lengths', () => {
       expect(isEqual({ a: [1, 2] }, { a: [1] })).toEqual(false);
     });
+
+    it('should return false for same key count but different key names', () => {
+      expect(isEqual({ a: 1 }, { b: 1 })).toEqual(false);
+      expect(isEqual({ a: 1, b: 2 }, { a: 1, c: 2 })).toEqual(false);
+    });
+
+    it('should return false for different keys with undefined values', () => {
+      expect(isEqual({ a: undefined }, { b: undefined })).toEqual(false);
+    });
   });
 });
