@@ -11,7 +11,7 @@ export default [
       '@nx/dependency-checks': [
         'error',
         {
-          ignoredDependencies: ['tslib'],
+          ignoredDependencies: ['tslib', '@angular/core'],
         },
       ],
     },
