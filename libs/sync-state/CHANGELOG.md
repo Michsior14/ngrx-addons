@@ -1,3 +1,13 @@
+## 9.0.1 (2026-02-19)
+
+### 🩹 Fixes
+
+- **sync-state:** properly support SSR environments ([853111a](https://github.com/Michsior14/ngrx-addons/commit/853111a))
+
+### ❤️ Thank You
+
+- Michał Mrozek
+
 # 9.0.0 (2025-07-30)
 
 ### 🚀 Features

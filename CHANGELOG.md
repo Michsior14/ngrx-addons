@@ -1,3 +1,16 @@
+## 9.0.1 (2026-02-19)
+
+### 🩹 Fixes
+
+- **common:** properly check equality ([01becdf](https://github.com/Michsior14/ngrx-addons/commit/01becdf))
+- **persist-state:** handle serialization errors ([19c297a](https://github.com/Michsior14/ngrx-addons/commit/19c297a))
+- **persist-state:** expose noopStorage ([0f65057](https://github.com/Michsior14/ngrx-addons/commit/0f65057))
+- **sync-state:** properly support SSR environments ([853111a](https://github.com/Michsior14/ngrx-addons/commit/853111a))
+
+### ❤️ Thank You
+
+- Michał Mrozek
+
 # 9.0.0 (2025-07-30)
 
 ### 🚀 Features

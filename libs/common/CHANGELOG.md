@@ -1,3 +1,13 @@
+## 9.0.1 (2026-02-19)
+
+### 🩹 Fixes
+
+- **common:** properly check equality ([01becdf](https://github.com/Michsior14/ngrx-addons/commit/01becdf))
+
+### ❤️ Thank You
+
+- Michał Mrozek
+
 # 9.0.0 (2025-07-30)
 
 ### 🚀 Features
