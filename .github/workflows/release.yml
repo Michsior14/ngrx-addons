@@ -10,6 +10,10 @@ on:
         type: string
         required: false
 
+permissions:
+  id-token: write
+  contents: read
+
 env:
   HUSKY: 0
   NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
@@ -47,8 +51,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn build
       - name: Nx release
-        run: |
-          npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-          yarn nx release publish ${{ github.event.inputs.options }}
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn nx release publish ${{ github.event.inputs.options }}
