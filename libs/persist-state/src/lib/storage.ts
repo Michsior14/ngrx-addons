@@ -29,11 +29,19 @@ export const createStorage = (storage: Storage | undefined): StateStorage => {
   return {
     getItem: <T>(key: string): Async<T | null | undefined> => {
       const v = storage.getItem(key);
-      return of(v ? JSON.parse(v) : v);
+      try {
+        return of(v ? JSON.parse(v) : v);
+      } catch {
+        return of(null);
+      }
     },
     setItem: (key: string, value: Record<string, unknown>): Async<unknown> => {
-      storage.setItem(key, JSON.stringify(value));
-      return of(true);
+      try {
+        storage.setItem(key, JSON.stringify(value));
+        return of(true);
+      } catch {
+        return of(false);
+      }
     },
     // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
     removeItem: (key: string): Async<boolean | void> => {

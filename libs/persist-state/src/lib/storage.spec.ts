@@ -92,6 +92,32 @@ describe('storage', () => {
         complexObject,
       );
     });
+
+    it('should return null for malformed JSON in getItem', async () => {
+      const promise = <T>(fn: Async<T>): Promise<T> => firstValueFrom(from(fn));
+      const implementation = {
+        getItem: jest.fn().mockReturnValue('not valid json{{{'),
+        setItem: jest.fn(),
+        removeItem: jest.fn(),
+      };
+      const storage = createStorage(implementation as never as Storage);
+
+      expect(await promise(storage.getItem('key'))).toBeNull();
+    });
+
+    it('should return false when setItem throws', async () => {
+      const promise = <T>(fn: Async<T>): Promise<T> => firstValueFrom(from(fn));
+      const implementation = {
+        getItem: jest.fn(),
+        setItem: jest.fn().mockImplementation(() => {
+          throw new Error('QuotaExceededError');
+        }),
+        removeItem: jest.fn(),
+      };
+      const storage = createStorage(implementation as never as Storage);
+
+      expect(await promise(storage.setItem('key', { a: 1 }))).toBe(false);
+    });
   });
 
   describe('localStorageStrategy', () => {
