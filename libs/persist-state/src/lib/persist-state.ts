@@ -36,8 +36,7 @@ type StateSlice = Record<string, any>;
 @Injectable()
 export class PersistState<
   T extends ActionReducerMap<unknown> = ActionReducerMap<unknown>,
-> implements OnDestroy
-{
+> implements OnDestroy {
   private readonly store = inject<Store>(Store);
   private readonly strategy =
     inject<InitializationStrategy>(PersistStateStrategy);
@@ -71,9 +70,6 @@ export class PersistState<
       return;
     }
 
-    // Remove in case of re-adding
-    this.removeFeature(feature.key);
-
     this.#features.set(feature.key, true);
     const merged = feature.states.map((state) => ({
       ...this.defaultStateConfig<F>(feature.key),
@@ -90,9 +86,9 @@ export class PersistState<
   }
 
   public ngOnDestroy(): void {
-    this.#features.forEach((_, key) => {
+    for (const key of this.#features.keys()) {
       this.removeFeature(key);
-    });
+    }
     this.#destroyer.next(rootState);
     this.#destroyer.complete();
   }

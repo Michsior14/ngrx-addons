@@ -272,4 +272,76 @@ describe('PersistState', () => {
       service.ngOnDestroy();
     }));
   });
+
+  describe('SSR (runGuard returns false)', () => {
+    it('should skip persistence when runGuard returns false for root states', fakeAsync(() => {
+      const ssrConfig: PersistStateRootConfig<
+        ActionReducerMap<typeof initialState>
+      > = {
+        states: [
+          {
+            key,
+            storage: testStorage as StateStorage,
+            runGuard: () => false,
+          },
+        ],
+      };
+
+      TestBed.resetTestingModule();
+      TestBed.configureTestingModule({
+        providers: [
+          PersistState,
+          { provide: PersistStateRootConfig, useValue: ssrConfig },
+          { provide: PersistStateStrategy, useClass: BeforeAppInit },
+          provideMockStore({ initialState }),
+        ],
+      });
+
+      const ssrService = TestBed.inject(PersistState);
+      const ssrStore = TestBed.inject(MockStore);
+      const ssrDispatch = jest.spyOn(ssrStore, 'dispatch');
+      const ssrGetItem = jest.spyOn(testStorage, 'getItem').mockClear();
+
+      ssrService.addRoot();
+      tick();
+
+      expect(ssrGetItem).not.toHaveBeenCalled();
+      expect(ssrDispatch).not.toHaveBeenCalled();
+
+      ssrService.ngOnDestroy();
+    }));
+
+    it('should skip feature persistence when runGuard returns false', fakeAsync(() => {
+      TestBed.resetTestingModule();
+      TestBed.configureTestingModule({
+        providers: [
+          PersistState,
+          { provide: PersistStateRootConfig, useValue: {} },
+          { provide: PersistStateStrategy, useClass: BeforeAppInit },
+          provideMockStore({ initialState }),
+        ],
+      });
+
+      const ssrService = TestBed.inject(PersistState);
+      const ssrStore = TestBed.inject(MockStore);
+      const ssrDispatch = jest.spyOn(ssrStore, 'dispatch');
+      const ssrGetItem = jest.spyOn(testStorage, 'getItem').mockClear();
+
+      ssrService.addFeature({
+        key,
+        states: [
+          {
+            storage: testStorage as StateStorage,
+            runGuard: (): boolean => false,
+          },
+        ],
+      });
+      tick();
+
+      expect(ssrGetItem).not.toHaveBeenCalled();
+      expect(ssrDispatch).not.toHaveBeenCalled();
+
+      ssrService.ngOnDestroy();
+    }));
+  });
 });
