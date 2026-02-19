@@ -81,13 +81,7 @@ export const provideSyncStore = <
         inject(SyncState).addRoot();
       },
     },
-    provideEnvironmentInitializer(() => {
-      const initializerFn = (
-        () => (): string =>
-          inject(ROOT_SYNC_STORE)
-      )();
-      return initializerFn();
-    }),
+    provideEnvironmentInitializer(() => inject(ROOT_SYNC_STORE)),
   ]);
 };
 
@@ -123,12 +117,6 @@ export const provideSyncState = <T>(
         inject(SyncStateFeature).addFeatures();
       },
     },
-    provideEnvironmentInitializer(() => {
-      const initializerFn = (
-        () => (): string =>
-          inject(FEATURE_SYNC_STATE)
-      )();
-      return initializerFn();
-    }),
+    provideEnvironmentInitializer(() => inject(FEATURE_SYNC_STATE)),
   ]);
 };

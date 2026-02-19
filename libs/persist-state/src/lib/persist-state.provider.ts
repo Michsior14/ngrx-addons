@@ -85,13 +85,7 @@ export const providePersistStore = <
         inject(PersistState).addRoot();
       },
     },
-    provideEnvironmentInitializer(() => {
-      const initializerFn = (
-        () => (): string =>
-          inject(ROOT_PERSIST_STORE)
-      )();
-      return initializerFn();
-    }),
+    provideEnvironmentInitializer(() => inject(ROOT_PERSIST_STORE)),
   ]);
 };
 
@@ -127,12 +121,6 @@ export const providePersistState = <T>(
         inject(PersistStateFeature).addFeatures();
       },
     },
-    provideEnvironmentInitializer(() => {
-      const initializerFn = (
-        () => (): string =>
-          inject(FEATURE_PERSIST_STATE)
-      )();
-      return initializerFn();
-    }),
+    provideEnvironmentInitializer(() => inject(FEATURE_PERSIST_STATE)),
   ]);
 };
