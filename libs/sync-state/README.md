@@ -29,7 +29,7 @@ The module gives ability to sync some of the app’s states using [Broadcast Cha
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { BeforeAppInit } from '@ngrx-addons/common';
-import { SyncStateModule } from '@ngrx-addons/sync-store';
+import { SyncStateModule } from '@ngrx-addons/sync-state';
 
 const counterReducer = ...;
 const reducers = {
@@ -72,7 +72,7 @@ or in case of using standalone API:
 import { NgModule } from '@angular/core';
 import { provideStore } from '@ngrx/store';
 import { BeforeAppInit } from '@ngrx-addons/common';
-import { provideSyncStore } from '@ngrx-addons/sync-store';
+import { provideSyncStore } from '@ngrx-addons/sync-state';
 
 const counterReducer = ...;
 const reducers = {
@@ -130,7 +130,7 @@ Remember to add features only once, in any case only the last registration will 
 ```ts
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
-import { SyncStateModule } from '@ngrx-addons/sync-store';
+import { SyncStateModule } from '@ngrx-addons/sync-state';
 
 interface CounterState {
   count: number;
@@ -168,7 +168,7 @@ or in case of using standalone API:
 ```ts
 import { NgModule } from '@angular/core';
 import { provideStore, provideState } from '@ngrx/store';
-import { provideSyncStore, provideSyncState, } from '@ngrx-addons/sync-store';
+import { provideSyncStore, provideSyncState, } from '@ngrx-addons/sync-state';
 
 interface CounterState {
   count: number;
@@ -216,7 +216,7 @@ The `excludeKeys()`/`includeKeys()` operator can be used to exclude keys from th
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { excludeKeys, includeKeys } from '@ngrx-addons/common';
-import { SyncStateModule } from '@ngrx-addons/sync-store';
+import { SyncStateModule } from '@ngrx-addons/sync-state';
 
 const counterReducer = ...;
 const reducers = {

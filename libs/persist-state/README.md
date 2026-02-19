@@ -30,7 +30,7 @@ The module gives ability to persist some of the app’s states, by saving it to 
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { BeforeAppInit } from '@ngrx-addons/common';
-import { PersistStateModule, localStorageStrategy } from '@ngrx-addons/persist-store';
+import { PersistStateModule, localStorageStrategy } from '@ngrx-addons/persist-state';
 
 const counterReducer = ...;
 const reducers = {
@@ -78,7 +78,7 @@ or in case of using standalone API:
 import { NgModule } from '@angular/core';
 import { provideStore } from '@ngrx/store';
 import { BeforeAppInit } from '@ngrx-addons/common';
-import { providePersistStore, localStorageStrategy } from '@ngrx-addons/persist-store';
+import { providePersistStore, localStorageStrategy } from '@ngrx-addons/persist-state';
 
 const counterReducer = ...;
 const reducers = {
@@ -146,7 +146,7 @@ Remember to add features only once, in any case only the last registration will 
 ```ts
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
-import { PersistStateModule, localStorageStrategy } from '@ngrx-addons/persist-store';
+import { PersistStateModule, localStorageStrategy } from '@ngrx-addons/persist-state';
 
 interface CounterState {
   count: number;
@@ -185,7 +185,7 @@ or in case of using standalone API:
 ```ts
 import { NgModule } from '@angular/core';
 import { provideStore, provideState } from '@ngrx/store';
-import { providePersistStore, providePersistState, localStorageStrategy } from '@ngrx-addons/persist-store';
+import { providePersistStore, providePersistState, localStorageStrategy } from '@ngrx-addons/persist-state';
 
 interface CounterState {
   count: number;
@@ -224,7 +224,7 @@ The `forFeature`/`providePersistState` method accepts an object with the followi
 - `key` - the feature key (required)
 - `states` - array of states configs as in `forRoot`, except `key` property (required)
 
-Once the state is rehydrated, the action (`rehydrated`, type: `@ngrx-addons/persist-state/rehydrate`) with the proper `features` is dispatched (multiple times). You can use it to react in `effects` or `meta-reducers`.
+Once the state is rehydrated, the action (`rehydrate`, type: `@ngrx-addons/persist-state/rehydrate`) with the proper `features` is dispatched (multiple times). You can use it to react in `effects` or `meta-reducers`.
 
 ## Excluding/Including keys from the state​
 
@@ -234,7 +234,7 @@ The `excludeKeys()`/`includeKeys()` operator can be used to exclude keys from th
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { excludeKeys, includeKeys } from '@ngrx-addons/common';
-import { PersistStateModule, localStorageStrategy } from '@ngrx-addons/persist-store';
+import { PersistStateModule, localStorageStrategy } from '@ngrx-addons/persist-state';
 
 const counterReducer = ...;
 const reducers = {
@@ -269,7 +269,7 @@ For such cases, it's recommended to use the `debounceTime` operator. For example
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { debounceTime } from 'rxjs/operators';
-import { PersistStateModule, localStorageStrategy } from '@ngrx-addons/persist-store';
+import { PersistStateModule, localStorageStrategy } from '@ngrx-addons/persist-state';
 
 const counterReducer = ...;
 const reducers = {
