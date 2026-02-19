@@ -23,6 +23,7 @@ export { PersistStateRootModule } from './lib/persist-state.root.module';
 export {
   createStorage,
   localStorageStrategy,
+  noopStorage,
   sessionStorageStrategy,
 } from './lib/storage';
 export type { Async, StateStorage } from './lib/storage';
