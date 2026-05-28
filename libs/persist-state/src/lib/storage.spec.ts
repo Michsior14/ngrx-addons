@@ -42,7 +42,7 @@ describe('storage', () => {
         setItem: jest.fn(),
         removeItem: jest.fn(),
       };
-      const storage = createStorage(implementation as never as Storage);
+      const storage = createStorage(implementation as never);
 
       const key = 'key';
       const testObject = { foo: 'bar' };
@@ -69,7 +69,7 @@ describe('storage', () => {
         setItem: jest.fn(),
         removeItem: jest.fn(),
       };
-      const storage = createStorage(implementation as never as Storage);
+      const storage = createStorage(implementation as never);
 
       expect(await promise(storage.getItem('key'))).toBeNull();
     });
@@ -81,7 +81,7 @@ describe('storage', () => {
         setItem: jest.fn(),
         removeItem: jest.fn(),
       };
-      const storage = createStorage(implementation as never as Storage);
+      const storage = createStorage(implementation as never);
 
       const complexObject = {
         nested: { deep: { value: 1 } },
@@ -100,7 +100,7 @@ describe('storage', () => {
         setItem: jest.fn(),
         removeItem: jest.fn(),
       };
-      const storage = createStorage(implementation as never as Storage);
+      const storage = createStorage(implementation as never);
 
       expect(await promise(storage.getItem('key'))).toBeNull();
     });
@@ -114,7 +114,7 @@ describe('storage', () => {
         }),
         removeItem: jest.fn(),
       };
-      const storage = createStorage(implementation as never as Storage);
+      const storage = createStorage(implementation as never);
 
       expect(await promise(storage.setItem('key', { a: 1 }))).toBe(false);
     });
