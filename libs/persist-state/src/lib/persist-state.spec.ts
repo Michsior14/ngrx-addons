@@ -9,7 +9,7 @@ import {
   PersistStateRootConfig,
   PersistStateStrategy,
 } from './persist-state.config';
-import type { Async, StateStorage } from './storage';
+import type { Async } from './storage';
 
 describe('PersistState', () => {
   const key = 'test';
@@ -37,19 +37,19 @@ describe('PersistState', () => {
     states: [
       {
         key,
-        storage: testStorage as StateStorage,
+        storage: testStorage,
         storageKey: 'test-guarded',
         runGuard: () => false,
       },
       {
         key,
-        storage: () => testStorage as StateStorage,
+        storage: () => testStorage,
         storageKey: 'test-b',
         source: (state) => state.pipe(map(({ valueB }) => ({ valueB }))),
       },
       {
         key,
-        storage: testStorage as StateStorage,
+        storage: testStorage,
         storageKey: 'test-a-c',
         migrations: [
           {
@@ -236,7 +236,7 @@ describe('PersistState', () => {
         key,
         states: [
           {
-            storage: testStorage as StateStorage,
+            storage: testStorage,
           },
         ],
       });
@@ -255,7 +255,7 @@ describe('PersistState', () => {
         key,
         states: [
           {
-            storage: testStorage as StateStorage,
+            storage: testStorage,
             migrations: [
               {
                 version: undefined,
@@ -281,7 +281,7 @@ describe('PersistState', () => {
         states: [
           {
             key,
-            storage: testStorage as StateStorage,
+            storage: testStorage,
             runGuard: () => false,
           },
         ],
@@ -331,7 +331,7 @@ describe('PersistState', () => {
         key,
         states: [
           {
-            storage: testStorage as StateStorage,
+            storage: testStorage,
             runGuard: (): boolean => false,
           },
         ],
