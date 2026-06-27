@@ -5334,7 +5334,7 @@ __metadata:
     jest-preset-angular: "npm:16.2.0"
     jest-util: "npm:30.4.1"
     lint-staged: "npm:~17.0.5"
-    ng-packagr: "npm:21.2.5"
+    ng-packagr: "npm:22.0.0"
     nx: "npm:22.7.5"
     postcss: "npm:~8.5.15"
     postcss-import: "npm:~16.1.1"
@@ -8453,7 +8453,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansi-colors@npm:4.1.3, ansi-colors@npm:^4.1.1, ansi-colors@npm:^4.1.3":
+"ansi-colors@npm:4.1.3, ansi-colors@npm:^4.1.1":
   version: 4.1.3
   resolution: "ansi-colors@npm:4.1.3"
   checksum: 10c0/ec87a2f59902f74e61eada7f6e6fe20094a628dab765cfdbd03c3477599368768cffccdb5d3bb19a1b6c99126783a143b1fee31aab729b31ffe5836c7e5e28b9
@@ -10579,7 +10579,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:0.28.1, esbuild@npm:>=0.23.0":
+"esbuild@npm:0.28.1, esbuild@npm:>=0.23.0, esbuild@npm:^0.28.0":
   version: 0.28.1
   resolution: "esbuild@npm:0.28.1"
   dependencies:
@@ -14302,20 +14302,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ng-packagr@npm:21.2.5":
-  version: 21.2.5
-  resolution: "ng-packagr@npm:21.2.5"
+"ng-packagr@npm:22.0.0":
+  version: 22.0.0
+  resolution: "ng-packagr@npm:22.0.0"
   dependencies:
     "@ampproject/remapping": "npm:^2.3.0"
     "@rollup/plugin-json": "npm:^6.1.0"
     "@rollup/wasm-node": "npm:^4.24.0"
     ajv: "npm:^8.17.1"
-    ansi-colors: "npm:^4.1.3"
     browserslist: "npm:^4.26.0"
     chokidar: "npm:^5.0.0"
     commander: "npm:^14.0.0"
     dependency-graph: "npm:^1.0.0"
-    esbuild: "npm:^0.27.0"
+    esbuild: "npm:^0.28.0"
     find-cache-directory: "npm:^6.0.0"
     injection-js: "npm:^2.4.0"
     jsonc-parser: "npm:^3.3.1"
@@ -14329,10 +14328,10 @@ __metadata:
     sass: "npm:^1.81.0"
     tinyglobby: "npm:^0.2.12"
   peerDependencies:
-    "@angular/compiler-cli": ^21.0.0 || ^21.2.0-next
+    "@angular/compiler-cli": ^22.0.0 || ^22.1.0-next.0
     tailwindcss: ^2.0.0 || ^3.0.0 || ^4.0.0
     tslib: ^2.3.0
-    typescript: ">=5.9 <6.0"
+    typescript: ">=6.0 <6.1"
   dependenciesMeta:
     rollup:
       optional: true
@@ -14341,7 +14340,7 @@ __metadata:
       optional: true
   bin:
     ng-packagr: src/cli/main.js
-  checksum: 10c0/a8f2cd534162b67b0f9eeae58fb21d09967412d91b4fc7a86d6966664f599d3b89616321bf4bf00ce5bdc6ede7e75740d883e0720c7f8d552917475a0408dd18
+  checksum: 10c0/a6906d96836439667ae312140c39db451b50213ac2cd465372739106524cb3e5c566a11e491bea17d4a64fd5f5d7eba05383f26a0af2156383b1643308624568
   languageName: node
   linkType: hard
 
