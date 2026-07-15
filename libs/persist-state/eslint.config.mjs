@@ -43,6 +43,8 @@ export default [
         },
       ],
       '@angular-eslint/prefer-standalone': 'off',
+      // Newly enabled by @angular-eslint recommended preset; was not enforced before the upgrade.
+      '@angular-eslint/prefer-on-push-component-change-detection': 'off',
     },
   },
   {

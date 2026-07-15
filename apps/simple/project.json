@@ -7,18 +7,21 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@angular/build:application",
+      "outputs": ["{options.outputPath.base}"],
+      "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/simple",
+        "outputPath": {
+          "base": "dist/apps/simple"
+        },
         "index": "apps/simple/src/index.html",
-        "main": "apps/simple/src/main.ts",
-        "polyfills": "apps/simple/src/polyfills.ts",
+        "polyfills": ["apps/simple/src/polyfills.ts"],
         "tsConfig": "apps/simple/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/simple/src/favicon.ico", "apps/simple/src/assets"],
         "styles": ["apps/simple/src/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "browser": "apps/simple/src/main.ts"
       },
       "configurations": {
         "production": {
@@ -43,18 +46,17 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@angular/build:dev-server",
+      "defaultConfiguration": "development",
+      "continuous": true,
       "configurations": {
         "production": {
           "buildTarget": "simple:build:production"
@@ -62,9 +64,7 @@
         "development": {
           "buildTarget": "simple:build:development"
         }
-      },
-      "defaultConfiguration": "development",
-      "continuous": true
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",

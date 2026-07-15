@@ -7,13 +7,15 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@angular/build:application",
+      "outputs": ["{options.outputPath.base}"],
+      "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/features-standalone",
+        "outputPath": {
+          "base": "dist/apps/features-standalone"
+        },
         "index": "apps/features-standalone/src/index.html",
-        "main": "apps/features-standalone/src/main.ts",
-        "polyfills": "apps/features-standalone/src/polyfills.ts",
+        "polyfills": ["apps/features-standalone/src/polyfills.ts"],
         "tsConfig": "apps/features-standalone/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -21,7 +23,8 @@
           "apps/features-standalone/src/assets"
         ],
         "styles": ["apps/features-standalone/src/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "browser": "apps/features-standalone/src/main.ts"
       },
       "configurations": {
         "production": {
@@ -46,18 +49,17 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@angular/build:dev-server",
+      "defaultConfiguration": "development",
+      "continuous": true,
       "configurations": {
         "production": {
           "buildTarget": "features-standalone:build:production"
@@ -65,9 +67,7 @@
         "development": {
           "buildTarget": "features-standalone:build:development"
         }
-      },
-      "defaultConfiguration": "development",
-      "continuous": true
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",

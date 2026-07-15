@@ -95,6 +95,7 @@ describe('SyncState', () => {
       ],
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     service = TestBed.inject(SyncState);
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     store = TestBed.inject(MockStore);

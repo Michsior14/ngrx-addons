@@ -7,13 +7,15 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@angular/build:application",
+      "outputs": ["{options.outputPath.base}"],
+      "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/after-init",
+        "outputPath": {
+          "base": "dist/apps/after-init"
+        },
         "index": "apps/after-init/src/index.html",
-        "main": "apps/after-init/src/main.ts",
-        "polyfills": "apps/after-init/src/polyfills.ts",
+        "polyfills": ["apps/after-init/src/polyfills.ts"],
         "tsConfig": "apps/after-init/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -21,7 +23,8 @@
           "apps/after-init/src/assets"
         ],
         "styles": ["apps/after-init/src/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "browser": "apps/after-init/src/main.ts"
       },
       "configurations": {
         "production": {
@@ -46,18 +49,17 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@angular/build:dev-server",
+      "defaultConfiguration": "development",
+      "continuous": true,
       "configurations": {
         "production": {
           "buildTarget": "after-init:build:production"
@@ -65,9 +67,7 @@
         "development": {
           "buildTarget": "after-init:build:development"
         }
-      },
-      "defaultConfiguration": "development",
-      "continuous": true
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",

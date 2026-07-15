@@ -89,6 +89,7 @@ describe('PersistState', () => {
       ],
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     service = TestBed.inject(PersistState);
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     store = TestBed.inject(MockStore);

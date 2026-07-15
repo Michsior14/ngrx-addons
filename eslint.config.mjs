@@ -73,8 +73,4 @@ export default [
       'no-extra-semi': 'off',
     },
   },
-  {
-    files: ['*.spec.ts', '*.spec.tsx', '*.spec.js', '*.spec.jsx'],
-    rules: {},
-  },
 ];

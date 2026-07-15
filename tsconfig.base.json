@@ -17,7 +17,11 @@
       "@ngrx-addons/common": ["libs/common/src/index.ts"],
       "@ngrx-addons/persist-state": ["libs/persist-state/src/index.ts"],
       "@ngrx-addons/sync-state": ["libs/sync-state/src/index.ts"]
-    }
+    },
+    "strict": false,
+    "noUncheckedSideEffectImports": false,
+    "types": ["*"],
+    "ignoreDeprecations": "6.0"
   },
   "exclude": ["node_modules", "tmp"]
 }

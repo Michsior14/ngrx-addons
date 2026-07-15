@@ -1,9 +1,9 @@
+import { AsyncPipe, JsonPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { featureA } from './feature-a/feature-a.module';
 import { featureB } from './feature-b/feature-b.module';
 import { globalAction } from './shared';
-import { AsyncPipe, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'example-root',
