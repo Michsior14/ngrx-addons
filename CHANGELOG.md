@@ -1,3 +1,20 @@
+# 10.0.0 (2026-08-28)
+
+### 🚀 Features
+
+- ⚠️  update to angular 22 ([475d847](https://github.com/Michsior14/ngrx-addons/commit/475d847))
+- ⚠️  update to ngrx 22 ([#1269](https://github.com/Michsior14/ngrx-addons/pull/1269))
+
+### ⚠️  Breaking Changes
+
+- update to ngrx 22  ([#1269](https://github.com/Michsior14/ngrx-addons/pull/1269))
+- update to angular 22  ([475d847](https://github.com/Michsior14/ngrx-addons/commit/475d847))
+
+### ❤️ Thank You
+
+- Michal Mrozek
+- Michał Mrozek @Michsior14
+
 ## 9.0.1 (2026-02-19)
 
 ### 🩹 Fixes
