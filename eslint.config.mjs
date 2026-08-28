@@ -1,4 +1,4 @@
-import ngrxEslint from '@ngrx/eslint-plugin/v9';
+import ngrxEslint from '@ngrx/eslint-plugin';
 import nx from '@nx/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import tsEslint from 'typescript-eslint';
