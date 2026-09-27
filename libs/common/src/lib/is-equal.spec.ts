@@ -103,5 +103,35 @@ describe('isEqual', () => {
     it('should return false for different keys with undefined values', () => {
       expect(isEqual({ a: undefined }, { b: undefined })).toEqual(false);
     });
+
+    it('should return false for an array and an object with the same keys', () => {
+      expect(isEqual({ a: [1, 2] }, { a: { 0: 1, 1: 2 } } as never)).toEqual(
+        false,
+      );
+    });
+  });
+
+  describe('built-in objects', () => {
+    it('should compare dates by time', () => {
+      expect(isEqual({ a: new Date(1) }, { a: new Date(1) })).toBe(true);
+      expect(isEqual({ a: new Date(1) }, { a: new Date(2) })).toBe(false);
+    });
+
+    it('should compare maps by entries', () => {
+      expect(
+        isEqual(new Map([['a', { b: 1 }]]), new Map([['a', { b: 1 }]])),
+      ).toBe(true);
+      expect(
+        isEqual(new Map([['a', { b: 1 }]]), new Map([['a', { b: 2 }]])),
+      ).toBe(false);
+      expect(isEqual(new Map([['a', 1]]), new Map([['b', 1]]))).toBe(false);
+      expect(isEqual(new Map([['a', 1]]), new Map())).toBe(false);
+    });
+
+    it('should compare sets by values', () => {
+      expect(isEqual(new Set([1, 2]), new Set([2, 1]))).toBe(true);
+      expect(isEqual(new Set([1, 2]), new Set([1, 3]))).toBe(false);
+      expect(isEqual(new Set([1]), new Set([1, 2]))).toBe(false);
+    });
   });
 });

@@ -44,6 +44,22 @@ describe('strategies', () => {
         afterAppInit.ngOnDestroy();
       }).not.toThrow();
     });
+
+    it('should complete without an error if destroyed before initialization', (done) => {
+      const afterAppInit = new AfterAppInit();
+      const next = jest.fn();
+      afterAppInit.when().subscribe({
+        next,
+        error: () => {
+          throw new Error('should not happen');
+        },
+        complete: () => {
+          expect(next).not.toHaveBeenCalled();
+          done();
+        },
+      });
+      afterAppInit.ngOnDestroy();
+    });
   });
 
   describe('afterAppInitProvider', () => {

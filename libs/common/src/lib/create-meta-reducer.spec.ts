@@ -52,4 +52,48 @@ describe('createMergeReducer', () => {
       done();
     })(state, action);
   });
+
+  it('should replace array-valued feature state without converting it to an object', (done) => {
+    const state = { items: [1, 2] };
+    const action = mergeAction({ features: { items: [3] } });
+
+    reducer((currentState) => {
+      expect(currentState).toEqual({ items: [3] });
+      done();
+    })(state, action);
+  });
+
+  it('should replace primitive and null feature states', (done) => {
+    const state = { counter: 1, theme: 'light', user: { id: 1 } };
+    const action = mergeAction({
+      features: { counter: 5, theme: 'dark', user: null },
+    });
+
+    reducer((currentState) => {
+      expect(currentState).toEqual({ counter: 5, theme: 'dark', user: null });
+      done();
+    })(state, action);
+  });
+
+  it('should replace a non-object feature state with an object', (done) => {
+    const state = { items: [1, 2], theme: 'light' };
+    const action = mergeAction({
+      features: { items: { a: 1 }, theme: { b: 1 } },
+    });
+
+    reducer((currentState) => {
+      expect(currentState).toEqual({ items: { a: 1 }, theme: { b: 1 } });
+      done();
+    })(state, action);
+  });
+
+  it('should keep the feature state if the incoming value is undefined', (done) => {
+    const state = { keep: { a: 1 } };
+    const action = mergeAction({ features: { keep: undefined } });
+
+    reducer((currentState) => {
+      expect(currentState).toEqual({ keep: { a: 1 } });
+      done();
+    })(state, action);
+  });
 });

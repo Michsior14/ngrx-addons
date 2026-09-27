@@ -1,6 +1,6 @@
 import type { OnDestroy } from '@angular/core';
 import { APP_BOOTSTRAP_LISTENER, inject, Injectable } from '@angular/core';
-import { first, of, ReplaySubject, type Observable } from 'rxjs';
+import { of, ReplaySubject, take, type Observable } from 'rxjs';
 
 /**
  * Interface for strategies implementing way of initialization
@@ -23,7 +23,7 @@ export class AfterAppInit implements InitializationStrategy, OnDestroy {
   readonly #initialized = new ReplaySubject<void>(1);
 
   public when(): Observable<void> {
-    return this.#initialized.pipe(first());
+    return this.#initialized.pipe(take(1));
   }
 
   /**
