@@ -15,7 +15,7 @@ export interface SyncStateConfig<S> {
    */
   channel?: string;
   /**
-   * A method that receives the observable of a state and return what to save from it.
+   * A method that receives the observable of a state and return what to sync from it.
    *
    * @default (state) => state
    */
@@ -23,11 +23,11 @@ export interface SyncStateConfig<S> {
   /**
    * Returns whether the actual implementation should be run.
    *
-   * @default () => typeof window !== 'undefined'
+   * @default () => typeof window !== 'undefined' && typeof window.BroadcastChannel !== 'undefined'
    */
   runGuard?: () => boolean;
   /**
-   * The number of state changes skipped before the state is persisted.
+   * The number of state changes skipped before the state is synced.
    * Used to skip the initial state change.
    *
    * @default 1
@@ -41,7 +41,7 @@ export interface SyncStateRoot<
   S = T[K] extends AnyFunction ? State<T[K]> : never,
 > extends SyncStateConfig<S> {
   /**
-   * The name of a store slice to persist.
+   * The name of a store slice to sync.
    */
   key: K;
 }
@@ -56,7 +56,7 @@ export abstract class SyncStateRootConfig<
   V extends Action = Action,
 > {
   /**
-   * The list of states to persist.
+   * The list of states to sync.
    */
   public abstract readonly states?: SyncStateRootTyped<T>[];
   /**
@@ -73,11 +73,11 @@ export abstract class SyncStateRootConfig<
 
 export abstract class SyncStateFeatureConfig<T> {
   /**
-   * The list of states to persist.
+   * The list of states to sync.
    */
   public abstract readonly states: SyncStateConfig<T>[];
   /**
-   * The name of a feature to persist.
+   * The name of a feature to sync.
    */
   public abstract readonly key: string;
 }

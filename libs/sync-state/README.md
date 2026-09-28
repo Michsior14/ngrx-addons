@@ -4,8 +4,8 @@ The library for synchronizing state in ngrx between multiple tabs/iframes/window
 
 ## Supported versions
 
-- `angular` 19+
-- `@ngrx/store` 19+
+- `angular` 22+
+- `@ngrx/store` 22+
 
 ## Installation
 
@@ -121,11 +121,11 @@ Each state can be described by multiple state configs with the following propert
 - `source`: a method that receives the observable of a state and return what to save from it (by default - the entire state).
 - `channel`: the name under which the store state is synchronized (by default - the prefix plus store name plus a `@store` suffix).
 - `runGuard` - returns whether the actual implementation should be run. The default is `typeof window !== 'undefined' && typeof window.BroadcastChannel !== 'undefined'`
-- `skip` - The number of state changes skipped before the state is synced. Used to skip the initial state change. The default is `1`.
+- `skip` - The number of state changes skipped once syncing starts, so a newly opened tab doesn't send its initial state to the other tabs. `undefined` values aren't counted. The default is `1`.
 
 ### For feature states
 
-Remember to add features only once, in any case only the last registration will be used.
+Register each feature only once. If the same key is registered more than once, only the first configuration is used, and the state is synced until every registration is removed.
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -207,6 +207,8 @@ The `forFeature`/`provideSyncState` method accepts an object with the following 
 - `states` - array of states configs as in `forRoot`, except `key` property (required)
 
 Once the state is synchronized, the action (`storeSyncAction`, type: `@ngrx-addons/sync-state/sync`) with the proper `features` is dispatched (multiple times). You can use it to react in `effects` or `meta-reducers`.
+
+Errors while syncing a state (for example, a value that can't be sent through `BroadcastChannel`) are reported to Angular's `ErrorHandler`, and the other states keep syncing.
 
 ## Excluding/Including keys from the state​
 

@@ -1,15 +1,18 @@
 import type { OnDestroy } from '@angular/core';
-import { Injectable, inject } from '@angular/core';
+import { ErrorHandler, Injectable, inject } from '@angular/core';
 import { InitializationStrategy, isEqual } from '@ngrx-addons/common';
 import type { ActionReducerMap } from '@ngrx/store';
 import { Store } from '@ngrx/store';
 import type { Observable, ObservableInput } from 'rxjs';
 import {
+  EMPTY,
   Subject,
+  catchError,
   distinctUntilChanged,
   filter,
   finalize,
   fromEvent,
+  ignoreElements,
   map,
   merge,
   of,
@@ -24,7 +27,9 @@ import type {
 } from './sync-state.config';
 import { SyncStateRootConfig, SyncStateStrategy } from './sync-state.config';
 
-const rootState = 'root';
+const rootSubscription = Symbol('root-sync-state');
+
+type SyncedState<S> = Required<SyncStateConfig<S> & { key: string }>;
 
 @Injectable()
 export class SyncState<
@@ -32,10 +37,11 @@ export class SyncState<
 > implements OnDestroy {
   private readonly store = inject<Store>(Store);
   private readonly strategy = inject<InitializationStrategy>(SyncStateStrategy);
+  private readonly errorHandler = inject(ErrorHandler);
 
   readonly #rootConfig: SyncStateRootConfig<T>;
-  readonly #features = new Map<string, boolean>();
-  readonly #destroyer = new Subject<string>();
+  readonly #features = new Map<string, { id: symbol; references: number }>();
+  readonly #destroyer = new Subject<symbol>();
 
   constructor() {
     const rootConfig = inject<SyncStateRootConfig<T>>(SyncStateRootConfig);
@@ -51,34 +57,48 @@ export class SyncState<
         ...state,
         key: state.key as string,
       })) ?? [];
-    this.listenOnStates(merged, rootState).subscribe();
+    this.listenOnStates(merged, rootSubscription).subscribe();
   }
 
   public addFeature<F>(feature: SyncStateFeatureConfig<F>): void {
-    if (this.#features.has(feature.key)) {
+    const existing = this.#features.get(feature.key);
+    if (existing) {
+      existing.references++;
       return;
     }
 
-    this.#features.set(feature.key, true);
+    const subscriptionId = Symbol(feature.key);
+    this.#features.set(feature.key, { id: subscriptionId, references: 1 });
     const merged = feature.states.map((state) => ({
       ...this.defaultStateConfig<F>(feature.key),
       ...state,
       key: feature.key,
     }));
 
-    this.listenOnStates(merged, feature.key).subscribe();
+    this.listenOnStates(merged, subscriptionId).subscribe();
   }
 
   public removeFeature(key: string): void {
-    this.#destroyer.next(key);
+    const feature = this.#features.get(key);
+    if (!feature) {
+      return;
+    }
+
+    if (feature.references > 1) {
+      feature.references--;
+      return;
+    }
+
+    this.#destroyer.next(feature.id);
     this.#features.delete(key);
   }
 
   public ngOnDestroy(): void {
-    for (const key of this.#features.keys()) {
-      this.removeFeature(key);
+    for (const feature of this.#features.values()) {
+      this.#destroyer.next(feature.id);
     }
-    this.#destroyer.next(rootState);
+    this.#features.clear();
+    this.#destroyer.next(rootSubscription);
     this.#destroyer.complete();
   }
 
@@ -95,66 +115,82 @@ export class SyncState<
   }
 
   private listenOnStates<S>(
-    states: Required<SyncStateConfig<S> & { key: string }>[],
-    feature: string,
+    states: SyncedState<S>[],
+    subscription: symbol,
   ): Observable<unknown> {
     if (states.length === 0) {
       return of(undefined);
     }
 
     return merge(
-      ...states.map((state) => {
-        if (!state.runGuard()) {
-          return of(undefined);
-        }
-
-        const stateChannel = new BroadcastChannel(state.channel);
-        let skipCounter = 0;
-        let canBePosted = true;
-
-        return this.syncWhen(() =>
-          merge(
-            // Sync state from another tab
-            fromEvent<MessageEvent<unknown>>(stateChannel, 'message').pipe(
-              tap(({ data }) => {
-                canBePosted = false;
-                this.store.dispatch(
-                  storeSyncAction({ features: { [state.key]: data } }),
-                );
+      ...states.map((state) =>
+        state.runGuard()
+          ? this.syncWhen(() => this.sync(state)).pipe(
+              catchError((error: unknown) => {
+                this.errorHandler.handleError(error);
+                return EMPTY;
               }),
-            ),
-            // Sync state to another tab
-            state
-              .source(
-                this.store.pipe(
-                  map(
-                    (storeState) =>
-                      storeState[state.key as keyof typeof storeState],
-                  ),
-                ),
-              )
-              .pipe(
-                distinctUntilChanged(isEqual),
-                tap((value) => {
-                  if (canBePosted && ++skipCounter > state.skip) {
-                    stateChannel.postMessage(value);
-                  } else {
-                    canBePosted = true;
-                  }
-                }),
-                finalize(() => {
-                  stateChannel.close();
-                }),
-              ),
-          ),
-        );
-      }),
+            )
+          : of(undefined),
+      ),
     ).pipe(
       takeUntil(
-        this.#destroyer.pipe(
-          filter((destroyFeature) => destroyFeature === feature),
-        ),
+        this.#destroyer.pipe(filter((destroyed) => destroyed === subscription)),
       ),
+    );
+  }
+
+  private sync<S>(state: SyncedState<S>): Observable<unknown> {
+    const channel = new BroadcastChannel(state.channel);
+    const storeSlice = this.store.pipe(
+      map((storeState) => storeState[state.key as keyof typeof storeState]),
+    );
+
+    let skipCounter = 0;
+    let applyingReceivedState = false;
+    let receivedSlice: { value: unknown } | undefined;
+    return merge(
+      // Must be subscribed before the source to see each change first
+      storeSlice.pipe(
+        tap((slice) => {
+          if (applyingReceivedState) {
+            receivedSlice = { value: slice };
+          } else if (receivedSlice && receivedSlice.value !== slice) {
+            receivedSlice = undefined;
+          }
+        }),
+        ignoreElements(),
+      ),
+      // Sync state from another tab
+      fromEvent<MessageEvent<unknown>>(channel, 'message').pipe(
+        tap(({ data }) => {
+          applyingReceivedState = true;
+          this.store.dispatch(
+            storeSyncAction({ features: { [state.key]: data } }),
+          );
+          applyingReceivedState = false;
+        }),
+      ),
+      // Sync state to another tab
+      state.source(storeSlice).pipe(
+        filter((value: Partial<S> | undefined) => value !== undefined),
+        distinctUntilChanged(isEqual),
+        tap((value) => {
+          if (receivedSlice || ++skipCounter <= state.skip) {
+            return;
+          }
+
+          try {
+            channel.postMessage(value);
+          } catch (error) {
+            this.errorHandler.handleError(error);
+          }
+        }),
+      ),
+    ).pipe(
+      finalize(() => {
+        channel.close();
+      }),
     );
   }
 
