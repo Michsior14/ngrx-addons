@@ -104,6 +104,18 @@ export class AppComponent {
 }
 ```
 
+:::note
+With either strategy, saving starts only after the stored state has been restored, so changes made before that (during startup with `AfterAppInit`, or while an async storage is loading) can't overwrite it. They're saved when the state next changes, or right after the restore with `skip: 0`.
+:::
+
+## Error Handling
+
+Errors from storages, `source` and `migrations` are reported to Angular's `ErrorHandler`, and the other states keep working:
+
+- If saving fails, later changes are still saved.
+- If restoring fails, that state isn't saved, so the stored data isn't overwritten.
+- If a state's `source` fails, only that state stops being saved.
+
 ## Server-Side Rendering (SSR)
 
 The default `runGuard` checks `typeof window !== 'undefined'`, which prevents persistence from running on the server. No additional configuration is needed for Angular Universal / SSR.

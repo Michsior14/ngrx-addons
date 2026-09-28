@@ -141,3 +141,5 @@ this.actions$.pipe(
   tap(({ features }) => console.log('Synced from another tab:', features)),
 );
 ```
+
+Received objects are shallow-merged into the current state. Other values, such as numbers, strings, arrays or `null`, replace the current value, so a slice set to `null` in one tab (for example, the user after logging out) becomes `null` in the others too.

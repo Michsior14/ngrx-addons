@@ -158,3 +158,5 @@ this.actions$.pipe(
   tap(({ features }) => console.log('Rehydrated:', features)),
 );
 ```
+
+Restored objects are shallow-merged into the current state. Other values, such as numbers, strings, arrays or `null`, replace the current value.

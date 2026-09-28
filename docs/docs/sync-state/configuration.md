@@ -18,13 +18,13 @@ The `forRoot` / `provideSyncStore` method accepts an object with the following p
 
 Each entry in the `states` array accepts:
 
-| Property   | Type                                 | Default                 | Description                                    |
-| ---------- | ------------------------------------ | ----------------------- | ---------------------------------------------- |
-| `key`      | `string`                             | —                       | **Required.** The reducer key in app state     |
-| `channel`  | `string`                             | `${prefix}${key}@store` | The Broadcast Channel name                     |
-| `source`   | `(state$: Observable) => Observable` | `(state) => state`      | Transform the state before broadcasting        |
-| `runGuard` | `() => boolean`                      | see below               | Whether syncing should run                     |
-| `skip`     | `number`                             | `1`                     | Number of state changes to skip before syncing |
+| Property   | Type                                 | Default                 | Description                                                                                                                                   |
+| ---------- | ------------------------------------ | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `key`      | `string`                             | —                       | **Required.** The reducer key in app state                                                                                                    |
+| `channel`  | `string`                             | `${prefix}${key}@store` | The Broadcast Channel name                                                                                                                    |
+| `source`   | `(state$: Observable) => Observable` | `(state) => state`      | Transform the state before broadcasting                                                                                                       |
+| `runGuard` | `() => boolean`                      | see below               | Whether syncing should run                                                                                                                    |
+| `skip`     | `number`                             | `1`                     | Number of state changes to skip once syncing starts, so a newly opened tab doesn't send its initial state. `undefined` values aren't counted. |
 
 ### Default `runGuard`
 
@@ -42,6 +42,15 @@ The `forFeature` / `provideSyncState` method accepts:
 | -------- | ------------------- | ------------------------------------------------------------- |
 | `key`    | `string`            | **Required.** The feature key                                 |
 | `states` | `SyncStateConfig[]` | **Required.** Same as root state config, except without `key` |
+
+Register each feature only once. If the same key is registered more than once, only the first configuration is used, and the state is synced until every registration is removed.
+
+## Sync Behavior
+
+- Only changes are sent. With the default `skip: 1`, a newly opened tab doesn't send its initial state to the other tabs.
+- A received state is never sent back, even if a reducer changes it while handling `storeSyncAction`.
+- `undefined` values, for example from a feature whose reducer isn't registered yet, are never sent.
+- The Broadcast Channel is opened when syncing starts (see `strategy`) and closed when syncing stops.
 
 ## Filtering Synced State
 
@@ -63,6 +72,13 @@ provideSyncStore({
 ## Initialization Strategies
 
 Same as persist-state — see [Initialization Strategies](../persist-state/advanced#initialization-strategies).
+
+## Error Handling
+
+Errors are reported to Angular's `ErrorHandler`, and the other states keep syncing:
+
+- If a value can't be sent, for example because it contains a function that Broadcast Channel can't copy, later changes are still sent.
+- If a state's `source` fails, only that state stops syncing.
 
 ## Server-Side Rendering (SSR)
 

@@ -42,7 +42,13 @@ import { isEqual } from '@ngrx-addons/common';
 isEqual({ a: 1, b: { c: 2 } }, { a: 1, b: { c: 2 } }); // true
 isEqual({ a: 1 }, { b: 1 }); // false
 isEqual([1, 2, 3], [1, 2, 3]); // true
+isEqual(new Date(1), new Date(1)); // true, dates are compared by time
+isEqual(new Map([['a', 1]]), new Map([['a', 1]])); // true, maps by entries
+isEqual(new Set([1, 2]), new Set([2, 1])); // true, sets by values
+isEqual([1, 2], { 0: 1, 1: 2 }); // false, different prototypes
 ```
+
+Values with different prototypes, such as an array and an object, are never equal. Set values are matched with `Set.has`, so objects inside sets must be the same instances.
 
 ## Initialization Strategies
 

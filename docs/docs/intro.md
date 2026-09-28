@@ -19,8 +19,8 @@ sidebar_position: 1
 
 | Dependency    | Required version |
 | ------------- | ---------------- |
-| Angular       | `>=19.0.0`       |
-| `@ngrx/store` | `>=19.0.0`       |
+| Angular       | `>=22.0.0`       |
+| `@ngrx/store` | `>=22.0.0`       |
 | RxJS          | `>=7.0.0`        |
 
 ## Quick Start
