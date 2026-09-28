@@ -1,12 +1,20 @@
 import type { OnDestroy } from '@angular/core';
-import { Injectable, inject } from '@angular/core';
+import { ErrorHandler, Injectable, inject } from '@angular/core';
 import { InitializationStrategy, isEqual } from '@ngrx-addons/common';
 import type { ActionReducerMap } from '@ngrx/store';
 import { Store } from '@ngrx/store';
-import type { Observable, ObservableInput } from 'rxjs';
+import type {
+  Observable,
+  ObservableInput,
+  ObservedValueOf,
+  OperatorFunction,
+} from 'rxjs';
 import {
+  EMPTY,
   Subject,
+  catchError,
   defaultIfEmpty,
+  defer,
   distinctUntilChanged,
   filter,
   from,
@@ -15,6 +23,7 @@ import {
   of,
   skip,
   switchMap,
+  take,
   takeUntil,
   tap,
 } from 'rxjs';
@@ -28,10 +37,12 @@ import {
   PersistStateStrategy,
 } from './persist-state.config';
 
-const rootState = 'root';
+const rootSubscription = Symbol('root-persist-state');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type StateSlice = Record<string, any>;
+
+type PersistedState<S> = Required<PersistStateConfig<S> & { key: string }>;
 
 @Injectable()
 export class PersistState<
@@ -40,10 +51,11 @@ export class PersistState<
   private readonly store = inject<Store>(Store);
   private readonly strategy =
     inject<InitializationStrategy>(PersistStateStrategy);
+  private readonly errorHandler = inject(ErrorHandler);
 
   readonly #rootConfig: PersistStateRootConfig<T>;
-  readonly #features = new Map<string, boolean>();
-  readonly #destroyer = new Subject<string>();
+  readonly #features = new Map<string, { id: symbol; references: number }>();
+  readonly #destroyer = new Subject<symbol>();
 
   constructor() {
     const rootConfig = inject<PersistStateRootConfig<T>>(
@@ -62,34 +74,48 @@ export class PersistState<
         ...state,
         key: state.key as string,
       })) ?? [];
-    this.listenOnStates(merged, rootState).subscribe();
+    this.listenOnStates(merged, rootSubscription).subscribe();
   }
 
   public addFeature<F>(feature: PersistStateFeatureConfig<F>): void {
-    if (this.#features.has(feature.key)) {
+    const existing = this.#features.get(feature.key);
+    if (existing) {
+      existing.references++;
       return;
     }
 
-    this.#features.set(feature.key, true);
+    const subscriptionId = Symbol(feature.key);
+    this.#features.set(feature.key, { id: subscriptionId, references: 1 });
     const merged = feature.states.map((state) => ({
       ...this.defaultStateConfig<F>(feature.key),
       ...state,
       key: feature.key,
     }));
 
-    this.listenOnStates(merged, feature.key).subscribe();
+    this.listenOnStates(merged, subscriptionId).subscribe();
   }
 
   public removeFeature(key: string): void {
-    this.#destroyer.next(key);
+    const feature = this.#features.get(key);
+    if (!feature) {
+      return;
+    }
+
+    if (feature.references > 1) {
+      feature.references--;
+      return;
+    }
+
+    this.#destroyer.next(feature.id);
     this.#features.delete(key);
   }
 
   public ngOnDestroy(): void {
-    for (const key of this.#features.keys()) {
-      this.removeFeature(key);
+    for (const feature of this.#features.values()) {
+      this.#destroyer.next(feature.id);
     }
-    this.#destroyer.next(rootState);
+    this.#features.clear();
+    this.#destroyer.next(rootSubscription);
     this.#destroyer.complete();
   }
 
@@ -107,61 +133,67 @@ export class PersistState<
   }
 
   private listenOnStates<S>(
-    states: Required<PersistStateConfig<S> & { key: string }>[],
-    feature: string,
+    states: PersistedState<S>[],
+    subscription: symbol,
   ): Observable<unknown> {
     if (states.length === 0) {
       return of(undefined);
     }
 
     return merge(
-      ...states.map((state) => {
-        if (!state.runGuard()) {
-          return of(undefined);
-        }
-        const storage =
-          typeof state.storage === 'function' ? state.storage() : state.storage;
-        return merge(
-          // Restore state from storage
-          this.rehydrateWhen(() =>
-            from(storage.getItem(state.storageKey)),
-          ).pipe(
-            filter((value): value is StateSlice => !!value),
-            tap((value) => {
-              // Run migrations if defined
-              if (state.migrations.length) {
-                value = this.runMigrations(value, state.migrations);
-              }
-
-              this.store.dispatch(
-                rehydrate({ features: { [state.key]: value } }),
-              );
-            }),
-            defaultIfEmpty(undefined),
-          ),
-          // Save state to storage
-          state
-            .source(
-              this.store.pipe(
-                map(
-                  (storeState) =>
-                    storeState[state.key as keyof typeof storeState],
-                ),
-              ),
-            )
-            .pipe(
-              distinctUntilChanged(isEqual),
-              skip(state.skip),
-              switchMap((value) => storage.setItem(state.storageKey, value)),
-            ),
-        );
-      }),
+      ...states.map((state) =>
+        state.runGuard() ? this.persist(state) : of(undefined),
+      ),
     ).pipe(
       takeUntil(
-        this.#destroyer.pipe(
-          filter((destroyFeature) => destroyFeature === feature),
-        ),
+        this.#destroyer.pipe(filter((destroyed) => destroyed === subscription)),
       ),
+    );
+  }
+
+  private persist<S>(state: PersistedState<S>): Observable<unknown> {
+    const storage =
+      typeof state.storage === 'function' ? state.storage() : state.storage;
+
+    const restore = this.rehydrateWhen(() =>
+      from(storage.getItem(state.storageKey)).pipe(defaultIfEmpty(null)),
+    ).pipe(
+      take(1),
+      tap((value) => {
+        if (value === null || value === undefined) {
+          return;
+        }
+
+        // Run migrations if defined
+        const restored = state.migrations.length
+          ? this.runMigrations(value, state.migrations)
+          : value;
+
+        this.store.dispatch(rehydrate({ features: { [state.key]: restored } }));
+      }),
+    );
+
+    const save = state
+      .source(
+        this.store.pipe(
+          map((storeState) => storeState[state.key as keyof typeof storeState]),
+        ),
+      )
+      .pipe(
+        filter((value: Partial<S> | undefined) => value !== undefined),
+        distinctUntilChanged(isEqual),
+        skip(state.skip),
+        switchMap((value) =>
+          defer(() => storage.setItem(state.storageKey, value)).pipe(
+            this.handleError(),
+          ),
+        ),
+      );
+
+    // Saving starts only after the stored state is restored
+    return restore.pipe(
+      switchMap(() => save),
+      this.handleError(),
     );
   }
 
@@ -182,5 +214,16 @@ export class PersistState<
 
   private rehydrateWhen<T>(input: () => ObservableInput<T>): Observable<T> {
     return this.strategy.when().pipe(switchMap(() => input()));
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private handleError<T, O extends ObservableInput<any>>(): OperatorFunction<
+    T,
+    T | ObservedValueOf<O>
+  > {
+    return catchError((error: unknown) => {
+      this.errorHandler.handleError(error);
+      return EMPTY;
+    });
   }
 }

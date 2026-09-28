@@ -5,8 +5,8 @@ Supports local storage, session storage and async storages with [localForage](ht
 
 ## Supported versions
 
-- `angular` 19+
-- `@ngrx/store` 19+
+- `angular` 22+
+- `@ngrx/store` 22+
 
 ## Installation
 
@@ -50,7 +50,7 @@ const reducers = {
           // sessionStorageStrategy, optionally you can
           // provide your own implementation or even
           // use localForage for indexed db.
-          storage: localStorageStrategy
+          storage: localStorageStrategy,
           // optional options (default values)
           runGuard: () => typeof window !== 'undefined',
           source: (state) => state,
@@ -98,7 +98,7 @@ const reducers = {
           // sessionStorageStrategy, optionally you can
           // provide your own implementation or even
           // use localForage for indexed db.
-          storage: localStorageStrategy
+          storage: localStorageStrategy,
           // optional options (default values)
           runGuard: () => typeof window !== 'undefined',
           source: (state) => state,
@@ -124,7 +124,7 @@ The `forRoot`/`providePersistStore` method accepts an object with the following 
 
 - `states` - array of states configs (defined below, required)
 - `storageKeyPrefix` - prefix for all storage keys (optional)
-- `strategy` - defines if rehydrate actions should be fired before or after app initialization (optional, default: `BeforeAppInit`)
+- `strategy` - defines if rehydrate actions should be fired before or after app initialization (optional, default: `BeforeAppInit`). State changes are saved only after the stored state has been restored. Changes made before that (for example during startup with `AfterAppInit`, or while an async storage is loading) are saved when the state next changes, or right after the restore with `skip: 0`.
 
 Each state can be described by multiple state configs with the following properties:
 
@@ -133,7 +133,7 @@ Each state can be described by multiple state configs with the following propert
 - `source`: a method that receives the observable of a state and return what to save from it (by default - the entire state).
 - `storageKey`: the name under which the store state is saved (by default - the prefix plus store name plus a `@store` suffix).
 - `runGuard` - returns whether the actual implementation should be run. The default is `() => typeof window !== 'undefined'`
-- `skip` - the number of state changes skipped before the state is persisted. Used to skip the initial state change. The default is `1`.
+- `skip` - the number of state changes skipped after the stored state has been restored. Used to avoid saving the state that was just restored. `undefined` values aren't counted. The default is `1`.
 - `migrations` - the array of migrations to run on the state before `rehydrated` event is fired. The default is `[]`.
   - `version` - the version of the state to migrate from.
   - `versionKey` - the key in the state that contains the version. The default is `version`.
@@ -141,7 +141,7 @@ Each state can be described by multiple state configs with the following propert
 
 ### For feature states
 
-Remember to add features only once, in any case only the last registration will be used.
+Register each feature only once. If the same key is registered more than once, only the first configuration is used, and the state is persisted until every registration is removed.
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -225,6 +225,8 @@ The `forFeature`/`providePersistState` method accepts an object with the followi
 - `states` - array of states configs as in `forRoot`, except `key` property (required)
 
 Once the state is rehydrated, the action (`rehydrate`, type: `@ngrx-addons/persist-state/rehydrate`) with the proper `features` is dispatched (multiple times). You can use it to react in `effects` or `meta-reducers`.
+
+Errors from storages, `source` and `migrations` are reported to Angular's `ErrorHandler`. A failed save doesn't stop later saves, and a failed restore disables saving for that state only.
 
 ## Excluding/Including keys from the state​
 
