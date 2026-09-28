@@ -33,7 +33,8 @@ type SyncedState<S> = Required<SyncStateConfig<S> & { key: string }>;
 
 @Injectable()
 export class SyncState<
-  T extends ActionReducerMap<unknown> = ActionReducerMap<unknown>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  T extends ActionReducerMap<any> = ActionReducerMap<any>,
 > implements OnDestroy {
   private readonly store = inject<Store>(Store);
   private readonly strategy = inject<InitializationStrategy>(SyncStateStrategy);

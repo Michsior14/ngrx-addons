@@ -3,12 +3,7 @@ import { ErrorHandler, Injectable, inject } from '@angular/core';
 import { InitializationStrategy, isEqual } from '@ngrx-addons/common';
 import type { ActionReducerMap } from '@ngrx/store';
 import { Store } from '@ngrx/store';
-import type {
-  Observable,
-  ObservableInput,
-  ObservedValueOf,
-  OperatorFunction,
-} from 'rxjs';
+import type { Observable, ObservableInput, OperatorFunction } from 'rxjs';
 import {
   EMPTY,
   Subject,
@@ -46,7 +41,8 @@ type PersistedState<S> = Required<PersistStateConfig<S> & { key: string }>;
 
 @Injectable()
 export class PersistState<
-  T extends ActionReducerMap<unknown> = ActionReducerMap<unknown>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  T extends ActionReducerMap<any> = ActionReducerMap<any>,
 > implements OnDestroy {
   private readonly store = inject<Store>(Store);
   private readonly strategy =
@@ -216,11 +212,7 @@ export class PersistState<
     return this.strategy.when().pipe(switchMap(() => input()));
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private handleError<T, O extends ObservableInput<any>>(): OperatorFunction<
-    T,
-    T | ObservedValueOf<O>
-  > {
+  private handleError<T>(): OperatorFunction<T, T> {
     return catchError((error: unknown) => {
       this.errorHandler.handleError(error);
       return EMPTY;
