@@ -1,3 +1,17 @@
+# 11.0.0 (2026-09-28)
+
+### 🩹 Fixes
+
+- ⚠️  **persist-state:** improve states registration ([782add9](https://github.com/Michsior14/ngrx-addons/commit/782add9))
+
+### ⚠️  Breaking Changes
+
+- **persist-state:** improve states registration  ([782add9](https://github.com/Michsior14/ngrx-addons/commit/782add9))
+
+### ❤️ Thank You
+
+- Michal Mrozek
+
 # 10.0.0 (2026-08-28)
 
 ### 🚀 Features

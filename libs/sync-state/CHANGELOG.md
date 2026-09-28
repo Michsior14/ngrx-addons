@@ -1,3 +1,17 @@
+# 11.0.0 (2026-09-28)
+
+### 🩹 Fixes
+
+- ⚠️  **sync-state:** improve states registration ([9c79d31](https://github.com/Michsior14/ngrx-addons/commit/9c79d31))
+
+### ⚠️  Breaking Changes
+
+- **sync-state:** improve states registration  ([9c79d31](https://github.com/Michsior14/ngrx-addons/commit/9c79d31))
+
+### ❤️ Thank You
+
+- Michal Mrozek
+
 # 10.0.0 (2026-08-28)
 
 ### 🚀 Features

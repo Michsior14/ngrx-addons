@@ -1,3 +1,20 @@
+# 11.0.0 (2026-09-28)
+
+### 🩹 Fixes
+
+- **common:** support more native construct ([d3d0bd4](https://github.com/Michsior14/ngrx-addons/commit/d3d0bd4))
+- ⚠️  **persist-state:** improve states registration ([782add9](https://github.com/Michsior14/ngrx-addons/commit/782add9))
+- ⚠️  **sync-state:** improve states registration ([9c79d31](https://github.com/Michsior14/ngrx-addons/commit/9c79d31))
+
+### ⚠️  Breaking Changes
+
+- **sync-state:** improve states registration  ([9c79d31](https://github.com/Michsior14/ngrx-addons/commit/9c79d31))
+- **persist-state:** improve states registration  ([782add9](https://github.com/Michsior14/ngrx-addons/commit/782add9))
+
+### ❤️ Thank You
+
+- Michal Mrozek
+
 # 10.0.0 (2026-08-28)
 
 ### 🚀 Features

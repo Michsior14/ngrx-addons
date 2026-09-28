@@ -1,3 +1,13 @@
+# 11.0.0 (2026-09-28)
+
+### 🩹 Fixes
+
+- **common:** support more native construct ([d3d0bd4](https://github.com/Michsior14/ngrx-addons/commit/d3d0bd4))
+
+### ❤️ Thank You
+
+- Michal Mrozek
+
 # 10.0.0 (2026-08-28)
 
 ### 🚀 Features
